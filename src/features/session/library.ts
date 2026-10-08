@@ -96,6 +96,12 @@ export function exerciseInfo(id: string): ExerciseInfo | null {
   }
 }
 
+/** The start-pose illustration path (without size suffix) when the content ships one. */
+export function exerciseImagePath(id: string): string | null {
+  const media = exerciseRows[id]?.media
+  return media && typeof media.start === 'string' ? media.start : null
+}
+
 export function exerciseName(id: string): string {
   return EXERCISES_BY_ID[id]?.name ?? id
 }

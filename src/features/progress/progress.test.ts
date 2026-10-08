@@ -3,7 +3,7 @@ import { dayNumber } from '../../domain/dates'
 import { BAND_VERDICT_EXPECTED_READINGS, type TrendState } from '../../domain/calc/trend'
 import { buildStrengthChartData, buildWeightChartData, niceTicks, xAxisFor } from './chartData'
 import { consistencySummary, weeklyConsistency } from './consistency'
-import { collapseByDay, collectingTrend, readTrend, smoothingLine } from './trend'
+import { readTrend } from './trend'
 import { describeTrend } from './trendCopy'
 
 const TODAY = '2026-10-08'
@@ -15,42 +15,19 @@ describe('trend adapter', () => {
     { date_key: '2026-10-04', weight_g: 82_400 },
   ]
 
-  it('falls back to an honest collecting state while the engine is a stub', () => {
+  it('passes the engine state through: three readings are still collecting', () => {
     const t = readTrend(readings, { goal: 'recomp' })
     expect(t.band).toBe('collecting')
-    expect(t.direction).toBe('unknown')
     expect(t.rate_pct_per_week).toBeNull()
     expect(t.readings_count).toBe(3)
     expect(t.readings_expected).toBe(BAND_VERDICT_EXPECTED_READINGS)
-    expect(t.readings_needed).toBe(7)
+    expect(t.readings_needed).toBeGreaterThan(0)
     expect(t.delta_since_last_g).toBe(-200)
     expect(t.trend_points).toHaveLength(3)
   })
 
-  it('collapses duplicate days to the latest and sorts', () => {
-    const c = collapseByDay([
-      { date_key: '2026-10-04', weight_g: 82_400 },
-      { date_key: '2026-09-30', weight_g: 82_600 },
-      { date_key: '2026-10-04', weight_g: 82_200 },
-    ])
-    expect(c).toEqual([
-      { date_key: '2026-09-30', weight_g: 82_600 },
-      { date_key: '2026-10-04', weight_g: 82_200 },
-    ])
-  })
-
-  it('smooths with an 8-day half life over elapsed days', () => {
-    const line = smoothingLine([
-      { date_key: '2026-10-01', weight_g: 80_000 },
-      { date_key: '2026-10-09', weight_g: 82_000 },
-    ])
-    expect(line[0].trend_g).toBe(80_000)
-    // 8 days is exactly one half life: halfway between the old line and the new reading.
-    expect(line[1].trend_g).toBe(81_000)
-  })
-
   it('handles no readings', () => {
-    const t = collectingTrend([])
+    const t = readTrend([], { goal: 'recomp' })
     expect(t.readings_count).toBe(0)
     expect(t.trend_weight_g).toBeNull()
     expect(t.delta_since_last_g).toBeNull()

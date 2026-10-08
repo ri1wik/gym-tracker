@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom'
 import { TabIcon, type TabKey } from './TabIcon'
+import { ResumePill } from '../features/session/ResumePill'
 
 const TABS: { to: string; key: TabKey; label: string; end?: boolean }[] = [
   { to: '/', key: 'home', label: 'Home', end: true },
@@ -40,6 +41,7 @@ export function Shell() {
       <main className="mx-auto w-full max-w-screen-sm px-4 pb-[calc(3.5rem+env(safe-area-inset-bottom)+1rem)] pt-[max(1rem,env(safe-area-inset-top))] lg:max-w-4xl lg:px-8 lg:pb-8">
         <Outlet />
       </main>
+      <ResumePill />
     </div>
   )
 }

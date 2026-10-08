@@ -1,9 +1,12 @@
 // Dexie access for the program slice, in one file. Every write goes through
-// putRows(), so when the sync slice's transactional write() lands the swap is
-// one line here. Rows are written with dirty: 1 and version: 1.
+// putRows(), which hands each row to the sync layer's transactional writeRow
+// (row plus outbox entry in one transaction) and then asks for a flush.
 
-import { v4 as uuidv4 } from 'uuid'
-import { GUEST_USER_ID, openUserDb, type GymDb } from '../../../data/db'
+import type { GymDb } from '../../../data/db'
+import { currentDb, currentUserId } from '../../../data/sync/current'
+import { notifyWrite } from '../../../data/sync/engine'
+import { newId } from '../../../data/sync/ids'
+import { writeRow, type Draft } from '../../../data/sync/write'
 import { DEFAULT_DUMBBELL_LADDER_G } from '../../../domain/planner/index'
 import { targetAdjustment } from '../../../domain/calc/targets'
 import type {
@@ -12,6 +15,7 @@ import type {
   Profile,
   Program,
   ProgramSettings,
+  RowOf,
   SyncTable,
   Template,
   WeighIn,
@@ -19,21 +23,24 @@ import type {
 } from '../../../domain/types'
 import { defaultPins } from './rotation'
 
-/** The signed-in user id once the auth slice lands; the guest database before. */
+/** The signed-in user id, or the guest id before sign-in. */
 export function activeUserId(): string {
-  return GUEST_USER_ID
+  return currentUserId()
 }
 
 export function programDb(): GymDb {
-  return openUserDb(activeUserId())
+  return currentDb()
 }
 
 export const nowIso = (): string => new Date().toISOString()
 
-/** The one write path. Replace the body with the sync slice's write() at integration. */
-export async function putRows(db: GymDb, table: SyncTable, rows: object[]): Promise<void> {
+/** The one write path: every row and its outbox entry in one transaction, then a flush request. */
+export async function putRows<T extends SyncTable>(db: GymDb, table: T, rows: Draft<RowOf<T>>[]): Promise<void> {
   if (rows.length === 0) return
-  await db.table(table).bulkPut(rows)
+  await db.transaction('rw', [db.syncTable(table), db.outbox], async () => {
+    for (const row of rows) await writeRow(db, table, row)
+  })
+  notifyWrite()
 }
 
 // ---------------------------------------------------------------------------
@@ -139,7 +146,7 @@ export async function createProgram(
   const old = await db.programs.filter((p) => p.active && p.deleted_at === null).toArray()
   const retired = old.map((p) => ({ ...p, active: false, updated_at: stamp, dirty: 1 as const }))
   const row: Program = {
-    id: uuidv4(),
+    id: newId(),
     user_id: userId,
     template_key: template.key,
     split: template.split,
@@ -153,9 +160,7 @@ export async function createProgram(
     deleted_at: null,
     dirty: 1,
   }
-  await db.transaction('rw', db.programs, async () => {
-    await putRows(db, 'programs', [...retired, row])
-  })
+  await putRows(db, 'programs', [...retired, row])
   return row
 }
 

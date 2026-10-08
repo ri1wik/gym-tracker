@@ -12,7 +12,7 @@
 // OWNER: data-sync.
 
 import { META_KEYS, openUserDb, type GymDb } from '../db'
-import { cloudEnv, getSupabase } from '../supabase'
+import { cloudEnv, loadSupabase } from '../supabase'
 import { backoffMs } from './classify'
 import { nowIso } from './clock'
 import { currentUserId, isGuest, subscribeCurrentUser } from './current'
@@ -40,11 +40,12 @@ export function setTransportForTests(t: Transport | null): void {
   transportOverride = t
 }
 
-function resolveTransport(): Transport | null {
+async function resolveTransport(): Promise<Transport | null> {
   if (transportOverride) return transportOverride
-  const client = getSupabase()
   const env = cloudEnv()
-  if (!client || !env) return null
+  if (!env) return null
+  const client = await loadSupabase()
+  if (!client) return null
   return transportForClient(client, env)
 }
 
@@ -125,8 +126,7 @@ function scheduleRetry(): void {
 export function syncNow(reason: SyncReason): Promise<SyncRunResult> {
   const idle: SyncRunResult = { ran: false, sent: 0, dead: 0, received: 0, stopped: null, error: null }
   if (isGuest()) return Promise.resolve(idle)
-  const transport = resolveTransport()
-  if (!transport) return Promise.resolve(idle)
+  if (!transportOverride && !cloudEnv()) return Promise.resolve(idle)
   if (!online()) {
     setSyncState({ online: false })
     return Promise.resolve(idle)
@@ -140,6 +140,8 @@ export function syncNow(reason: SyncReason): Promise<SyncRunResult> {
   running = (async () => {
     let result = idle
     try {
+      const transport = await resolveTransport()
+      if (!transport) return idle
       do {
         again = false
         setSyncState({ inFlight: true, online: true })

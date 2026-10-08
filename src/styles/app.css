@@ -122,9 +122,13 @@ body {
   font-feature-settings: "tnum" 1, "cv11" 1;
 }
 
-button, input, select, textarea {
-  font: inherit;
-  color: inherit;
+/* Form controls inherit the page font and colour. Inside the base layer so
+   utility classes on a button or input still win. */
+@layer base {
+  button, input, select, textarea {
+    font: inherit;
+    color: inherit;
+  }
 }
 
 button, [role="button"], a, input, label {
@@ -132,8 +136,10 @@ button, [role="button"], a, input, label {
 }
 
 /* Inputs never render below 16 px, or iOS zooms on focus. */
-input, select, textarea {
-  font-size: max(16px, 1em);
+@layer base {
+  input, select, textarea {
+    font-size: max(16px, 1em);
+  }
 }
 
 :focus-visible {

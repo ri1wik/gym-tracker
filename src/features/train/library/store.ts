@@ -1,27 +1,30 @@
 import Dexie from 'dexie'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { v4 as uuid } from 'uuid'
-import { GUEST_USER_ID, openUserDb, type GymDb } from '../../../data/db'
+import type { GymDb } from '../../../data/db'
+import { currentDb } from '../../../data/sync/current'
+import { notifyWrite } from '../../../data/sync/engine'
+import { writeRow } from '../../../data/sync/write'
 import { DEFAULT_GYM_MACHINE_IDS } from '../../../data/library/machine-index'
 import { localDateKey } from '../../../domain/dates'
 import type { DateKey, GymProfile, MachineSetting, WorkoutSet } from '../../../domain/types'
 
 // OWNER: ui-library. Every Dexie read and write the library screens make goes
-// through this file. `libraryDb` is the single place that names the user; at
-// integration it takes the signed-in id. Writes go through `putRow`, the one
-// line the sync slice's transactional write() replaces.
+// through this file. `libraryDb` follows the signed-in user through the sync
+// layer; writes go through `putRow`, which is the sync layer's transactional
+// write (row plus outbox entry) followed by a flush request.
 
 export function libraryDb(): GymDb {
-  return openUserDb(GUEST_USER_ID)
+  return currentDb()
 }
 
 function nowIso(): string {
   return new Date().toISOString()
 }
 
-/** Replace with the sync slice's write() (row plus outbox in one transaction) at integration. */
-async function putRow<T extends { id: string }>(table: 'machine_settings', row: T): Promise<void> {
-  await libraryDb().table(table).put(row)
+async function putRow(table: 'machine_settings', row: MachineSetting): Promise<void> {
+  await writeRow(libraryDb(), table, row)
+  notifyWrite()
 }
 
 // ---------------------------------------------------------------------------

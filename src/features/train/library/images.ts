@@ -1,7 +1,8 @@
 // OWNER: ui-library. Turns the media field (a path relative to the public
-// root, without extension or size suffix) into img attributes. Sizes follow
-// docs/SPEC-image-sources.md: 256 and 512 px WebP. If the images builder
-// settles on a different suffix, this is the one place to change.
+// root, without extension or size suffix) into img attributes. The images
+// slice ships the 512 px original as <path>.webp and the 256 px derivative
+// as <path>-256.webp (scripts/build-images.mjs); this is the one place that
+// knows the naming.
 
 export const IMAGE_WIDTHS = [256, 512] as const
 
@@ -11,7 +12,8 @@ const root = (): string => {
 }
 
 export function imageUrl(path: string, width: (typeof IMAGE_WIDTHS)[number]): string {
-  return `${root()}${path.replace(/^\/+/, '')}-${width}.webp`
+  const clean = path.replace(/^\/+/, '')
+  return width === 512 ? `${root()}${clean}.webp` : `${root()}${clean}-${width}.webp`
 }
 
 export interface ImageAttrs {

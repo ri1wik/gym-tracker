@@ -90,7 +90,7 @@ export async function loadTrainView(db: GymDb, today: DateKey): Promise<TrainVie
     state,
     next: resolveNext(state, loaded.history, today),
     lastDone,
-    deload: resolveDeload(state, loaded.history, today, program.started_on),
+    deload: resolveDeload(state, loaded.history, today),
     weekCount: sessionsThisWeek(loaded.workouts, today, weekStartsOn),
     weekTarget: program.settings.weekly_sessions_target || template.days_per_week,
   }

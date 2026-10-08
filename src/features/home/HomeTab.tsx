@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { PATHS } from '../../app/paths'
 import { relativeDayLabel } from '../train/program/rotation'
 import { startNextSession } from '../train/program/startSession'
 import { programDb } from '../train/program/store'
 import { useTrainView } from '../train/program/useTrainView'
 import { PRIMARY_BUTTON } from '../train/program/ui'
+import { useOnboardingDone } from '../profile/repo'
 
 // OWNER: ui-program-home. Home is one card: the next session, one Start
 // button and one number. On a check-in day the number slot reads "Check-in
@@ -35,9 +36,13 @@ function Elapsed({ since }: { since: string }) {
 
 export function HomeTab() {
   const { view, today } = useTrainView()
+  const onboarded = useOnboardingDone()
   const navigate = useNavigate()
   const [busy, setBusy] = useState(false)
   const [problem, setProblem] = useState<string | null>(null)
+
+  // A first run lands on the one-screen profile before anything else.
+  if (onboarded === false) return <Navigate to={PATHS.onboarding} replace />
 
   async function start() {
     if (busy) return

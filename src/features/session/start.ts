@@ -21,7 +21,7 @@ export async function startSession(plan: SessionPlan, opts: StartOptions = {}): 
   return { id, resumed: false }
 }
 
-/** Build a plan through the planner (or its fixture) and start it. */
+/** Build a plan through the planner and start it. */
 export async function startQuickSession(request?: Partial<SessionRequest>): Promise<StartResult> {
   const active = await activeWorkoutId()
   if (active) return { id: active, resumed: true }

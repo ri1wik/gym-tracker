@@ -1,12 +1,12 @@
 // The What-next sheet (PLAN.md section 2): opens when the last prescribed
 // set of an exercise is done, or on "Machine busy". Shows the next exercise
-// with its image slot, the machine with the saved seat and pad, target sets
+// with its illustration, the machine with the saved seat and pad, target sets
 // and reps and the load suggestion; Go, "Busy, swap" and Later. The swap
 // view lists up to four substitutes with pictures; one tap swaps for today.
 
 import type { ExerciseIndexEntry, MachineSetting } from '../../domain/types'
 import type { MachineInfo } from './library'
-import { ImageSlot, Sheet } from './ui'
+import { ExerciseImage, Sheet } from './ui'
 
 export interface NextCard {
   entry: ExerciseIndexEntry
@@ -67,7 +67,7 @@ export function WhatNextSheet(p: WhatNextSheetProps) {
                   onClick={() => p.onPick(s.entry.id)}
                   className="flex min-h-14 w-full items-center gap-3 rounded-card border border-line bg-surface-1 p-3 text-left"
                 >
-                  <ImageSlot label="img" size={56} />
+                  <ExerciseImage exerciseId={s.entry.id} name={s.entry.name} size={56} />
                   <span className="min-w-0 flex-1">
                     <span className="block truncate text-[17px] font-semibold">{s.entry.name}</span>
                     <span className="block truncate text-[14px] text-ink-2">
@@ -106,7 +106,7 @@ export function WhatNextSheet(p: WhatNextSheetProps) {
   return (
     <Sheet title="Next up" onClose={p.onClose}>
       <div className="flex items-start gap-3">
-        <ImageSlot label="img" size={88} />
+        <ExerciseImage exerciseId={n.entry.id} name={n.entry.name} size={88} />
         <div className="min-w-0 flex-1">
           <h3 className="text-[22px] font-semibold leading-tight">{n.entry.name}</h3>
           {n.machine && (

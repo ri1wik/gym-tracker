@@ -1,34 +1,34 @@
 import { describe, expect, it } from 'vitest'
-import { emptyContext, fallbackSubstitutes, fixturePlan, planSession, substitutes } from './plan'
+import { emptyContext, planSession, substitutes } from './plan'
+import { EXERCISES_BY_ID } from '../../data/library/exercise-index'
 
 describe('plan adapter', () => {
-  it('returns the fixture while buildCustomSession is a stub', () => {
+  it('builds a session through the planner with a target per set', () => {
     const plan = planSession(
       { focus: { kind: 'any' }, minutes: 45, intent: 'normal', exclude_exercise_ids: [], exclude_families: [], date_key: '2026-10-08' },
       emptyContext(),
     )
     expect(plan.exercises.length).toBeGreaterThan(0)
-    expect(plan.exercises[0].target_reps).toHaveLength(plan.exercises[0].sets)
-    expect(fixturePlan().name).toBe('Push (quick)')
+    for (const ex of plan.exercises) expect(ex.target_reps).toHaveLength(ex.sets)
+    expect(plan.needs_minutes).toBeNull()
   })
-  it('scores substitutes by the spec: pattern and primary shared, +3 family, +2 per secondary, +1 history, +1 not today', () => {
-    const ctx = emptyContext({
-      sets: [{ workout_id: 'w', exercise_id: 'chest-supported-machine-row', kind: 'working', reps: 10, load_g: 40_000, assist_g: 0, completed_at: '2026-10-01T10:00:00Z', date_key: '2026-10-01' }],
-      workouts: [],
-    })
-    const r = fallbackSubstitutes({ exercise_id: 'seated-cable-row', done_today: [], limit: 3 }, ctx)
-    expect(r.map((s) => s.exercise_id)).toEqual(['single-arm-cable-row', 'chest-supported-machine-row', 'barbell-row'])
-    expect(r[0].score).toBe(3 + 2 + 2 + 1)
-    expect(r[1].score).toBe(2 + 2 + 1 + 1)
-    expect(r[2].score).toBe(2 + 1)
-    expect(r[1].reasons).toContain('has history')
-    expect(substitutes({ exercise_id: 'seated-cable-row', done_today: [], limit: 3 }, emptyContext())[0].exercise_id).toBe('single-arm-cable-row')
-  })
-  it('filters to the gym when machine ids are set and returns nothing for an unknown id', () => {
+  it('lists substitutes that share the pattern and a primary muscle, scored and filtered to the gym', () => {
     const ctx = emptyContext()
+    const from = EXERCISES_BY_ID['seated-cable-row']
+    const r = substitutes({ exercise_id: 'seated-cable-row', done_today: [], limit: 3 }, ctx)
+    expect(r.length).toBeGreaterThan(0)
+    expect(r.length).toBeLessThanOrEqual(3)
+    for (const s of r) {
+      const cand = EXERCISES_BY_ID[s.exercise_id]
+      expect(cand.movementPattern).toBe(from.movementPattern)
+      expect(cand.primaryMuscles.some((m) => from.primaryMuscles.includes(m))).toBe(true)
+      expect(s.score).toBeGreaterThan(0)
+    }
     ctx.equipment.machine_ids = ['cable-station']
-    const r = fallbackSubstitutes({ exercise_id: 'seated-cable-row', done_today: [], limit: 4 }, ctx)
-    expect(r.every((s) => s.exercise_id.includes('cable') || s.exercise_id === 'dumbbell-row' || s.exercise_id === 'barbell-row')).toBe(true)
-    expect(fallbackSubstitutes({ exercise_id: 'nope', done_today: [], limit: 3 }, ctx)).toEqual([])
+    const gym = substitutes({ exercise_id: 'seated-cable-row', done_today: [], limit: 4 }, ctx)
+    for (const s of gym) {
+      const m = EXERCISES_BY_ID[s.exercise_id].machineId
+      expect(m === undefined || m === null || m === 'cable-station').toBe(true)
+    }
   })
 })

@@ -8,7 +8,7 @@ import { META_KEYS } from '../../data/db'
 import type { DateKey, MachineSetting, Workout, WorkoutSet } from '../../domain/types'
 import type { HistorySet, SessionPlan } from '../../domain/planner/index'
 import { localDateKey } from '../../domain/dates'
-import { readMeta, sessionDb, sessionUserId, writeMeta, writeRow, writeRows } from './write'
+import { readMeta, sessionDb, sessionUserId, writeRow, writeRows } from './write'
 import { exerciseInfo } from './library'
 
 function nowIso(): string {
@@ -24,26 +24,12 @@ function base(id: string) {
 // Active workout pointer
 // ---------------------------------------------------------------------------
 
-/** Read-only (it runs inside live queries): a pointer at a finished or discarded workout reads as none. */
-export async function activeWorkoutId(): Promise<string | null> {
-  const id = await readMeta<string>(META_KEYS.activeWorkoutId)
-  if (!id) return null
-  const w = await sessionDb().workouts.get(id)
-  if (!w || w.status !== 'in_progress' || w.deleted_at !== null) return null
-  return id
-}
-
-export async function setActiveWorkoutId(id: string | null): Promise<void> {
-  await writeMeta(META_KEYS.activeWorkoutId, id)
-}
+export { activeWorkoutId, setActiveWorkoutId, getWorkout } from './active'
+import { setActiveWorkoutId, getWorkout } from './active'
 
 // ---------------------------------------------------------------------------
 // Reads
 // ---------------------------------------------------------------------------
-
-export async function getWorkout(id: string): Promise<Workout | undefined> {
-  return sessionDb().workouts.get(id)
-}
 
 /** Non-deleted sets of a workout in set order. */
 export async function setsOf(workoutId: string): Promise<WorkoutSet[]> {
@@ -233,8 +219,16 @@ export async function removeSet(set: WorkoutSet): Promise<void> {
   await writeRow('workout_sets', { ...set, deleted_at: nowIso(), updated_at: nowIso() })
 }
 
-export async function restoreSet(set: WorkoutSet): Promise<void> {
-  await writeRow('workout_sets', { ...set, deleted_at: null, updated_at: nowIso() })
+/**
+ * Undo a removal. deleted_at is one-way in the sync layer (a tombstone never
+ * comes back), so the set returns as a fresh row with the same values and
+ * the same slot; the tombstone stays behind.
+ */
+export async function restoreSet(set: WorkoutSet): Promise<WorkoutSet> {
+  const t = nowIso()
+  const row: WorkoutSet = { ...set, id: uuidv4(), created_at: t, updated_at: t, version: 1, deleted_at: null, dirty: 1 }
+  await writeRow('workout_sets', row)
+  return row
 }
 
 async function nextSetIndex(workoutId: string): Promise<number> {
@@ -325,11 +319,15 @@ export async function finishWorkout(id: string): Promise<Workout | null> {
   return row
 }
 
+/**
+ * Discard a session: the status flips so every reader drops it at once, and
+ * the tombstone comes later through tombstoneDiscarded, once the undo window
+ * has passed (deleted_at is one-way in the sync layer).
+ */
 export async function discardWorkout(id: string): Promise<void> {
   const w = await getWorkout(id)
   if (!w) return
-  const t = nowIso()
-  await writeRow('workouts', { ...w, status: 'discarded', deleted_at: t, updated_at: t })
+  await writeRow('workouts', { ...w, status: 'discarded', updated_at: nowIso() })
   const active = await readMeta<string>(META_KEYS.activeWorkoutId)
   if (active === id) await setActiveWorkoutId(null)
 }
@@ -337,8 +335,20 @@ export async function discardWorkout(id: string): Promise<void> {
 /** Reverse a discard within the undo window. */
 export async function restoreWorkout(id: string): Promise<void> {
   const w = await getWorkout(id)
-  if (!w) return
-  const t = nowIso()
-  await writeRow('workouts', { ...w, status: 'in_progress', deleted_at: null, updated_at: t })
+  if (!w || w.status !== 'discarded') return
+  await writeRow('workouts', { ...w, status: 'in_progress', updated_at: nowIso() })
   await setActiveWorkoutId(id)
+}
+
+/** After the undo window: soft delete a discarded session and its rows so the deletion reaches the other device. */
+export async function tombstoneDiscarded(id: string): Promise<void> {
+  const w = await getWorkout(id)
+  if (!w || w.status !== 'discarded' || w.deleted_at !== null) return
+  const t = nowIso()
+  const rows = (await sessionDb().workout_sets.where('workout_id').equals(id).toArray()).filter((r) => r.deleted_at === null)
+  await writeRows(
+    'workout_sets',
+    rows.map((r) => ({ ...r, deleted_at: t, updated_at: t })),
+  )
+  await writeRow('workouts', { ...w, deleted_at: t, updated_at: t })
 }

@@ -1,6 +1,8 @@
 // The backend client. One instance, created lazily, or null when the two
 // environment variables are absent: the app then runs in guest mode against
-// the local database and never touches the network.
+// the local database and never touches the network. The library itself is
+// loaded on demand (a separate chunk), so the first paint never carries it
+// and a build with no backend never downloads it.
 //
 // OWNER: data-sync.
 //
@@ -10,7 +12,7 @@
 // sequence in src/app/auth/session.ts exchanges it before the router mounts
 // and then strips it with history.replaceState.
 
-import { createClient, type SupabaseClient } from '@supabase/supabase-js'
+import type { SupabaseClient } from '@supabase/supabase-js'
 
 export const STORAGE_BUCKET = 'photos'
 
@@ -42,26 +44,39 @@ export function hasCloud(): boolean {
   return readEnv() !== null
 }
 
-/** The shared client, or null in guest mode. Safe to call anywhere; it never throws. */
-export function getSupabase(): SupabaseClient | null {
-  if (cached !== undefined) return cached
+let loading: Promise<SupabaseClient | null> | null = null
+
+/** The shared client, loading the library on first use; null in guest mode. Never rejects. */
+export function loadSupabase(): Promise<SupabaseClient | null> {
+  if (cached !== undefined) return Promise.resolve(cached)
   const env = readEnv()
   if (!env) {
     cached = null
-    return cached
+    return Promise.resolve(cached)
   }
-  try {
-    cached = createClient(env.url, env.anonKey, {
-      auth: {
-        flowType: 'pkce',
-        detectSessionInUrl: true,
-        persistSession: true,
-        autoRefreshToken: true,
-        storageKey: AUTH_STORAGE_KEY,
-      },
-    })
-  } catch {
-    cached = null
+  if (!loading) {
+    loading = import('@supabase/supabase-js')
+      .then(({ createClient }) => {
+        cached = createClient(env.url, env.anonKey, {
+          auth: {
+            flowType: 'pkce',
+            detectSessionInUrl: true,
+            persistSession: true,
+            autoRefreshToken: true,
+            storageKey: AUTH_STORAGE_KEY,
+          },
+        })
+        return cached
+      })
+      .catch(() => {
+        cached = null
+        return cached
+      })
   }
-  return cached
+  return loading
+}
+
+/** The client once loadSupabase has resolved it, else null (guest mode, or not loaded yet). */
+export function getSupabase(): SupabaseClient | null {
+  return cached ?? null
 }

@@ -8,7 +8,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import { PATHS } from '../../app/paths'
 import { elapsedLabel } from './fmt'
-import { activeWorkoutId, getWorkout } from './repo'
+import { activeWorkoutId, getWorkout } from './active'
 
 let bootRedirectDone = false
 

@@ -258,6 +258,10 @@ export interface MachinePhoto {
 
 /** Prose and photo added by the content-machines and images builders. */
 export interface MachineContent {
+  /** Optional note on brand-specific differences, for the machine card. */
+  brandNote?: string
+  /** Exercise ids this machine supports, mirrored from the exercise index links. */
+  exerciseIds?: string[]
   aliases: string[]
   primaryMuscles: Muscle[]
   secondaryMuscles: Muscle[]

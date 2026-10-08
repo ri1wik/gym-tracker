@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { detectPr, estimate1rmG, setBeats } from './pr'
 
-describe('estimate1rmG (fallback Epley while the engine is a stub)', () => {
+describe('estimate1rmG (Epley through the engine)', () => {
   it('pins 80 kg x 8 to 101.3 kg and reps 1 to the load', () => {
     expect(estimate1rmG(80_000, 8)).toBe(101_333)
     expect(estimate1rmG(80_000, 1)).toBe(80_000)
@@ -10,11 +10,16 @@ describe('estimate1rmG (fallback Epley while the engine is a stub)', () => {
 })
 
 describe('setBeats', () => {
-  it('counts more load at the same or more reps, or more reps at the same load, never e1RM alone', () => {
+  it('counts more load at the same or more reps, more reps at the same load, or a full step up with at most two reps fewer', () => {
     expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 62_500, reps: 10 })).toBe(true)
     expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 60_000, reps: 11 })).toBe(true)
-    expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 62_500, reps: 8 })).toBe(false)
+    expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 62_500, reps: 8 })).toBe(true)
+    expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 61_000, reps: 9 })).toBe(false)
+    expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 62_500, reps: 7 })).toBe(false)
     expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 60_000, reps: 10 })).toBe(false)
+    // A machine stack is judged on its own step.
+    expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 62_500, reps: 8 }, 5000)).toBe(false)
+    expect(setBeats({ load_g: 60_000, reps: 10 }, { load_g: 65_000, reps: 8 }, 5000)).toBe(true)
   })
 })
 

@@ -8,7 +8,10 @@ import sharp from 'sharp'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const repdb = process.env.REPDB_DIR
-  ?? '/private/tmp/claude-501/-Users-ri1wik/f66d976d-970a-42d3-9272-3b9ce4b163c0/scratchpad/repdb/repo'
+if (!repdb) {
+  console.error('Set REPDB_DIR to a clone of the RepDB free tier at commit a360f87 (the generated files are committed, so CI never needs it).')
+  process.exit(1)
+}
 const COMMIT = 'a360f87'
 const DERIVED_PX = 256
 

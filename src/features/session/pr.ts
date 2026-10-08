@@ -1,7 +1,6 @@
 // Inline PR detection at the point of logging (docs/SPEC-retention-priority.md
-// item 5): one badge per set, the most impressive of weight, reps and e1RM.
-// Uses src/domain/calc/e1rm while it is implemented and a plain Epley and
-// heaviest-load check while that stub throws.
+// item 5): one badge per set, the most impressive of weight, reps and e1RM,
+// through the e1RM engine in src/domain/calc/e1rm.
 
 import { beats, epleyG } from '../../domain/calc/e1rm'
 import type { LoadType } from '../../domain/types'
@@ -13,31 +12,18 @@ export interface SetValues {
   reps: number
 }
 
-function isNotImplemented(e: unknown): boolean {
-  return e instanceof Error && e.message.startsWith('not implemented')
-}
-
-/** Epley through the engine when it exists, else locally; null outside 1 to 10 reps. */
+/** Epley estimate in grams; null outside 1 to 10 reps. */
 export function estimate1rmG(load_g: number, reps: number): number | null {
-  try {
-    return epleyG(load_g, reps)
-  } catch (e) {
-    if (!isNotImplemented(e)) throw e
-    if (reps < 1 || reps > 10 || load_g <= 0) return null
-    if (reps === 1) return load_g
-    return Math.round(load_g * (1 + reps / 30))
-  }
+  return epleyG(load_g, reps)
 }
 
-/** Did b beat a: more load at the same or more reps, or more reps at the same load. */
-export function setBeats(a: SetValues, b: SetValues): boolean {
-  try {
-    return beats(a, b)
-  } catch (e) {
-    if (!isNotImplemented(e)) throw e
-    if (b.load_g > a.load_g && b.reps >= a.reps) return true
-    return b.load_g === a.load_g && b.reps > a.reps
-  }
+/**
+ * Did b beat a: more reps at the same load, or a full increment step up with
+ * at most two reps fewer (the engine's rule). Pass the exercise's increment
+ * so machine stacks are judged on their own step.
+ */
+export function setBeats(a: SetValues, b: SetValues, step_g?: number): boolean {
+  return beats(a, b, step_g)
 }
 
 /**

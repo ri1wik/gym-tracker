@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto'
 import { afterEach, describe, expect, it } from 'vitest'
 import { GUEST_USER_ID, deleteUserDb } from '../../data/db'
-import { fixturePlan } from './plan'
+import { fixturePlan } from './fixturePlan'
 import {
   activeWorkoutId,
   addSets,
@@ -70,8 +70,12 @@ describe('remove, restore, add and substitute', () => {
     const victim = before[before.length - 1]
     await removeSet(victim)
     expect((await setsOf(id)).map((s) => s.id)).not.toContain(victim.id)
-    await restoreSet(victim)
-    expect((await setsOf(id)).map((s) => s.id)).toContain(victim.id)
+    const back = await restoreSet(victim)
+    // deleted_at is one-way: the undo re-adds the set as a fresh row in the same slot.
+    const after = await setsOf(id)
+    expect(after.map((s) => s.id)).not.toContain(victim.id)
+    expect(after.map((s) => s.id)).toContain(back.id)
+    expect(after.find((s) => s.id === back.id)?.set_index).toBe(victim.set_index)
     const added = await addSets(id, 'cable-pushdown', { count: 1, targetReps: 12, targetLoadG: 25_000, assistG: 0, restS: 75 })
     expect(added[0].set_index).toBe(before.length)
   })

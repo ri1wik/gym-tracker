@@ -1,7 +1,6 @@
 // The strength panel's data: the estimated one-rep max of the most-trained
-// key lift, one point per session day. Until the logger and the e1RM engine
-// land there are no sets and the estimator throws, so this resolves to null
-// and the panel shows its empty state.
+// key lift, one point per session day. With no logged key-lift sets this
+// resolves to null and the panel shows its empty state.
 
 import type { GymDb } from '../../data/db'
 import { epleyG } from '../../domain/calc/e1rm'
@@ -29,16 +28,11 @@ export async function loadStrengthSeries(db: GymDb): Promise<StrengthSeries | nu
   if (!best) return null
 
   const perDay = new Map<DateKey, number>()
-  try {
-    for (const s of best.sets) {
-      const e = epleyG(s.load_g, s.reps)
-      if (e === null) continue
-      const day = localDateKey(new Date(s.at))
-      perDay.set(day, Math.max(perDay.get(day) ?? 0, e))
-    }
-  } catch (e) {
-    if (e instanceof Error && e.message.startsWith('not implemented')) return null
-    throw e
+  for (const s of best.sets) {
+    const e = epleyG(s.load_g, s.reps)
+    if (e === null) continue
+    const day = localDateKey(new Date(s.at))
+    perDay.set(day, Math.max(perDay.get(day) ?? 0, e))
   }
   const points = [...perDay.entries()]
     .sort((a, b) => (a[0] < b[0] ? -1 : 1))

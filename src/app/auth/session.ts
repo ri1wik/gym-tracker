@@ -12,7 +12,7 @@
 import { useSyncExternalStore } from 'react'
 import type { Session, SupabaseClient } from '@supabase/supabase-js'
 import { GUEST_USER_ID, deleteUserDb, openUserDb } from '../../data/db'
-import { STORAGE_BUCKET, getSupabase, hasCloud } from '../../data/supabase'
+import { STORAGE_BUCKET, hasCloud, loadSupabase } from '../../data/supabase'
 import { currentUserId, setCurrentUserId } from '../../data/sync/current'
 import { countGuestRows, migrateGuestRows } from '../../data/sync/migrate-guest'
 import { syncNow } from '../../data/sync/engine'
@@ -123,7 +123,7 @@ export async function bootAuth(): Promise<void> {
   const configured = hasCloud()
   set({ configured })
   setSyncState({ mode: 'guest' })
-  const client = getSupabase()
+  const client = await loadSupabase()
   if (!client) {
     set({ ready: true })
     return
@@ -151,7 +151,7 @@ export async function bootAuth(): Promise<void> {
 
 /** Google sign-in by redirect, always through the account picker. */
 export async function signInWithGoogle(): Promise<void> {
-  const client = getSupabase()
+  const client = await loadSupabase()
   if (!client) {
     set({ error: 'This build has no cloud account set up.' })
     return
@@ -173,7 +173,7 @@ export async function signInWithGoogle(): Promise<void> {
 
 /** Sign out and wipe this user's local database. */
 export async function signOut(): Promise<void> {
-  const client = getSupabase()
+  const client = await loadSupabase()
   const userId = currentUserId()
   try {
     await client?.auth.signOut({ scope: 'local' })
@@ -224,7 +224,7 @@ async function removeOwnFiles(client: SupabaseClient, userId: string): Promise<v
  * table, then the local database. Resolves an error line or null.
  */
 export async function deleteAccount(): Promise<string | null> {
-  const client = getSupabase()
+  const client = await loadSupabase()
   const userId = currentUserId()
   if (!client || userId === GUEST_USER_ID) return 'Not signed in.'
   try {

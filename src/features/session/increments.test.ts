@@ -6,6 +6,9 @@ describe('incrementFor', () => {
   it('steps a barbell by 2.5 kg and the heavy lifts by 5 kg from 80 kg', () => {
     expect(incrementFor(EXERCISES_BY_ID['barbell-bench-press'], 60_000)).toBe(2500)
     expect(incrementFor(EXERCISES_BY_ID['back-squat'], 60_000)).toBe(2500)
+    // The content's 5 kg step for the squat applies only from 80 kg.
+    expect(incrementFor(EXERCISES_BY_ID['back-squat'], 60_000, { incrementG: 5000 })).toBe(2500)
+    expect(incrementFor(EXERCISES_BY_ID['back-squat'], 80_000, { incrementG: 5000 })).toBe(5000)
     expect(incrementFor(EXERCISES_BY_ID['back-squat'], 80_000)).toBe(5000)
     expect(incrementFor(EXERCISES_BY_ID['deadlift'], 100_000)).toBe(5000)
   })

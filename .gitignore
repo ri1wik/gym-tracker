@@ -28,5 +28,6 @@ BUILD-WORKFLOW.md
 docs/private/
 .env
 .env.*
+!.env.example
 *.local
 supabase/.temp/

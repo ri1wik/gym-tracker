@@ -3,8 +3,9 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { GUEST_USER_ID, deleteUserDb, openUserDb, type GymDb } from '../../../data/db'
 import type { Profile, Workout, WorkoutSet } from '../../../domain/types'
 import { loadTrainView } from './data'
-import { FALLBACK_TEMPLATES } from './fixtures'
 import { startNextSession } from './startSession'
+import { templateByKey } from './templates'
+import { deloadSets } from './rotation'
 import {
   advanceProgramPointer,
   createProgram,
@@ -14,7 +15,7 @@ import {
   writeSessionMinutes,
 } from './store'
 
-const T = (key: string) => FALLBACK_TEMPLATES.find((t) => t.key === key)!
+const T = (key: string) => templateByKey(key)!
 const TODAY = '2026-10-08' // Thursday
 
 let db: GymDb
@@ -143,11 +144,18 @@ describe('startNextSession', () => {
     expect(w?.planned_on).toBe(TODAY)
     expect(w?.dirty).toBe(1)
     const sets = await db.workout_sets.where('workout_id').equals(res.workoutId).sortBy('set_index')
-    expect(sets).toHaveLength(13)
     expect(sets.map((s) => s.set_index)).toEqual(sets.map((_, i) => i))
-    expect(sets.every((s) => s.kind === 'working' && s.reps === null && s.completed_at === null)).toBe(true)
-    expect(sets[0]).toMatchObject({ exercise_id: 'barbell-bench-press', target_reps: 6, target_load_g: null, rest_s: 150 })
+    expect(sets.every((s) => s.reps === null && s.completed_at === null && s.dirty === 1)).toBe(true)
+    // No history: no ramps (nothing to ramp to) and no load; reps start at the bottom of the range.
+    const day = T('ppl_6').days[0]
+    const working = sets.filter((s) => s.kind === 'working')
+    expect(sets.every((s) => s.kind === 'working')).toBe(true)
+    expect(working[0]).toMatchObject({ exercise_id: day.items[0].exercise_id, target_reps: day.items[0].rep_min, target_load_g: null, rest_s: day.items[0].rest_s })
+    expect(new Set(working.map((s) => s.exercise_id))).toEqual(new Set(day.items.map((i) => i.exercise_id)))
+    expect(w?.plan?.session_key).toBe('push_a')
     expect((await db.meta.get('active_workout_id'))?.value).toBe(res.workoutId)
+    // Every row went through the sync layer: one outbox entry per row.
+    expect(await db.outbox.count()).toBe(1 + 1 + sets.length)
   })
 
   it('prefills load and reps from the last completed set of that exercise', async () => {
@@ -155,8 +163,22 @@ describe('startNextSession', () => {
     await finishedSession('push_a', '2026-10-01', 'barbell-bench-press', 62_500, 7)
     const res = await startNextSession(db, TODAY)
     const sets = await db.workout_sets.where('workout_id').equals(res.workoutId).sortBy('set_index')
-    expect(sets[0]).toMatchObject({ exercise_id: 'barbell-bench-press', target_load_g: 62_500, target_reps: 7 })
-    expect(sets[4]).toMatchObject({ exercise_id: 'incline-dumbbell-press', target_load_g: null })
+    const bench = sets.filter((s) => s.exercise_id === 'barbell-bench-press')
+    const ramps = bench.filter((s) => s.kind === 'warmup')
+    const working = bench.filter((s) => s.kind === 'working')
+    // Barbell at 62.5 kg: bar x10, 50 percent x5, 70 percent x3, then the 85 percent single (working reps 8 or fewer).
+    expect(ramps.map((s) => [s.target_load_g, s.target_reps])).toEqual([
+      [20_000, 10],
+      [32_500, 5],
+      [45_000, 3],
+      [52_500, 1],
+    ])
+    // 7 of 6 to 8 last time: same load, one more rep on the set that fell short, the rest from the bottom.
+    expect(working[0]).toMatchObject({ target_load_g: 62_500, target_reps: 8 })
+    expect(working.slice(1).every((s) => s.target_load_g === 62_500 && s.target_reps === 6)).toBe(true)
+    // The incline dumbbells take their first-time load from the bench through the ratio table.
+    const incline = sets.find((s) => s.exercise_id === 'incline-dumbbell-press' && s.kind === 'working')
+    expect(incline?.target_load_g).toBe(20_000)
   })
 
   it('returns the live workout instead of starting a second one', async () => {
@@ -172,7 +194,11 @@ describe('startNextSession', () => {
     await updateProgramSettings(db, p, { deload: { ...p.settings.deload, active: true } })
     const res = await startNextSession(db, TODAY)
     const sets = await db.workout_sets.where('workout_id').equals(res.workoutId).toArray()
-    expect(sets).toHaveLength(2 + 2 + 2 + 2)
+    const day = T('ppl_6').days[0]
+    for (const item of day.items) {
+      expect(sets.filter((s) => s.exercise_id === item.exercise_id && s.kind === 'working')).toHaveLength(deloadSets(item.sets))
+    }
+    expect((await db.workouts.get(res.workoutId))?.plan?.deload).toBe(true)
   })
 
   it('honours a weekday pin', async () => {

@@ -73,12 +73,15 @@ describe('weigh-in writes', () => {
     expect(list.map((r) => r.date_key)).toEqual(['2026-10-04', '2026-10-08'])
   })
 
-  it('a soft deleted day that is logged again comes back', async () => {
+  it('a soft deleted day stays deleted when logged again (deleted_at is one-way in the sync layer)', async () => {
     const db = openUserDb(GUEST_USER_ID)
     const a = await saveWeighIn(db, GUEST_USER_ID, { date_key: '2026-10-08', weight_g: 82_000, same_conditions: true })
     await db.body_weights.update(a.id, { deleted_at: '2026-10-08T09:00:00Z' })
     const b = await saveWeighIn(db, GUEST_USER_ID, { date_key: '2026-10-08', weight_g: 81_900, same_conditions: true })
-    expect(b.deleted_at).toBeNull()
+    expect(b.id).toBe(a.id)
+    expect(b.weight_g).toBe(81_900)
+    expect(b.deleted_at).toBe('2026-10-08T09:00:00Z')
+    expect(await db.outbox.count()).toBe(1)
   })
 })
 

@@ -35,10 +35,13 @@ import {
   removeSet,
   restoreSet,
   restoreWorkout,
+  tombstoneDiscarded,
   setsOf,
   substituteExercise,
   targetsFor,
 } from './repo'
+import { sessionDb } from './write'
+import { recordFinishedSession } from '../train/program/finish'
 import { RestDock } from './RestDock'
 import type { RowValues } from './SetRow'
 import type { SessionSummary } from './summary'
@@ -57,6 +60,16 @@ function orderOf(sets: readonly WorkoutSet[]): string[] {
   const out: string[] = []
   for (const s of sets) if (!out.includes(s.exercise_id)) out.push(s.exercise_id)
   return out
+}
+
+/** The why line, with the ramp-to-effort card after it when the planner prescribed no load. */
+function whyLine(planned: { why: string; ramp_card?: string | null } | undefined): string | null {
+  if (!planned) return null
+  const why = planned.why.trim()
+  const card = planned.ramp_card?.trim() ?? ''
+  if (!card) return why || null
+  if (!why) return card
+  return /[.!?]$/.test(why) ? `${why} ${card}` : `${why}. ${card}`
 }
 
 export function SessionScreen() {
@@ -309,7 +322,8 @@ export function SessionScreen() {
   const doFinish = async () => {
     setSheet(null)
     clearRest()
-    await finishWorkout(id)
+    const done = await finishWorkout(id)
+    if (done) await recordFinishedSession(sessionDb(), done)
     const s = await loadSummary(id)
     setFinished(s)
   }
@@ -341,7 +355,9 @@ export function SessionScreen() {
       5000,
     )
     window.setTimeout(() => {
-      if (!undone) navigate(PATHS.home, { replace: true })
+      if (undone) return
+      void tombstoneDiscarded(id)
+      navigate(PATHS.home, { replace: true })
     }, 5000)
   }
 
@@ -491,7 +507,7 @@ export function SessionScreen() {
               prs={prs}
               poppingId={poppingId}
               mirrored={mirrored}
-              why={planned?.why ?? null}
+              why={whyLine(planned)}
               onToggle={() => setExpandedId((cur) => (cur === ex ? null : ex))}
               onSelectSet={(s) => {
                 setExpandedId(ex)

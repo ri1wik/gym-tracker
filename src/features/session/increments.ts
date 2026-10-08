@@ -27,7 +27,8 @@ export function incrementFor(entry: ExerciseIndexEntry, loadG: number, opts: Ste
   switch (entry.equipmentFamily) {
     case 'barbell':
     case 'smith': {
-      if (HEAVY_LIFT_IDS.includes(entry.id) && loadG >= HEAVY_BARBELL_THRESHOLD_G) return HEAVY_BARBELL_INCREMENT_G
+      // The content's 5 kg step for these lifts applies from 80 kg; below that every barbell moves 2.5 kg.
+      if (HEAVY_LIFT_IDS.includes(entry.id)) return loadG >= HEAVY_BARBELL_THRESHOLD_G ? HEAVY_BARBELL_INCREMENT_G : BARBELL_INCREMENT_G
       return opts.incrementG ?? BARBELL_INCREMENT_G
     }
     case 'dumbbell':

@@ -2,6 +2,8 @@
 // the check icon, the image placeholder and the toast stack.
 
 import { useEffect, type ReactNode } from 'react'
+import { imageAttrs } from '../train/library/images'
+import { exerciseImagePath } from './library'
 
 export function Sheet({ title, onClose, children, label }: { title: string; onClose: () => void; children: ReactNode; label?: string }) {
   useEffect(() => {
@@ -42,6 +44,26 @@ export function CheckIcon({ size = 24 }: { size?: number }) {
 }
 
 /** The exercise or machine image slot: a fixed box so nothing shifts when media lands. */
+/** The exercise's illustration at the given size, or the plain slot when the content has none. */
+export function ExerciseImage({ exerciseId, name, size = 72, className = '' }: { exerciseId: string; name: string; size?: number; className?: string }) {
+  const path = exerciseImagePath(exerciseId)
+  if (!path) return <ImageSlot label="img" size={size} className={className} />
+  const attrs = imageAttrs(path, `${size}px`)
+  return (
+    <img
+      src={attrs.src}
+      srcSet={attrs.srcSet}
+      sizes={attrs.sizes}
+      alt={name}
+      width={size}
+      height={size}
+      loading="lazy"
+      className={`shrink-0 rounded-control bg-surface-3 object-contain ${className}`}
+      style={{ width: size, height: size }}
+    />
+  )
+}
+
 export function ImageSlot({ label, size = 72, className = '' }: { label: string; size?: number; className?: string }) {
   return (
     <div

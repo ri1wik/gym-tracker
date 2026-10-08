@@ -175,7 +175,7 @@ export async function startNextSession(db: GymDb, today: DateKey): Promise<Start
     dirty: 1,
   }))
 
-  await db.transaction('rw', db.workouts, db.workout_sets, db.meta, async () => {
+  await db.transaction('rw', db.workouts, db.workout_sets, db.outbox, db.meta, async () => {
     await putRows(db, 'workouts', [workout])
     await putRows(db, 'workout_sets', rows)
     await db.meta.put({ key: META_KEYS.activeWorkoutId, value: workout.id })

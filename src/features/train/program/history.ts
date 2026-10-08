@@ -22,7 +22,7 @@ export interface LoadedHistory {
 
 export async function loadHistory(db: GymDb, today: DateKey): Promise<LoadedHistory> {
   const since = addDays(today, -HISTORY_DAYS)
-  const workouts = await db.workouts.filter((w) => w.deleted_at === null && w.planned_on >= since).toArray()
+  const workouts = await db.workouts.filter((w) => w.deleted_at === null && w.status !== 'discarded' && w.planned_on >= since).toArray()
   const byId = new Map(workouts.map((w) => [w.id, w]))
   const ids = workouts.map((w) => w.id)
   const rows: WorkoutSet[] = ids.length

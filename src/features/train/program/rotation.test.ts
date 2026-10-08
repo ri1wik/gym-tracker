@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { FALLBACK_TEMPLATES } from './fixtures'
-import { EXERCISES_BY_ID } from '../../../data/library/exercise-index'
+import { TEMPLATE_LIST } from './templates'
 import {
   defaultPins,
   deloadSets,
@@ -14,20 +13,12 @@ import {
   type FinishedLike,
 } from './rotation'
 
-const ppl = FALLBACK_TEMPLATES.find((t) => t.key === 'ppl_6')!
-const full = FALLBACK_TEMPLATES.find((t) => t.key === 'full_body_3')!
+const ppl = TEMPLATE_LIST.find((t) => t.key === 'ppl_6')!
+const full = TEMPLATE_LIST.find((t) => t.key === 'full_body_3')!
 
 function done(session_key: string, planned_on: string): FinishedLike {
   return { session_key, planned_on, status: 'finished', deleted_at: null }
 }
-
-describe('fixtures', () => {
-  it('only reference exercises that exist in the index', () => {
-    for (const t of FALLBACK_TEMPLATES) {
-      for (const d of t.days) for (const it of d.items) expect(EXERCISES_BY_ID[it.exercise_id], it.exercise_id).toBeDefined()
-    }
-  })
-})
 
 describe('nextTemplateDay', () => {
   // 2026-10-07 is a Wednesday.
