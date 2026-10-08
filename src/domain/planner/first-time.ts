@@ -1,12 +1,11 @@
-// First-time loads (PLAN.md 3.6): a related lift's reference load through
-// the ratio table, times 0.90 for safety, rounded down to real plates.
-// Machines, cables, the Smith machine and bodyweight moves always get the
+// First-time loads (PLAN.md 3.6): the Epley estimate of the related lift's
+// best working set in its last session (reps clamped to 10), through the
+// ratio table, times 0.90 for safety, rounded down to real plates, used
+// directly as the target's working load with no reverse Epley step. That
+// is the reading PLAN.md states and the pinned fixture holds: bench 85 x 6
+// (Epley 102 kg) gives incline dumbbells 27.5 kg per hand. Machines,
+// cables, the Smith machine and bodyweight moves always get the
 // ramp-to-effort card instead.
-//
-// The reference is the Epley estimate of the best working set of the
-// source lift's last session, used directly as the target's working load
-// (no reverse Epley), which is the reading the pinned fixture holds:
-// bench 85 x 6 gives incline dumbbells 27.5 kg per hand.
 
 import type { FirstTimeLoad, PlannerContext } from './contract'
 import { FIRST_TIME_SAFETY_FACTOR } from './contract'

@@ -358,10 +358,11 @@ describe('weekly review: a rough week', () => {
     expect(s.sentence).toMatch(/^Hamstrings 0 sets, under the 8-set floor and \d more parts under it\.$/)
     expect(s.action).toBe('Add one RDL or leg curl slot; 3 sets twice a week is enough to start.')
   })
-  it('the lifts row reads second week running', () => {
+  it('the lifts row says the week matched the last one, with no run count', () => {
     const l = review.signals.find((s) => s.code === 'lifts')!
     expect(l.status).toBe('attention')
-    expect(l.sentence).toMatch(/second week running\.$/)
+    expect(l.sentence).toMatch(/ Same as last week\.$/)
+    expect(l.sentence).not.toMatch(/running/)
   })
 })
 
@@ -465,20 +466,25 @@ describe('signal 1: weight trend', () => {
 })
 
 describe('signal 2: sessions', () => {
-  it('speaks from week one and carries the streak', () => {
+  it('speaks from week one and never counts a run of weeks', () => {
     const r = records({ over: { sessions_prev_weeks: [{ done: 4, planned: 4 }, { done: 4, planned: 4 }, { done: 2, planned: 4 }] } })
     const s = sessionsSignal(r)
     expect(s.status).toBe('positive')
-    expect(s.sentence).toBe('4 of 4 sessions, third week running.')
+    expect(s.sentence).toBe('4 of 4 sessions. Same as last week.')
     expect(s.detail).toEqual({ done: 4, planned: 4, done_4w: 14, planned_4w: 16 })
+    const first = sessionsSignal(records({ over: { sessions_prev_weeks: [{ done: 2, planned: 4 }] } }))
+    expect(first.sentence).toBe('4 of 4 sessions.')
   })
-  it('70 to 89 percent is neutral, under 70 needs attention, zero is the 7-day flag', () => {
-    expect(sessionsSignal(records({ sessions: 3 })).status).toBe('neutral')
+  it('70 to 89 percent is neutral, under 70 needs attention, zero names the week and not the gap', () => {
+    const mid = sessionsSignal(records({ sessions: 3 }))
+    expect(mid.status).toBe('neutral')
+    expect(mid.action).toBe('Keep the same 2 training days next week.')
+    expect(mid.action).not.toMatch(/missed/)
     const low = sessionsSignal(records({ sessions: 2 }))
     expect(low.status).toBe('attention')
     expect(low.action).toBe('Consistency beats the perfect programme; pick the 2 days you never miss and protect them.')
     const none = sessionsSignal(records({ sessions: 0 }))
-    expect(none.sentence).toBe('No lifting for 7 days.')
+    expect(none.sentence).toBe('0 of 4 sessions this week.')
     expect(none.action).toBe('Start the shortest template today.')
   })
   it('a deload week reads neutral', () => {

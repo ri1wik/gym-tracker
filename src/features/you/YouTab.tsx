@@ -13,7 +13,10 @@ import { ProfileFields } from '../profile/ProfileFields'
 import { getReminderMinute, setReminderMinute } from '../profile/reminder'
 import { saveProfile, useProfile, useWeighIns } from '../profile/repo'
 import { TargetsCard } from '../profile/TargetsCard'
+import { canVibrate } from '../session/haptics'
+import { hapticsEnabled, isLeftHanded, restSoundEnabled, setHapticsEnabled, setLeftHanded, setRestSoundEnabled } from '../session/prefs'
 import { SyncStatus } from '../sync/SyncStatus'
+import { BackupCard } from './BackupCard'
 
 const THEMES: { value: Theme; label: string }[] = [
   { value: 'auto', label: 'Auto' },
@@ -30,6 +33,8 @@ export function YouTab() {
       <h1 className="text-[28px] font-bold leading-tight tracking-tight">You</h1>
       {profile === null || !profile.onboarding_done ? <SetupCard /> : <ProfileSection key={profile.id} profile={profile} weighIns={weighIns} />}
       <ThemeCard />
+      <DeviceCard />
+      <BackupCard />
       <SyncStatus variant="compact" />
       <AccountSection />
       <Credits />
@@ -257,6 +262,68 @@ function ThemeCard() {
         })}
       </div>
     </div>
+  )
+}
+
+/** One row with a switch. The whole row is the 44 px target. */
+function ToggleRow({ label, hint, checked, onChange }: { label: string; hint: string; checked: boolean; onChange: (on: boolean) => void }) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={checked}
+      onClick={() => onChange(!checked)}
+      className="flex min-h-14 w-full items-center justify-between gap-3 rounded-control bg-surface-2 px-3 py-2 text-left"
+    >
+      <span>
+        <span className="block text-[15px]! font-semibold! text-ink-1!">{label}</span>
+        <span className="block text-[14px]! font-normal! text-ink-2!">{hint}</span>
+      </span>
+      <span aria-hidden="true" className={['relative h-7 w-12 shrink-0 rounded-full transition-colors', checked ? 'bg-accent' : 'bg-surface-3'].join(' ')}>
+        <span className={['absolute top-0.5 h-6 w-6 rounded-full bg-surface-1 transition-transform', checked ? 'translate-x-[22px]' : 'translate-x-0.5'].join(' ')} />
+      </span>
+    </button>
+  )
+}
+
+/** Per-device conveniences for the logger: stored on this device only, never synced. */
+function DeviceCard() {
+  const [leftHanded, setLeft] = useState(() => isLeftHanded())
+  const [haptics, setHaptics] = useState(() => hapticsEnabled())
+  const [restSound, setRestSound] = useState(() => restSoundEnabled())
+  const vibrates = useMemo(() => canVibrate(), [])
+  return (
+    <Card title="In the gym">
+      <ToggleRow
+        label="Done check on the left"
+        hint="Mirrors each set row for one-handed use with the left thumb."
+        checked={leftHanded}
+        onChange={(on) => {
+          setLeft(on)
+          setLeftHanded(on)
+        }}
+      />
+      {vibrates ? (
+        <ToggleRow
+          label="Haptics"
+          hint="A short buzz on each step, each completed set and the end of a rest."
+          checked={haptics}
+          onChange={(on) => {
+            setHaptics(on)
+            setHapticsEnabled(on)
+          }}
+        />
+      ) : null}
+      <ToggleRow
+        label="Rest sound"
+        hint="A two-note tone when the rest timer reaches zero."
+        checked={restSound}
+        onChange={(on) => {
+          setRestSound(on)
+          setRestSoundEnabled(on)
+        }}
+      />
+    </Card>
   )
 }
 

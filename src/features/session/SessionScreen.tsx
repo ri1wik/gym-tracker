@@ -9,6 +9,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { useLiveQuery } from 'dexie-react-hooks'
 import './session.css'
+import { requestPersistentStorage } from '../../app/install'
 import { PATHS } from '../../app/paths'
 import { EXERCISES_BY_ID } from '../../data/library/exercise-index'
 import type { ExerciseIndexEntry, WorkoutSet } from '../../domain/types'
@@ -17,12 +18,16 @@ import { unlockAudio } from './audio'
 import { ExerciseCard } from './ExerciseCard'
 import { FinishSummary } from './FinishSummary'
 import { elapsedLabel, kg } from './fmt'
+import { haptic } from './haptics'
+import { InstallCard } from './InstallCard'
+import { installOfferDue, markInstallOfferSeen } from './installOffer'
 import { Keypad, type KeypadKind } from './Keypad'
 import { exerciseInfo, machineInfo } from './library'
 import { loadSummary } from './loadSummary'
 import { emptyContext, substitutes } from './plan'
 import { detectPr, prLabel, type PrKind } from './pr'
 import { isLeftHanded, prefersReducedMotion } from './prefs'
+import { needsLoad, seedLoadG } from './seed'
 import {
   addSets,
   completeSet,
@@ -101,6 +106,7 @@ export function SessionScreen() {
   const [subs, setSubs] = useState<SubstituteCard[]>([])
   const [toasts, setToasts] = useState<ToastItem[]>([])
   const [finished, setFinished] = useState<SessionSummary | null>(null)
+  const [installOffer, setInstallOffer] = useState(false)
   const [now, setNow] = useState(() => Date.now())
   const toastId = useRef(0)
   const mirrored = useMemo(() => isLeftHanded(), [])
@@ -165,7 +171,7 @@ export function SessionScreen() {
           // Reps: the plan's per-set target, else last time's.
           const prev = prevSets[workingIndex] ?? lastTime
           out[s.id] = {
-            load_g: carry?.load_g ?? s.target_load_g ?? prev?.load_g ?? 0,
+            load_g: carry?.load_g ?? s.target_load_g ?? prev?.load_g ?? seedLoadG(EXERCISES_BY_ID[ex]),
             reps: s.target_reps ?? prev?.reps ?? carry?.reps ?? info?.repMin ?? 8,
             assist_g: carry?.assist_g ?? (s.assist_g || (prev?.assist_g ?? 0)),
           }
@@ -198,7 +204,16 @@ export function SessionScreen() {
     unlockAudio()
     const v = values[set.id]
     const entry = EXERCISES_BY_ID[set.exercise_id]
+    // A loaded exercise at 0 kg is never logged on one tap: the keypad opens instead (one extra tap, only in this degenerate case).
+    if (needsLoad(entry, set.kind, v.load_g)) {
+      setExpandedId(set.exercise_id)
+      setActiveSetId(set.id)
+      setKeypad({ set, kind: 'kg' })
+      return
+    }
     const saved = await completeSet(set, v)
+    haptic('confirm')
+    requestPersistentStorage()
     setDrafts((d) => {
       const { [set.id]: _gone, ...rest } = d
       return rest
@@ -324,8 +339,16 @@ export function SessionScreen() {
     clearRest()
     const done = await finishWorkout(id)
     if (done) await recordFinishedSession(sessionDb(), done)
+    requestPersistentStorage()
     const s = await loadSummary(id)
+    const offer = await installOfferDue()
+    setInstallOffer(offer)
     setFinished(s)
+  }
+
+  const dismissInstall = () => {
+    setInstallOffer(false)
+    void markInstallOfferSeen()
   }
 
   const finish = () => {
@@ -444,7 +467,12 @@ export function SessionScreen() {
     return (
       <main className="min-h-dvh bg-bg text-ink-1">
         <div className="mx-auto w-full max-w-screen-sm px-4 pb-8 pt-[max(1rem,env(safe-area-inset-top))]">
-          <FinishSummary summary={finished} onDone={() => navigate(PATHS.trainHistory, { replace: true })} onSkip={() => navigate(PATHS.home, { replace: true })} />
+          <FinishSummary
+            summary={finished}
+            onDone={() => navigate(PATHS.trainHistory, { replace: true })}
+            onSkip={() => navigate(PATHS.home, { replace: true })}
+            install={installOffer ? <InstallCard onDone={dismissInstall} /> : null}
+          />
         </div>
       </main>
     )

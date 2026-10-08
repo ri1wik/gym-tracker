@@ -50,6 +50,20 @@ export function detectPr(set: SetValues, previous: readonly SetValues[], loadTyp
   return bestPrev > 0 && mine > bestPrev ? 'e1rm' : null
 }
 
+/** The badge text that fits the 64 px prev cell of a done row; prLabel stays the accessible name and the toast line. */
+export function prShortLabel(kind: PrKind): string {
+  switch (kind) {
+    case 'first':
+      return 'First'
+    case 'weight':
+      return 'PR kg'
+    case 'reps':
+      return 'PR reps'
+    case 'e1rm':
+      return 'PR 1RM'
+  }
+}
+
 export function prLabel(kind: PrKind): string {
   switch (kind) {
     case 'first':

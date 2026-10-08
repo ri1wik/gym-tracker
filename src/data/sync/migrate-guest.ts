@@ -9,7 +9,7 @@
 import Dexie from 'dexie'
 import type { Photo, SyncTable, WeighIn } from '../../domain/types'
 import { SYNC_TABLES } from '../../domain/types'
-import { GUEST_USER_ID, dbName, deleteUserDb, openUserDb, type GymDb } from '../db'
+import { GUEST_USER_ID, META_KEYS, dbName, deleteUserDb, openUserDb, type GymDb } from '../db'
 import { photoId, weighInId } from './ids'
 import { writeRow } from './write'
 
@@ -26,12 +26,35 @@ export async function countGuestRows(): Promise<number> {
   }
 }
 
+/**
+ * The guest rows to offer a signed-in user, or 0. The guest database belongs
+ * to whoever first signed in on this device: that user id is recorded in the
+ * guest meta table on the first offer, and any other account is offered
+ * nothing (a friend signing in on your laptop sees nothing of yours).
+ */
+export async function guestRowsToOffer(userId: string): Promise<number> {
+  const n = await countGuestRows()
+  if (n === 0) return 0
+  try {
+    const db = openUserDb(GUEST_USER_ID)
+    const owner = await db.meta.get(META_KEYS.guestOfferedTo)
+    if (typeof owner?.value === 'string') return owner.value === userId ? n : 0
+    await db.meta.put({ key: META_KEYS.guestOfferedTo, value: userId })
+    return n
+  } catch {
+    return 0
+  }
+}
+
 /** Copy every guest row into the user's database and delete the guest database. Returns rows moved. */
 export async function migrateGuestRows(userId: string): Promise<number> {
   const src = openUserDb(GUEST_USER_ID)
   const dst = openUserDb(userId)
   let moved = 0
   const weighInIds = new Map<string, string>()
+  // An account profile already pulled wins: the guest profile only seeds a brand-new account.
+  const accountProfile = await dst.profiles.get(userId)
+  const accountProfileSettled = !!accountProfile && (accountProfile.version > 1 || accountProfile.onboarding_done === true)
 
   const copy = async (table: SyncTable, rewrite: (row: Record<string, unknown>) => Record<string, unknown> | null) => {
     const rows = await src.syncTable(table).toArray()
@@ -47,8 +70,8 @@ export async function migrateGuestRows(userId: string): Promise<number> {
   }
 
   await copy('profiles', (r) => {
-    // Only the guest's own profile moves, as the account's profile; an account profile already pulled wins.
-    if (r.id !== GUEST_USER_ID) return null
+    // Only the guest's own profile moves, as the account's profile, and never over a profile the account already has.
+    if (r.id !== GUEST_USER_ID || accountProfileSettled) return null
     return { ...r, id: userId }
   })
   await copy('body_weights', (r) => {

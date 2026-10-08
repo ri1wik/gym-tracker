@@ -30,12 +30,6 @@ function countable(sets: readonly WorkoutSet[]): WorkoutSet[] {
   return sets.filter((s) => s.deleted_at === null && isWorkingCompleted(s))
 }
 
-const ORDINAL = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth']
-
-function ordinal(n: number): string {
-  return ORDINAL[n - 1] ?? `${n}th`
-}
-
 // ---------------------------------------------------------------------------
 // Lifts comparison, shared by signal 6 and the recomposition marker
 // ---------------------------------------------------------------------------
@@ -287,23 +281,22 @@ export function sessionsSignal(r: ReviewRecords): Signal {
     return make(code, { status: 'neutral', number: `${done} of ${planned}`, sentence: `Deload week: ${done} of ${planned} lighter sessions done.`, action: 'Keep loads easy this week and return to full sets next week.', detail })
   }
   if (done === 0) {
-    return make(code, { status: 'attention', number: `0 of ${planned}`, sentence: 'No lifting for 7 days.', action: 'Start the shortest template today.', detail })
+    // No missed-day numbers anywhere (PLAN.md section 9): the week's tally, never the length of the gap.
+    return make(code, { status: 'attention', number: `0 of ${planned}`, sentence: `0 of ${planned} sessions this week.`, action: 'Start the shortest template today.', detail })
   }
   if (planned <= 0) {
     return make(code, { status: 'neutral', number: `${done}`, sentence: `${done} ${plural(done, 'session')} this week with no weekly target set.`, action: 'Pick a template so next week has a target to count against.', detail })
   }
   const ratio = done / planned
   if (ratio >= 0.9) {
-    let streak = 1
-    for (const w of prev) {
-      if (w.planned > 0 && w.done / w.planned >= 0.9) streak += 1
-      else break
-    }
-    const tail = streak >= 2 ? `, ${ordinal(streak)} week running` : ''
-    return make(code, { status: 'positive', number: `${done} of ${planned}`, sentence: `${done} of ${planned} sessions${tail}.`, action: 'Keep the same training days next week.', detail })
+    // No run counts (docs/SPEC-retention-priority.md): a week that matches the one before says so, and nothing more.
+    const last = prev[0]
+    const tail = last && last.planned > 0 && last.done / last.planned >= 0.9 ? ' Same as last week.' : ''
+    return make(code, { status: 'positive', number: `${done} of ${planned}`, sentence: `${done} of ${planned} sessions.${tail}`, action: 'Keep the same training days next week.', detail })
   }
   if (ratio >= 0.7) {
-    return make(code, { status: 'neutral', number: `${done} of ${planned}`, sentence: `${done} of ${planned} sessions.`, action: `Protect the ${planned - done === 1 ? 'day' : `${planned - done} days`} you missed next week.`, detail })
+    const keep = Math.min(done, 2)
+    return make(code, { status: 'neutral', number: `${done} of ${planned}`, sentence: `${done} of ${planned} sessions.`, action: `Keep the same ${keep === 1 ? 'training day' : `${keep} training days`} next week.`, detail })
   }
   const keep = Math.min(planned, 2)
   return make(code, {
@@ -664,7 +657,7 @@ export function liftsSignal(r: ReviewRecords, lifts: readonly LiftComparison[], 
       return make(code, {
         status: 'attention',
         number: `${p} of ${n}`,
-        sentence: `${p} of ${n} exercises progressed, second week running.`,
+        sentence: `${p} of ${n} exercises progressed. Same as last week.`,
         action: 'Use the ready-to-add-weight hint on each card and check the protein row; if protein is fine, take a lighter week.',
         detail,
       })

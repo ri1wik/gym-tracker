@@ -3,6 +3,7 @@
 // value synchronously; a held button repeats at 8 per second after 350 ms.
 
 import { useEffect, useRef } from 'react'
+import { haptic } from './haptics'
 
 export interface StepperProps {
   label: string
@@ -38,8 +39,17 @@ function useRepeat(fn: () => void) {
 }
 
 export function Stepper({ label, display, onMinus, onPlus, onTap, minusLabel, plusLabel }: StepperProps) {
-  const minus = useRepeat(onMinus)
-  const plus = useRepeat(onPlus)
+  // Every step, tapped or repeated, changes the value synchronously with a 10 ms tick.
+  const stepMinus = () => {
+    haptic('tick')
+    onMinus()
+  }
+  const stepPlus = () => {
+    haptic('tick')
+    onPlus()
+  }
+  const minus = useRepeat(stepMinus)
+  const plus = useRepeat(stepPlus)
   const btn = 'flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-[24px] font-semibold leading-none text-ink-1 active:bg-surface-2'
   return (
     <div className="flex h-12 flex-1 items-center rounded-full bg-surface-3" role="group" aria-label={label}>
@@ -47,7 +57,7 @@ export function Stepper({ label, display, onMinus, onPlus, onTap, minusLabel, pl
         type="button"
         aria-label={minusLabel}
         className={btn}
-        onClick={onMinus}
+        onClick={stepMinus}
         onPointerDown={minus.start}
         onPointerUp={minus.stop}
         onPointerLeave={minus.stop}
@@ -62,7 +72,7 @@ export function Stepper({ label, display, onMinus, onPlus, onTap, minusLabel, pl
         type="button"
         aria-label={plusLabel}
         className={btn}
-        onClick={onPlus}
+        onClick={stepPlus}
         onPointerDown={plus.start}
         onPointerUp={plus.stop}
         onPointerLeave={plus.stop}

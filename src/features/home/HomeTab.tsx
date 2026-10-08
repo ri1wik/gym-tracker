@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
+import './home.css'
 import { PATHS } from '../../app/paths'
+import { TAB_BAR_BOTTOM, useDockOffsetRem } from '../../app/Shell'
 import { relativeDayLabel } from '../train/program/rotation'
 import { startNextSession } from '../train/program/startSession'
 import { programDb } from '../train/program/store'
@@ -8,9 +10,11 @@ import { useTrainView } from '../train/program/useTrainView'
 import { PRIMARY_BUTTON } from '../train/program/ui'
 import { useOnboardingDone } from '../profile/repo'
 
-// OWNER: ui-program-home. Home is one card: the next session, one Start
-// button and one number. On a check-in day the number slot reads "Check-in
-// due". While a workout is in progress the card becomes Resume.
+// OWNER: ui-program-home. Home is one card: the next session and one number,
+// with the one primary action (Start, or Resume while a workout is in
+// progress) as a sticky footer in the bottom zone of the screen, above the
+// tab bar and whatever the Shell has docked there. On a check-in day the
+// number slot reads "Check-in due".
 
 function pad2(n: number): string {
   return n < 10 ? `0${n}` : String(n)
@@ -32,6 +36,16 @@ function Elapsed({ since }: { since: string }) {
     return () => clearInterval(t)
   }, [])
   return <span className="num">{formatElapsed(now - start)}</span>
+}
+
+/** The sticky footer that holds Home's one primary action, above the tab bar and the Shell's dock. */
+function PrimaryFooter({ children }: { children: React.ReactNode }) {
+  const dock = useDockOffsetRem()
+  return (
+    <div className="gt-home-footer sticky z-10 pt-4" style={{ bottom: `calc(${TAB_BAR_BOTTOM} + 0.75rem + ${dock}rem)` }}>
+      {children}
+    </div>
+  )
 }
 
 export function HomeTab() {
@@ -58,28 +72,29 @@ export function HomeTab() {
   }
 
   if (!view) {
+    // A static frame at the card's final height: local data never shimmers.
     return (
-      <section aria-busy="true" className="space-y-4">
+      <section aria-busy="true" className="gt-home flex flex-col">
         <h1 className="sr-only">Home</h1>
-        <div className="h-64 animate-pulse rounded-card border border-line bg-surface-1" />
+        <div className="h-64 rounded-card border border-line bg-surface-1" />
       </section>
     )
   }
 
   if (!view.program || !view.template || !view.next) {
     return (
-      <section className="space-y-4">
+      <section className="gt-home flex flex-col">
         <h1 className="sr-only">Home</h1>
-        <div className="space-y-4 rounded-card border border-line bg-surface-1 p-5">
-          <div>
-            <p className="text-[13px] font-semibold uppercase tracking-wide text-ink-2">Get started</p>
-            <p className="mt-1 text-[28px] font-bold leading-tight tracking-tight">Pick your split</p>
-            <p className="mt-1 text-[15px] text-ink-2">Three questions and your first session is ready.</p>
-          </div>
+        <div className="rounded-card border border-line bg-surface-1 p-5">
+          <p className="text-[13px] font-semibold uppercase tracking-wide text-ink-2">Get started</p>
+          <p className="mt-1 text-[28px] font-bold leading-tight tracking-tight">Pick your split</p>
+          <p className="mt-1 text-[15px] text-ink-2">Three questions and your first session is ready.</p>
+        </div>
+        <PrimaryFooter>
           <Link to={PATHS.trainProgram} className={PRIMARY_BUTTON}>
             Choose a split
           </Link>
-        </div>
+        </PrimaryFooter>
       </section>
     )
   }
@@ -91,7 +106,7 @@ export function HomeTab() {
   const paused = program.settings.paused
 
   return (
-    <section className="space-y-4">
+    <section className="gt-home flex flex-col">
       <h1 className="sr-only">Home</h1>
       <div className="space-y-5 rounded-card border border-line bg-surface-1 p-5">
         <div>
@@ -122,15 +137,6 @@ export function HomeTab() {
           )}
         </div>
 
-        <button type="button" className={PRIMARY_BUTTON} onClick={start} disabled={busy}>
-          {inProgress ? 'Resume' : 'Start'}
-        </button>
-        {problem ? (
-          <p role="status" className="text-[15px] text-rose-text">
-            {problem}
-          </p>
-        ) : null}
-
         <div className="border-t border-line pt-4">
           {paused ? (
             <p className="text-[15px] text-ink-2">Program paused. Nothing is counted until you resume it.</p>
@@ -159,6 +165,18 @@ export function HomeTab() {
           )}
         </div>
       </div>
+
+      {problem ? (
+        <p role="status" className="mt-3 text-[15px] text-rose-text">
+          {problem}
+        </p>
+      ) : null}
+
+      <PrimaryFooter>
+        <button type="button" className={PRIMARY_BUTTON} onClick={start} disabled={busy}>
+          {inProgress ? 'Resume' : 'Start'}
+        </button>
+      </PrimaryFooter>
     </section>
   )
 }

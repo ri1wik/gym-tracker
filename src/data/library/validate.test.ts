@@ -100,7 +100,7 @@ describe('exercises.json rules', () => {
   it('rejects a missing exercise, an unknown one and an em dash', () => {
     const rows = everyExercise().slice(1)
     rows.push({ ...fullExercise('plank'), id: 'ghost' })
-    const text = JSON.stringify(rows, null, 1).replace('"one"', '"one — two"')
+    const text = JSON.stringify(rows, null, 1).replace('"one"', `"one ${String.fromCharCode(0x2014)} two"`)
     const errors = validateExercisesJson(JSON.parse(text), vocab, text)
     expect(errors.some((e: string) => e.includes('missing barbell-bench-press'))).toBe(true)
     expect(errors.some((e: string) => e.includes('ghost: not in exercise-index'))).toBe(true)

@@ -10,7 +10,8 @@ Either in the dashboard:
 
 1. SQL Editor, New query.
 2. Paste the whole of `supabase/migrations/0001_init.sql` and Run. It is idempotent (every statement uses `if not exists` or `drop ... if exists` first), so running it twice is safe.
-3. Check Table Editor: 13 tables plus `keepalive`, every one with the RLS badge. Storage: a private bucket `photos`.
+3. Paste the whole of `supabase/migrations/0002_monotone_grants.sql` and Run (also idempotent). It makes `deleted_at` and `finished_at` one-way on the server, stops account deletion while photos remain, and tightens the grants on `keepalive` and the trigger functions. A project that already ran 0001 needs this one too.
+4. Check Table Editor: 13 tables plus `keepalive`, every one with the RLS badge. Storage: a private bucket `photos`.
 
 Or with the CLI from the repo root:
 

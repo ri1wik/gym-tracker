@@ -3,7 +3,10 @@
 // no exclamation marks.
 
 import type { Goal } from '../../domain/calc/targets'
-import type { TrendState } from '../../domain/calc/trend'
+import { TREND_BANDS, type TrendState } from '../../domain/calc/trend'
+
+/** Losses past this rate sit in the fast end of the on-track band. */
+const FAST_EDGE_PCT = TREND_BANDS.on_track.lo
 
 export type TrendTone = 'neutral' | 'positive' | 'attention'
 
@@ -52,6 +55,15 @@ export function describeTrend(t: TrendState, goal: Goal): TrendRead {
 
   switch (t.band) {
     case 'on_track':
+      if (goal !== 'lean_gain' && rate < FAST_EDGE_PCT) {
+        // The 0.75 to 1.0 zone counts as the fast end of on track (PLAN.md section 4): named, not celebrated.
+        return {
+          headline: `Down ${pct(rate)} a week, at the fast end of the on-track band`,
+          detail: 'Hold intake where it is; a faster drop reads too fast at the next check-in.',
+          tone: 'neutral',
+          collecting: null,
+        }
+      }
       return {
         headline: `${dirWord(rate) === 'down' ? 'Down' : 'Up'} ${pct(rate)} a week, inside the on-track band`,
         detail: 'Keep intake and training exactly where they are.',

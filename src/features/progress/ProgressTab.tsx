@@ -1,8 +1,10 @@
 import { Component, Suspense, lazy, useMemo, useState, type ReactNode } from 'react'
+import { useLiveQuery } from 'dexie-react-hooks'
 import { Link } from 'react-router-dom'
 import { PATHS } from '../../app/paths'
 import { todayKey } from '../../domain/dates'
 import { Card, labelClass, primaryButtonClass } from '../profile/controls'
+import { currentDb } from '../profile/current'
 import { formatDayShort, kg1 } from '../profile/format'
 import { useProfile, useWeighIns } from '../profile/repo'
 import { buildStrengthChartData, buildWeightChartData, RANGES, type RangeKey } from './chartData'
@@ -11,6 +13,7 @@ import { weeklyConsistency } from './consistency'
 import { useSessionFacts, useStrengthSeries } from './data'
 import { readTrend } from './trend'
 import { describeTrend } from './trendCopy'
+import { previousFor, readTrendMemory } from './trendMemory'
 
 // Recharts is the heaviest dependency in the app and only this tab draws
 // charts, so it loads here and nowhere else.
@@ -53,11 +56,17 @@ export function ProgressTab() {
 
   const goal = profile?.goal ?? 'recomp'
   const readings = weighIns ?? NO_READINGS
+  // The last check-in's band and candidate, so the headline here is the one the check-in settled on.
+  const memory = useLiveQuery(() => readTrendMemory(currentDb(), goal), [goal], null)
 
-  const trend = useMemo(
-    () => readTrend(readings.map((r) => ({ date_key: r.date_key, weight_g: r.weight_g })), { goal }),
-    [readings, goal],
-  )
+  const trend = useMemo(() => {
+    const previous = previousFor(memory, today)
+    return readTrend(readings.map((r) => ({ date_key: r.date_key, weight_g: r.weight_g })), {
+      goal,
+      previous_band: previous.previous_band,
+      previous_candidate_band: previous.previous_candidate_band,
+    })
+  }, [readings, goal, memory, today])
   const trendRead = describeTrend(trend, goal)
 
   const weightData = useMemo(

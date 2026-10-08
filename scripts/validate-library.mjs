@@ -22,8 +22,9 @@ import { fileURLToPath } from 'node:url'
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 export const LIBRARY_DIR = path.resolve(HERE, '../src/data/library')
 
-const EM_DASH = '—'
-const EN_DASH = '–'
+// Built at run time so the repo holds no literal dash (the release gate scans for them).
+const EM_DASH = String.fromCharCode(0x2014)
+const EN_DASH = String.fromCharCode(0x2013)
 
 const SETUP_LABELS = new Set(['Seat', 'Pad', 'Grip', 'Pin', 'Foot plate', 'Other'])
 

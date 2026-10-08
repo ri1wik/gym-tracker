@@ -37,9 +37,9 @@ interface Call {
 }
 
 /** A transport that answers from a script of results, recording every call. */
-function fakeTransport(script: Array<RestResult | ((call: Call) => RestResult)>, refreshOk = true) {
+function fakeTransport(script: Array<RestResult | ((call: Call) => RestResult | Promise<RestResult>)>, refreshOk = true) {
   const calls: Call[] = []
-  const next = (call: Call): RestResult => {
+  const next = async (call: Call): Promise<RestResult> => {
     calls.push(call)
     const head = script.shift()
     if (!head) return { status: 200, data: call.rows?.map((r) => ({ ...r, version: 2, updated_at: '2026-10-06T06:10:00.000+00:00' })) ?? [], message: null }
@@ -191,5 +191,118 @@ describe('flushTable', () => {
     expect(calls.map((c) => c.kind)).toEqual(['upload', 'upsert'])
     expect(calls[0].path).toBe(`${U}/checkins/2026-10-06/front.jpg`)
     expect(await db.outbox.count()).toBe(0)
+  })
+})
+
+// ---------------------------------------------------------------------------
+// Review regressions: items stuck in flight, edits during an earlier batch,
+// and the push side of the monotone rule.
+// ---------------------------------------------------------------------------
+
+import type { WorkoutSet } from '../../domain/types'
+import { PUSH_BATCH_SIZE } from './flush'
+import { mergePage } from './pull'
+
+function set(id: string, over: Partial<WorkoutSet> = {}): Draft<WorkoutSet> {
+  return {
+    id,
+    user_id: U,
+    workout_id: 'w1',
+    exercise_id: 'barbell-bench-press',
+    set_index: 0,
+    kind: 'working',
+    target_reps: 8,
+    target_load_g: 60_000,
+    reps: 8,
+    load_g: 60_000,
+    assist_g: 0,
+    rpe: null,
+    completed_at: '2026-10-06T06:05:00.000Z',
+    rest_s: 150,
+    substituted_for: null,
+    ...over,
+  }
+}
+
+describe('flushTable: items left in flight by a kill are retried', () => {
+  it('a set whose push was interrupted (state in_flight) goes back to pending and is sent by the next flush', async () => {
+    const db = openUserDb(U)
+    await writeRow(db, 'workout_sets', set('s1'))
+    const item = await db.outbox.get('workout_sets:s1')
+    expect(item).toBeDefined()
+    await db.outbox.put({ ...item!, state: 'in_flight' })
+
+    const { t, calls } = fakeTransport([])
+    const r = await flushTable(db, t, 'workout_sets', { refreshed: false })
+    expect(calls).toHaveLength(1)
+    expect(r.sent).toBe(1)
+    expect(await db.outbox.get('workout_sets:s1')).toBeUndefined()
+    expect((await db.workout_sets.get('s1'))?.dirty).toBe(0)
+  })
+})
+
+describe('flushTable: an edit made while an earlier batch is on the wire', () => {
+  it('is sent as it now is; nothing is overwritten with the stale snapshot', async () => {
+    const db = openUserDb(U)
+    const n = PUSH_BATCH_SIZE + 1
+    for (let i = 0; i < n; i++) await writeRow(db, 'workout_sets', set(`s${String(i).padStart(3, '0')}`, { set_index: i }))
+    const victim = `s${String(n - 1).padStart(3, '0')}`
+    let edited = false
+    const { t, calls } = fakeTransport([
+      async (call) => {
+        if (!edited && !call.rows?.some((r) => r.id === victim)) {
+          edited = true
+          await writeRow(db, 'workout_sets', set(victim, { set_index: n - 1, reps: 12 }))
+        }
+        return { status: 200, data: call.rows?.map((r) => ({ ...r, version: 2, updated_at: '2026-10-06T06:10:00.000+00:00' })) ?? [], message: null }
+      },
+      async (call) => ({ status: 200, data: call.rows?.map((r) => ({ ...r, version: 2, updated_at: '2026-10-06T06:10:00.000+00:00' })) ?? [], message: null }),
+    ])
+    const r = await flushTable(db, t, 'workout_sets', { refreshed: false })
+    expect(r.dead).toBe(0)
+    expect(r.stopped).toBeNull()
+    const sentVictim = calls.flatMap((c) => c.rows ?? []).filter((row) => row.id === victim)
+    expect(sentVictim.map((row) => row.reps)).toEqual([12])
+    const local = await db.workout_sets.get(victim)
+    expect(local?.reps).toBe(12)
+    expect(local?.dirty).toBe(0)
+    expect(await db.outbox.get(`workout_sets:${victim}`)).toBeUndefined()
+  })
+})
+
+describe('flushTable: finished_at and deleted_at are monotone on the push side too', () => {
+  const stamp = '2026-10-06T06:00:00.000+00:00'
+  it('a dirty local copy pushes the finished_at the pull carried onto it, and status finished', async () => {
+    const db = openUserDb(U)
+    await mergePage(db, 'workouts', [{ ...workout('w1'), created_at: stamp, updated_at: stamp, version: 1, deleted_at: null }])
+    await writeRow(db, 'workouts', workout('w1', { notes: 'felt strong' }))
+    const finished = '2026-10-06T07:00:00.000+00:00'
+    await mergePage(db, 'workouts', [
+      { ...workout('w1', { finished_at: finished, status: 'finished' }), created_at: stamp, updated_at: finished, version: 2, deleted_at: null },
+    ])
+    const local = await db.workouts.get('w1')
+    expect(local?.finished_at).toBe(finished)
+    expect(local?.status).toBe('finished')
+    expect(local?.notes).toBe('felt strong')
+    expect(local?.dirty).toBe(1)
+
+    const { t, calls } = fakeTransport([])
+    const r = await flushTable(db, t, 'workouts', { refreshed: false })
+    expect(r.sent).toBe(1)
+    const wire = calls[0].rows?.[0]
+    expect(wire?.finished_at).toBe(finished)
+    expect(wire?.status).toBe('finished')
+    expect(wire?.notes).toBe('felt strong')
+    expect((await db.workouts.get('w1'))?.dirty).toBe(0)
+  })
+  it('a dirty local copy pushes the server tombstone, never deleted_at null', async () => {
+    const db = openUserDb(U)
+    await mergePage(db, 'workouts', [{ ...workout('w2'), created_at: stamp, updated_at: stamp, version: 1, deleted_at: null }])
+    await writeRow(db, 'workouts', workout('w2', { notes: 'edited offline' }))
+    const gone = '2026-10-06T07:30:00.000+00:00'
+    await mergePage(db, 'workouts', [{ ...workout('w2'), created_at: stamp, updated_at: gone, version: 2, deleted_at: gone }])
+    const { t, calls } = fakeTransport([])
+    await flushTable(db, t, 'workouts', { refreshed: false })
+    expect(calls[0].rows?.[0].deleted_at).toBe(gone)
   })
 })

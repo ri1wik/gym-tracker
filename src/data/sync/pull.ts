@@ -10,6 +10,7 @@ import type { SyncedRow } from '../../domain/types'
 import { META_KEYS, type GymDb } from '../db'
 import { classifyStatus, describeError, type ResponseClass } from './classify'
 import { isoMinus } from './clock'
+import { outboxId } from './ids'
 import { mergeRow } from './merge'
 import { PULL_OVERLAP_MS, type SyncTableConfig } from './tables'
 import type { Transport } from './transport'
@@ -39,12 +40,36 @@ async function readCursor(db: GymDb, table: SyncTableConfig['name']): Promise<st
   return typeof row?.value === 'string' ? row.value : null
 }
 
+/** The fields the pull may carry onto a dirty row (merge.ts) and therefore into its queued payload. */
+const CARRIED_FIELDS = ['finished_at', 'deleted_at', 'status'] as const
+
+/**
+ * A dirty row's outbox payload was snapshotted when the row was written. When
+ * the pull carries a monotone field onto that row, the payload gets the same
+ * value, so the flush can never push a null over a finished or deleted row.
+ * The stamp is untouched, so settleUpserts still matches the entry.
+ */
+async function carryIntoOutbox(db: GymDb, table: SyncTableConfig['name'], row: SyncedRow): Promise<void> {
+  const item = await db.outbox.get(outboxId(table, row.id))
+  if (!item || item.op !== 'upsert') return
+  const payload = { ...item.payload }
+  const source = row as unknown as Record<string, unknown>
+  let changed = false
+  for (const f of CARRIED_FIELDS) {
+    if (f in source && payload[f] !== source[f]) {
+      payload[f] = source[f]
+      changed = true
+    }
+  }
+  if (changed) await db.outbox.put({ ...item, payload })
+}
+
 /** Merge one page of remote rows into the local table. Returns how many rows changed and the greatest updated_at seen. */
 export async function mergePage(db: GymDb, table: SyncTableConfig['name'], rows: unknown[]): Promise<{ stored: number; maxUpdatedAt: string | null }> {
   const tbl = db.syncTable(table)
   let stored = 0
   let maxUpdatedAt: string | null = null
-  await db.transaction('rw', [tbl, db.meta], async () => {
+  await db.transaction('rw', [tbl, db.meta, db.outbox], async () => {
     for (const raw of rows) {
       if (!raw || typeof raw !== 'object') continue
       const remote = raw as Record<string, unknown>
@@ -53,6 +78,7 @@ export async function mergePage(db: GymDb, table: SyncTableConfig['name'], rows:
       const merged = mergeRow<SyncedRow>(local, remote as unknown as Omit<SyncedRow, 'dirty'>)
       if (merged.changed) {
         await tbl.put(merged.row as unknown as Record<string, unknown>)
+        if (merged.choice === 'local_updated' && merged.row.dirty === 1) await carryIntoOutbox(db, table, merged.row)
         stored += 1
       }
       const ts = typeof remote.updated_at === 'string' ? remote.updated_at : null

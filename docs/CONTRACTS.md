@@ -29,7 +29,7 @@ Muscle-map shares port numbering past the brief's 5201 to 5211 range because it 
 
 ## 2. Hard rules (a release gate greps for them)
 
-- No em dash and no en dash as punctuation anywhere: code, comments, docs, UI strings, JSON. Use commas, colons, full stops. The validator rejects either dash in the library JSON.
+- No em dash and no en dash as punctuation anywhere: code, comments, docs, UI strings, JSON. Use commas, colons, full stops. The validator rejects either dash in the library JSON. Code that needs the characters builds them at run time (`String.fromCharCode(0x2014)`). The one tracked file that may hold them is `public/img/LICENSE-REPDB.md`, verbatim third-party licence text that must stay as published; the gate scans with `LC_ALL=C.UTF-8` and lists that file as its explicit exclusion.
 - No name of any AI model, assistant or vendor anywhere in the repo, commits or UI.
 - No real personal body numbers in fixtures or seeds; synthetic values only.
 - No secrets. `import.meta.env.VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` may be absent; the app must still open and work locally.

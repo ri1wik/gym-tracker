@@ -134,4 +134,10 @@ export const META_KEYS = {
   lastPullAt: 'last_pull_at',
   installPromptSeenAt: 'install_prompt_seen_at',
   activeWorkoutId: 'active_workout_id',
+  /** Written in the GUEST database: the first account the guest rows were offered to; no other account is offered them. */
+  guestOfferedTo: 'guest_offered_to',
+  /** When the last JSON backup was exported from this device. */
+  lastBackupAt: 'last_backup_at',
+  /** `trend_state:<goal>` holds the last check-in's band and candidate band so hysteresis carries across sessions. */
+  trendState: (goal: string) => `trend_state:${goal}`,
 } as const

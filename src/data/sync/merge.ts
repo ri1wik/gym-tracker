@@ -7,7 +7,10 @@
 // 3. Otherwise take remote when its version is higher.
 // 4. finished_at and deleted_at are monotone: a non-null value on either side
 //    survives whichever side wins, so a stale copy can never un-finish a
-//    session or resurrect a deleted row.
+//    session or resurrect a deleted row. When finished_at is carried onto a
+//    workout the status column follows it. The pull (./pull.ts) writes the
+//    carried fields into the dirty row's outbox payload as well, so the push
+//    side keeps the same promise; the server trigger is the last belt.
 //
 // OWNER: data-sync.
 
@@ -38,6 +41,8 @@ function carryMonotone(onto: object, from: object): boolean {
     if ((mine === null || mine === undefined) && theirs !== null && theirs !== undefined) {
       target[f] = theirs
       changed = true
+      // A finished session is finished: the status column follows finished_at.
+      if (f === 'finished_at' && source.status === 'finished' && target.status === 'in_progress') target.status = 'finished'
     }
   }
   return changed

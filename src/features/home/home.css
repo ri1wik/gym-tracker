@@ -1,0 +1,15 @@
+/* Home fills the phone viewport under the Shell's padding so its one primary
+   action can sit in the bottom 60 percent of the screen (one-handed use,
+   docs/SPEC-design-system.md). On the laptop layout the card keeps its
+   natural height. */
+.gt-home {
+  min-height: calc(100dvh - max(1rem, env(safe-area-inset-top)) - 3.5rem - env(safe-area-inset-bottom) - 1rem);
+}
+@media (min-width: 64rem) {
+  .gt-home {
+    min-height: 0;
+  }
+}
+.gt-home-footer {
+  margin-top: auto;
+}

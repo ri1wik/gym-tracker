@@ -19,14 +19,50 @@ function series(points: readonly [number, number][]): WeightReading[] {
 }
 
 describe('trend: the worked example', () => {
-  it('weekly points 80.0, 79.7, 79.3, 79.0 give about minus 0.34 kg per week and read on track', () => {
+  it('weekly points 80.0, 79.7, 79.3, 79.0 give about minus 0.34 kg per week, direction down, no verdict before the full read', () => {
     const s = trendState(series([[0, 80.0], [7, 79.7], [14, 79.3], [21, 79.0]]), { goal: 'recomp' })
     expect(kgPerWeek(s)).toBeCloseTo(-0.34, 2)
     expect(s.rate_pct_per_week).toBeCloseTo(-0.43, 1)
     expect(s.precision).toBe('early')
     expect(s.direction).toBe('down')
+    // PLAN.md section 12: no band verdict before 7 readings over 24 days.
+    expect(s.band).toBe('not_yet_precise')
+    expect(s.candidate_band).toBe('not_yet_precise')
+    expect(s.readings_needed).toBe(10 - 4)
+  })
+})
+
+describe('trend: no verdict from four collinear readings', () => {
+  it('80.0, 79.7, 79.4, 79.1 every 4 days (0.1 kg scale, steady loss) keeps a finite interval and no band', () => {
+    const s = trendState(series([[0, 80.0], [4, 79.7], [8, 79.4], [12, 79.1]]), { goal: 'recomp' })
+    expect(s.precision).toBe('early')
+    expect(s.direction).toBe('down')
+    const [lo, hi] = s.rate_ci_pct_per_week!
+    expect(hi - lo).toBeGreaterThan(0)
+    expect(Number.isFinite(lo) && Number.isFinite(hi)).toBe(true)
+    expect(s.band).toBe('not_yet_precise')
+    expect(s.readings_needed).toBe(6)
+  })
+  it('80.0, 79.5, 79.0, 78.5 every 4 days never yields a too-fast candidate at four readings', () => {
+    const s = trendState(series([[0, 80.0], [4, 79.5], [8, 79.0], [12, 78.5]]), { goal: 'recomp' })
+    expect(s.precision).toBe('early')
+    expect(s.rate_pct_per_week!).toBeLessThan(-1.0)
+    expect(s.candidate_band).toBe('not_yet_precise')
+    expect(s.band).toBe('not_yet_precise')
+  })
+  it('the sigma floor gives a collinear full read a finite interval and still a verdict when it fits the band', () => {
+    const clean = series([[0, 80.0], [4, 79.8], [8, 79.6], [12, 79.4], [16, 79.2], [20, 79.0], [24, 78.8]])
+    const s = trendState(clean, { goal: 'recomp' })
+    expect(s.precision).toBe('full')
+    const [lo, hi] = s.rate_ci_pct_per_week!
+    expect(hi - lo).toBeGreaterThan(0.1)
     expect(s.band).toBe('on_track')
-    expect(s.readings_needed).toBe(0)
+  })
+  it('theilSen floors the residual sigma', () => {
+    const flat = theilSen([0, 4, 8, 12], [80_000, 79_700, 79_400, 79_100])
+    expect(flat.slope_se).toBe(0)
+    const floored = theilSen([0, 4, 8, 12], [80_000, 79_700, 79_400, 79_100], 100)
+    expect(floored.slope_se).toBeCloseTo(100 / Math.sqrt(80), 6)
   })
 })
 
@@ -167,7 +203,8 @@ describe('trend: hysteresis', () => {
   })
 
   it('previous_band flows through trendState', () => {
-    const s = trendState(series([[0, 80.0], [7, 79.7], [14, 79.3], [21, 79.0]]), { goal: 'recomp', previous_band: 'flat', previous_candidate_band: 'flat' })
+    const clean = series([[0, 82.0], [4, 81.8], [8, 81.6], [12, 81.5], [16, 81.2], [20, 81.1], [24, 80.9]])
+    const s = trendState(clean, { goal: 'recomp', previous_band: 'flat', previous_candidate_band: 'flat' })
     // The interval sits inside on track and the rate is more than 0.05 past the flat edge.
     expect(s.band).toBe('on_track')
   })

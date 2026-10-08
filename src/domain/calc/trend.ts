@@ -5,12 +5,16 @@
 // Rules: one point per reading; Theil-Sen slope on elapsed days over the last
 // 28 days gives the rate in percent of body weight per week; an exponentially
 // weighted average with an 8-day half-life draws the line; the slope's
-// confidence interval comes from the readings' own residuals and a band
-// verdict is issued only when that interval sits inside one band or wholly
-// beyond the too-fast line. Early directional read after 4 readings spanning
-// 12 days. Hysteresis: a band changes only when the rate crosses the edge by
-// 0.05 points or stays across it for two check-ins; too fast and slow down
-// always wait for the second run.
+// confidence interval comes from the readings' own residuals (floored at the
+// scale's resolution, so a collinear series keeps a finite, honest interval)
+// and a band verdict is issued only at the full read (7 readings over 24
+// days, PLAN.md section 12) and only when that interval sits inside one band
+// or wholly beyond the too-fast line. Early directional read after 4
+// readings spanning 12 days, never a verdict. Hysteresis: a band changes
+// only when the rate crosses the edge by 0.05 points or stays across it for
+// two check-ins; too fast and slow down always wait for the second run. The
+// screens persist the previous band and candidate (META_KEYS.trendState) and
+// feed them back, so the rule carries across sessions.
 
 import type { DateKey } from '../types'
 import { dayNumber } from '../dates'
@@ -102,6 +106,14 @@ export const EARLY_READ = { readings: 4, span_days: 12 } as const
 export const FULL_READ = { readings: 7, span_days: 24 } as const
 export const BAND_VERDICT_EXPECTED_READINGS = 10
 
+/**
+ * The scale's resolution in grams. A 0.1 kg scale reports a steady rate as
+ * perfectly collinear readings, whose residuals are zero; the slope's
+ * standard error is floored at this sigma so the interval never collapses
+ * to zero width on four readings.
+ */
+export const SCALE_RESOLUTION_G = 100
+
 /** Rates inside this dead zone read as direction 'flat'. */
 export const DIRECTION_DEAD_ZONE_PCT = 0.1
 
@@ -181,11 +193,13 @@ export interface TheilSenFit {
  * Theil-Sen: the median of all pairwise slopes, intercept as the median of
  * (y minus slope times x). The slope's standard error comes from the fit's
  * own residuals with the usual least-squares formula, which is what the gate
- * needs: a noisy series widens the interval, a clean one narrows it. Needs at
- * least three points with two distinct x values; two points give a slope with
- * an infinite interval.
+ * needs: a noisy series widens the interval, a clean one narrows it, and the
+ * residual sigma never drops under `sigmaFloor` (the measurement resolution),
+ * so a collinear series keeps a finite interval. Needs at least three points
+ * with two distinct x values; two points give a slope with an infinite
+ * interval.
  */
-export function theilSen(xs: readonly number[], ys: readonly number[]): TheilSenFit {
+export function theilSen(xs: readonly number[], ys: readonly number[], sigmaFloor = 0): TheilSenFit {
   const n = xs.length
   if (n !== ys.length || n < 2) throw new Error('theilSen needs at least two points')
   const slopes: number[] = []
@@ -205,7 +219,8 @@ export function theilSen(xs: readonly number[], ys: readonly number[]): TheilSen
   let se = Infinity
   if (df > 0 && sxx > 0) {
     const rss = residuals.reduce((a, r) => a + r * r, 0)
-    se = Math.sqrt(rss / df / sxx)
+    const variance = Math.max(rss / df, sigmaFloor * sigmaFloor)
+    se = Math.sqrt(variance / sxx)
   }
   const t = tQuantile975(df)
   const half = Number.isFinite(se) ? t * se : Infinity
@@ -356,12 +371,14 @@ export function trendState(readings: readonly WeightReading[], options: TrendOpt
   const fit = theilSen(
     window.map((r) => r.day - x0),
     window.map((r) => r.weight_g),
+    SCALE_RESOLUTION_G,
   )
   const reference = trendWeight ?? latest.weight_g
   const toPct = (gPerDay: number) => (gPerDay * 7 * 100) / reference
   const rate = toPct(fit.slope)
   const ci: [number, number] = [toPct(fit.slope_ci[0]), toPct(fit.slope_ci[1])]
-  const candidate = candidateBand(options.goal, ci)
+  // No verdict before the full read: the early read gives a direction only.
+  const candidate = full ? candidateBand(options.goal, ci) : 'not_yet_precise'
   const band = applyHysteresis(options.goal, candidate, rate, options.previous_band, options.previous_candidate_band)
   const settled = isVerdictBand(band)
 

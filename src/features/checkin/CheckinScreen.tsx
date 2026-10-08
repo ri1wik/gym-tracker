@@ -10,6 +10,7 @@ import { formatDayShort, formatSignedCm, formatSignedKg, kg1 } from '../profile/
 import { getReminderMinute } from '../profile/reminder'
 import { useProfile, useWeighIns } from '../profile/repo'
 import { downloadCheckinCalendar } from './download'
+import { previousFor, readTrendMemory, writeTrendMemory } from '../progress/trendMemory'
 import { buildMiniRead, waistIsDue, type MiniRead } from './miniRead'
 import { saveWeighIn } from './write'
 import { MAX_G, MIN_G, STEP_G, stepKgText } from './weightStep'
@@ -62,7 +63,10 @@ function CheckinFlow({ profile, weighIns }: { profile: Profile | null; weighIns:
         same_conditions: sameConditions,
       })
       const readings = [...weighIns.filter((w) => w.date_key !== today), saved]
-      setMini(buildMiniRead({ readings, dateKey: today, goal, intervalDays: interval }))
+      const memory = previousFor(await readTrendMemory(currentDb(), goal), today)
+      const read = buildMiniRead({ readings, dateKey: today, goal, intervalDays: interval, memory })
+      if (read) await writeTrendMemory(currentDb(), goal, today, read.trend, memory)
+      setMini(read)
       setStep('photos')
     } catch {
       setError('Could not save on this device. Tap Save again; if it repeats, free some storage and reload.')

@@ -27,7 +27,8 @@
     <p>When you sign in, Recomp stores the data you enter in your own account: your profile (sex, date of birth, height, activity level, goal), body weight and waist readings, progress photos, workouts and sets, cardio sessions, food logs, and your program settings. Signing in with Google shares your name, email address and profile picture with the app; nothing else from your Google account is requested.</p>
 
     <h2>Where it is stored</h2>
-    <p>Data is stored in a hosted database and file store provided by Supabase, in the Mumbai (ap-south-1) region. A copy is kept on your own device so the app works without a signal. Progress photos are stored in a private folder that only your account can read, and are resized and stripped of camera metadata (including location) on your device before upload.</p>
+    <p>Data is stored in a hosted database and file store provided by Supabase, in the Mumbai (ap-south-1) region. A copy is kept on your own device so the app works without a signal. Progress photos arrive in a later version; when they do, each one will be stored in a private folder that only your account can read, and resized and stripped of camera metadata (including location) on your device before upload.</p>
+    <p>The app is served from ri1wik.github.io, an address shared with the developer's other sites. Browsers scope stored data to that address, so a script running on one of those sibling sites could in principle read this app's local copy and session on the same browser. The developer keeps those sites free of third-party scripts; a dedicated address for the app is planned, and this page will say so when it changes.</p>
 
     <h2>Who can see it</h2>
     <p>Other users cannot see your data or photos. The developer who runs the app can access the database and file store through the hosting provider's dashboard for maintenance, and will not look at, copy or share your data except to fix a problem you report. No data is sold, shared with advertisers, or used for anything other than running the app for you.</p>
@@ -36,7 +37,7 @@
     <p>Recomp uses no analytics service, no advertising, and no third-party trackers.</p>
 
     <h2>Your control</h2>
-    <p>You can export all of your data from the You tab and delete your account at any time from the same place. Deleting your account removes your rows and your photos from the hosted store.</p>
+    <p>You can export all of your data as a JSON file from the Backup section of the You tab, import it again on any device, and delete your account at any time from the same tab. Deleting your account removes your rows and your photos from the hosted store; the deletion stops and tells you if any photo could not be removed first.</p>
 
     <h2>Contact</h2>
     <p>Questions about this policy: <a href="mailto:ri1codac@gmail.com">ri1codac@gmail.com</a></p>

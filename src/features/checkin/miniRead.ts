@@ -7,6 +7,7 @@ import { diffDays, nextCheckinKey } from '../../domain/dates'
 import type { DateKey, WeighIn } from '../../domain/types'
 import { readTrend } from '../progress/trend'
 import { describeTrend, type TrendRead } from '../progress/trendCopy'
+import { NO_PREVIOUS, type PreviousTrend } from '../progress/trendMemory'
 
 export interface MiniRead {
   date_key: DateKey
@@ -27,9 +28,11 @@ export interface MiniReadInput {
   dateKey: DateKey
   goal: Goal
   intervalDays: number
+  /** The last check-in's band and candidate (trendMemory.ts), so hysteresis carries across sessions. */
+  memory?: PreviousTrend
 }
 
-export function buildMiniRead({ readings, dateKey, goal, intervalDays }: MiniReadInput): MiniRead | null {
+export function buildMiniRead({ readings, dateKey, goal, intervalDays, memory = NO_PREVIOUS }: MiniReadInput): MiniRead | null {
   const live = readings.filter((r) => r.deleted_at === null).sort((a, b) => (a.date_key < b.date_key ? -1 : 1))
   const current = live.find((r) => r.date_key === dateKey)
   if (!current) return null
@@ -38,7 +41,7 @@ export function buildMiniRead({ readings, dateKey, goal, intervalDays }: MiniRea
   const lastWaist = [...earlier].reverse().find((r) => r.waist_mm !== null) ?? null
   const trend = readTrend(
     live.map((r) => ({ date_key: r.date_key, weight_g: r.weight_g })),
-    { goal },
+    { goal, previous_band: memory.previous_band, previous_candidate_band: memory.previous_candidate_band },
   )
   return {
     date_key: dateKey,

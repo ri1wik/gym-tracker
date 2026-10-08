@@ -1,6 +1,7 @@
 // The finish summary (PLAN.md section 2, "Finish"): readable in under five
 // seconds and skippable. Reused by the history view, where it is read-only.
 
+import type { ReactNode } from 'react'
 import { MuscleMap } from '../../components/MuscleMap'
 import type { MuscleGroup } from '../../domain/types'
 import { MUSCLE_INFO } from '../../domain/muscles'
@@ -15,11 +16,13 @@ export interface FinishSummaryProps {
   dateLabel?: string
   onDone?: () => void
   onSkip?: () => void
+  /** The install card, on the first finished workout only (the session screen decides). */
+  install?: ReactNode
 }
 
 const OUTCOME_LABEL = { progressed: 'Progressed', same: 'Same', lower: 'Lower', first: 'First time' } as const
 
-export function FinishSummary({ summary: s, dateLabel, onDone, onSkip }: FinishSummaryProps) {
+export function FinishSummary({ summary: s, dateLabel, onDone, onSkip, install = null }: FinishSummaryProps) {
   // Heat for the map: credit by group from the exercises done, 1 per working set on the primary group.
   const heat: Partial<Record<MuscleGroup, number>> = {}
   for (const o of s.outcomes) {
@@ -108,6 +111,8 @@ export function FinishSummary({ summary: s, dateLabel, onDone, onSkip }: FinishS
           )
         })}
       </ul>
+
+      {install}
 
       {onDone && (
         <button type="button" onClick={onDone} className="flex h-14 w-full items-center justify-center rounded-control bg-accent text-[16px] font-semibold text-on-accent">

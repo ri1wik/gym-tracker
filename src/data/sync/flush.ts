@@ -45,8 +45,40 @@ function stampOf(item: OutboxItem): string {
   return typeof item.payload.updated_at === 'string' ? item.payload.updated_at : item.created_at
 }
 
-async function markInFlight(db: GymDb, items: OutboxItem[]): Promise<void> {
-  await db.outbox.bulkPut(items.map((i) => ({ ...i, state: 'in_flight' as const })))
+/**
+ * Mark a batch in flight and return what will actually go over the wire. The
+ * snapshot read at the start of the flush is never written back: each item
+ * is re-read inside the transaction, so an edit queued while an earlier
+ * batch or an upload was on the wire keeps its newer payload and is sent as
+ * it now is. Items that are no longer pending (settled or dead-lettered by a
+ * concurrent path) drop out of the batch.
+ */
+async function markInFlight(db: GymDb, items: OutboxItem[]): Promise<OutboxItem[]> {
+  return db.transaction('rw', db.outbox, async () => {
+    const live: OutboxItem[] = []
+    for (const snapshot of items) {
+      const cur = await db.outbox.get(snapshot.id)
+      if (!cur || cur.state !== 'pending') continue
+      const next: OutboxItem = { ...cur, state: 'in_flight' }
+      await db.outbox.put(next)
+      live.push(next)
+    }
+    return live
+  })
+}
+
+/**
+ * Items left in flight by a kill or a thrown error (between the POST and the
+ * settle) would otherwise never be read again, because every flush selects
+ * pending only. The caller guarantees single flight, so at the start of a
+ * flush nothing is genuinely in flight: put them back to pending.
+ */
+async function resetInFlight(db: GymDb, table: SyncTable): Promise<void> {
+  await db.outbox
+    .where('state')
+    .equals('in_flight')
+    .filter((i) => i.table === table)
+    .modify({ state: 'pending' })
 }
 
 /** Put items back to pending after a retryable failure, counting the attempt. */
@@ -142,21 +174,23 @@ async function send(
 export async function flushTable(db: GymDb, transport: Transport, table: SyncTable, state: FlushState): Promise<FlushTableResult> {
   const result: FlushTableResult = { sent: 0, dead: 0, stopped: null, error: null }
   const config = SYNC_CONFIG_BY_NAME[table]
+  await resetInFlight(db, table)
   const all = (await db.outbox.where('state').equals('pending').toArray())
     .filter((i) => i.table === table)
     .sort((a, b) => (a.op === b.op ? a.created_at.localeCompare(b.created_at) : a.op === 'upload' ? -1 : 1))
   if (all.length === 0) return result
 
   // Uploads first, one at a time (each is a file).
-  for (const item of all.filter((i) => i.op === 'upload')) {
-    if (!item.blob) {
-      await markDead(db, [item], 'Upload has no file')
+  for (const snapshot of all.filter((i) => i.op === 'upload')) {
+    if (!snapshot.blob) {
+      await markDead(db, [snapshot], 'Upload has no file')
       result.dead += 1
       continue
     }
+    const [item] = await markInFlight(db, [snapshot])
+    if (!item || !item.blob) continue
     const path = String(item.payload.path ?? '')
     const contentType = String(item.payload.content_type ?? 'application/octet-stream')
-    await markInFlight(db, [item])
     const res = await send(transport, state, () => transport.upload(path, item.blob as Blob, contentType))
     if (res.cls === 'ok') {
       await settleUpload(db, item)
@@ -178,8 +212,8 @@ export async function flushTable(db: GymDb, transport: Transport, table: SyncTab
   // Upserts in batches.
   const upserts = all.filter((i) => i.op === 'upsert' || i.op === 'delete')
   for (let i = 0; i < upserts.length; i += PUSH_BATCH_SIZE) {
-    const batch = upserts.slice(i, i + PUSH_BATCH_SIZE)
-    await markInFlight(db, batch)
+    const batch = await markInFlight(db, upserts.slice(i, i + PUSH_BATCH_SIZE))
+    if (batch.length === 0) continue
     const rows = batch.map((b) => wireRow(b.payload))
     const res = await send(transport, state, () => transport.upsert(table, rows, config.onConflict))
     if (res.cls === 'ok') {

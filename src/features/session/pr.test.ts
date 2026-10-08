@@ -49,3 +49,10 @@ describe('detectPr', () => {
     expect(detectPr({ load_g: 100_000, reps: 0 }, prev, 'weight')).toBeNull()
   })
 })
+
+describe('prShortLabel', () => {
+  it('gives every kind a label short enough for the prev cell', async () => {
+    const { prShortLabel } = await import('./pr')
+    for (const kind of ['first', 'weight', 'reps', 'e1rm'] as const) expect(prShortLabel(kind).length).toBeLessThanOrEqual(7)
+  })
+})

@@ -6,6 +6,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { formatClock } from '../../domain/units'
 import { playTimerEnd } from './audio'
+import { haptic } from './haptics'
+import { restSoundEnabled } from './prefs'
 
 export const REST_KEY = 'gt:rest'
 export const REST_STEP_S = 15
@@ -92,6 +94,8 @@ export function remainingS(state: RestState | null, now = Date.now()): number {
 
 export interface RestTimer {
   state: RestState | null
+  /** The clock the view was computed at (ticks every second even with no rest, for elapsed labels). */
+  now: number
   remaining: number
   /** 0 to 1 fraction elapsed, for the ring. */
   progress: number
@@ -104,9 +108,11 @@ export interface RestTimer {
 const BASE_TITLE = 'Recomp'
 
 /**
- * Live view of the stored rest for one workout. Ticks four times a second,
- * plays the tone once when it reaches zero, and mirrors the countdown into
- * document.title while running.
+ * Live view of the stored rest for one workout (null: whichever workout owns
+ * the stored rest, for the dock the Shell mounts on every other screen).
+ * Ticks four times a second, vibrates once when it reaches zero (plus the
+ * opt-in tone), and mirrors the countdown into document.title while running.
+ * The end feedback fires once per stored rest whichever screen is open.
  */
 export function useRestTimer(workoutId: string | null): RestTimer {
   const [state, setState] = useState<RestState | null>(() => readRest())
@@ -133,8 +139,7 @@ export function useRestTimer(workoutId: string | null): RestTimer {
   const running = mine !== null && remaining > 0
 
   useEffect(() => {
-    if (!running) return
-    const id = window.setInterval(() => setNow(Date.now()), 250)
+    const id = window.setInterval(() => setNow(Date.now()), running ? 250 : 1000)
     return () => window.clearInterval(id)
   }, [running])
 
@@ -144,7 +149,8 @@ export function useRestTimer(workoutId: string | null): RestTimer {
     const key = `rest-done:${mine.endAt}`
     if (sessionFlag(key)) return
     setSessionFlag(key)
-    playTimerEnd()
+    haptic('timerEnd')
+    if (restSoundEnabled()) playTimerEnd()
     const t = window.setTimeout(() => clearRest(), 1500)
     return () => window.clearTimeout(t)
   }, [mine, remaining])
@@ -166,7 +172,7 @@ export function useRestTimer(workoutId: string | null): RestTimer {
   const skip = useCallback(() => clearRest(), [])
 
   const progress = mine && mine.totalS > 0 ? Math.min(1, Math.max(0, 1 - remaining / mine.totalS)) : 0
-  return { state: mine, remaining, progress, running, minus, plus, skip }
+  return { state: mine, now, remaining, progress, running, minus, plus, skip }
 }
 
 const flags = new Set<string>()

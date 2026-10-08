@@ -1,22 +1,22 @@
-// The rest timer dock: non-modal, above the tab bar height, 64 px, a 48 px
-// ring, the remaining time at 28/800 tabular, minus 15, plus 15 and Skip.
-// Reserved space is the caller's job so nothing shifts when it appears.
+// The rest timer dock: non-modal, 64 px, a 48 px ring, the remaining time
+// at 28/800 tabular, minus 15, plus 15 and Skip. The session screen docks
+// it at the bottom edge; the Shell docks it above the tab bar on every
+// other screen (`bottom`). Reserved space is the caller's job so nothing
+// shifts when it appears.
 
 import { formatClock } from '../../domain/units'
 import type { RestTimer } from './timer'
 
-export function RestDock({ timer }: { timer: RestTimer }) {
+export const REST_DOCK_HEIGHT_REM = 4
+
+export function RestDock({ timer, bottom = 'max(0.5rem, env(safe-area-inset-bottom))' }: { timer: RestTimer; bottom?: string }) {
   if (!timer.state) return null
   const r = 21
   const c = 2 * Math.PI * r
   const dash = c * (1 - timer.progress)
   const announce = timer.remaining === 30 || timer.remaining === 10 ? `${timer.remaining} seconds` : ''
   return (
-    <div
-      className="fixed inset-x-0 bottom-0 z-20 flex justify-center px-4 pb-[max(0.5rem,env(safe-area-inset-bottom))]"
-      role="region"
-      aria-label="Rest timer"
-    >
+    <div className="fixed inset-x-0 z-20 flex justify-center px-4 lg:justify-start lg:pl-[17rem]" style={{ bottom }} role="region" aria-label="Rest timer">
       <div className="flex h-16 w-full max-w-screen-sm items-center gap-3 rounded-card border border-line-strong bg-surface-2/92 px-3 shadow-[0_-8px_32px_rgba(0,0,0,0.5)] backdrop-blur-md">
         <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true" className="shrink-0 -rotate-90">
           <circle cx="24" cy="24" r={r} fill="none" strokeWidth="5" className="stroke-surface-3" />

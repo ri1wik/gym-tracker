@@ -89,3 +89,16 @@ describe('mergeRow', () => {
     expect(r2.row.finished_at).toBe('2026-10-06T07:00:00.000Z')
   })
 })
+
+describe('mergeRow: status follows a carried finished_at', () => {
+  it('a dirty in-progress copy that receives finished_at reads finished', () => {
+    const local = workout({ dirty: 1, notes: 'offline edit' })
+    const remote = remoteOf(workout({ version: 2, finished_at: '2026-10-06T07:00:00.000Z', status: 'finished' }))
+    const r = mergeRow<Workout>(local, remote)
+    expect(r.choice).toBe('local_updated')
+    expect(r.row.finished_at).toBe('2026-10-06T07:00:00.000Z')
+    expect(r.row.status).toBe('finished')
+    expect(r.row.notes).toBe('offline edit')
+    expect(r.row.dirty).toBe(1)
+  })
+})

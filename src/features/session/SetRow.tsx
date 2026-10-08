@@ -1,7 +1,8 @@
 // One set row: grid 36 / 64 / 1fr / 1fr / 56 (set, prev, kg, reps, done),
 // 56 px tall. A pending row shows last time's numbers in ink-3 so a repeat
 // set is one tap on the check; the active row adds the two steppers under
-// the grid; a done row is mint-soft with a filled check. Swipe left reveals
+// the grid; a done row is mint-soft with a filled check and shows its PR
+// badge in the prev cell, off the number columns. Swipe left reveals
 // Remove (the button twin lives in the card footer).
 
 import { useRef, useState, type MouseEvent, type PointerEvent } from 'react'
@@ -9,7 +10,7 @@ import type { ExerciseIndexEntry, WorkoutSet } from '../../domain/types'
 import { stepLoad, TIME_STEP_S } from './increments'
 import { loadLabel, repsLabel } from './fmt'
 import { formatKg } from '../../domain/units'
-import { prLabel, type PrKind } from './pr'
+import { prLabel, prShortLabel, type PrKind } from './pr'
 import { Stepper } from './Stepper'
 import { CheckIcon } from './ui'
 import type { KeypadKind } from './Keypad'
@@ -130,19 +131,26 @@ export function SetRow(p: SetRowProps) {
     </span>
   )
 
-  const prevCell = (
-    <button
-      type="button"
-      onClick={(e) => {
-        e.stopPropagation()
-        if (p.prev) p.onCopyPrev()
-      }}
-      aria-label={prevText ? `Previous ${prevText}, tap to copy` : 'No previous set'}
-      className="num flex h-14 items-center justify-center truncate px-1 text-[14px] font-medium text-ink-3"
-    >
-      {prevText ?? (warm ? 'ramp' : 'new')}
-    </button>
-  )
+  // A done row no longer needs its prev column, so the PR badge takes that
+  // cell and never covers the kg or reps figures read mid-set.
+  const prevCell =
+    state === 'done' && p.pr ? (
+      <span className="flex h-14 items-center justify-center px-0.5" aria-label={prLabel(p.pr)}>
+        <span className="gt-pr max-w-full truncate rounded-full bg-mint px-1.5 py-0.5 text-[10px] font-bold uppercase text-on-mint">{prShortLabel(p.pr)}</span>
+      </span>
+    ) : (
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation()
+          if (p.prev) p.onCopyPrev()
+        }}
+        aria-label={prevText ? `Previous ${prevText}, tap to copy` : 'No previous set'}
+        className="num flex h-14 items-center justify-center truncate px-1 text-[14px] font-medium text-ink-3"
+      >
+        {prevText ?? (warm ? 'ramp' : 'new')}
+      </button>
+    )
 
   const loadCell = (
     <button
@@ -227,11 +235,6 @@ export function SetRow(p: SetRowProps) {
             </>
           )}
         </div>
-        {p.pr && (
-          <span className="gt-pr absolute top-1 right-16 rounded-full bg-mint px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-on-mint">
-            {prLabel(p.pr)}
-          </span>
-        )}
         {state === 'active' && (
           <div className="flex gap-2 px-2 pb-2" onClick={(e) => e.stopPropagation()}>
             {!isTime && (

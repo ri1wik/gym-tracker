@@ -79,7 +79,7 @@ export interface ReviewRecords {
   foods?: ProteinFoodOption[]
   /** Calorie floor for the logging check; null or absent skips it. */
   calorie_floor_kcal?: number | null
-  /** Share of comparable lifts that progressed last week, for the "second week running" rule. */
+  /** Share of comparable lifts that progressed last week, for the "same as last week" rule. */
   lifts_prev_week_ratio?: number | null
   /** Last week's sets per body part, for "under the floor for 2 weeks". */
   sets_prev_week?: Partial<Record<BodyPart, number>>

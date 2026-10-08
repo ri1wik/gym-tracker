@@ -4,6 +4,7 @@ import './styles/app.css'
 import { App } from './App'
 import { applyStoredTheme } from './app/theme'
 import { bootAuth } from './app/auth/session'
+import { captureInstallPrompt } from './app/install'
 import { startSyncTriggers, syncNow } from './data/sync/engine'
 
 // Boot order: theme first (no flash), then the session (the PKCE code
@@ -13,6 +14,7 @@ import { startSyncTriggers, syncNow } from './data/sync/engine'
 // as before.
 
 applyStoredTheme()
+captureInstallPrompt()
 
 const root = createRoot(document.getElementById('root')!)
 

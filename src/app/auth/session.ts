@@ -14,7 +14,7 @@ import type { Session, SupabaseClient } from '@supabase/supabase-js'
 import { GUEST_USER_ID, deleteUserDb, openUserDb } from '../../data/db'
 import { STORAGE_BUCKET, hasCloud, loadSupabase } from '../../data/supabase'
 import { currentUserId, setCurrentUserId } from '../../data/sync/current'
-import { countGuestRows, migrateGuestRows } from '../../data/sync/migrate-guest'
+import { guestRowsToOffer, migrateGuestRows } from '../../data/sync/migrate-guest'
 import { syncNow } from '../../data/sync/engine'
 import { setSyncState } from '../../data/sync/status'
 
@@ -109,7 +109,7 @@ async function applySession(session: Session | null): Promise<void> {
   if (nextId !== prevId) {
     setCurrentUserId(nextId)
     if (nextId !== GUEST_USER_ID) {
-      const guestRows = await countGuestRows()
+      const guestRows = await guestRowsToOffer(nextId)
       set({ guestRowsToOffer: guestRows > 0 ? guestRows : null })
     }
   }
@@ -191,7 +191,16 @@ export async function signOut(): Promise<void> {
   set({ guestRowsToOffer: null })
 }
 
-async function removeOwnFiles(client: SupabaseClient, userId: string): Promise<void> {
+const LIST_PAGE = 1000
+
+/**
+ * Remove every file under the user's prefix. The storage client never
+ * throws: every HTTP or network failure comes back as { data: null, error },
+ * so each call's error is checked and returned as the reason to stop. The
+ * listing is paged, so a folder past 1000 objects is still emptied. Resolves
+ * null when the prefix is empty afterwards.
+ */
+async function removeOwnFiles(client: SupabaseClient, userId: string): Promise<string | null> {
   const bucket = client.storage.from(STORAGE_BUCKET)
   const db = openUserDb(userId)
   const paths = new Set<string>()
@@ -204,31 +213,47 @@ async function removeOwnFiles(client: SupabaseClient, userId: string): Promise<v
   } catch {
     // The local table may be empty; the listing below still finds remote files.
   }
-  const walk = async (prefix: string, depth: number): Promise<void> => {
-    if (depth > 4) return
-    const { data } = await bucket.list(prefix, { limit: 1000 })
-    for (const entry of data ?? []) {
-      const full = `${prefix}/${entry.name}`
-      if (entry.id) paths.add(full)
-      else await walk(full, depth + 1)
+  const walk = async (prefix: string, depth: number): Promise<string | null> => {
+    if (depth > 4) return null
+    for (let offset = 0; ; offset += LIST_PAGE) {
+      const { data, error } = await bucket.list(prefix, { limit: LIST_PAGE, offset })
+      if (error) return `Could not list your photos (${error.message}).`
+      const entries = data ?? []
+      for (const entry of entries) {
+        const full = `${prefix}/${entry.name}`
+        if (entry.id) paths.add(full)
+        else {
+          const problem = await walk(full, depth + 1)
+          if (problem) return problem
+        }
+      }
+      if (entries.length < LIST_PAGE) return null
     }
   }
-  await walk(userId, 0)
+  const listed = await walk(userId, 0)
+  if (listed) return listed
   const list = [...paths]
-  for (let i = 0; i < list.length; i += 100) await bucket.remove(list.slice(i, i + 100))
+  for (let i = 0; i < list.length; i += 100) {
+    const { error } = await bucket.remove(list.slice(i, i + 100))
+    if (error) return `Could not remove your photos (${error.message}).`
+  }
+  return null
 }
 
 /**
  * Delete the account: own files first (RLS allows the own prefix), then the
  * delete_my_account RPC which removes the auth user and cascades every
- * table, then the local database. Resolves an error line or null.
+ * table, then the local database. Stops before the RPC when any file could
+ * not be removed, so no auth user is ever deleted with photos left behind
+ * that nobody could delete afterwards. Resolves an error line or null.
  */
 export async function deleteAccount(): Promise<string | null> {
   const client = await loadSupabase()
   const userId = currentUserId()
   if (!client || userId === GUEST_USER_ID) return 'Not signed in.'
   try {
-    await removeOwnFiles(client, userId)
+    const files = await removeOwnFiles(client, userId)
+    if (files) return files
     const { error } = await client.rpc('delete_my_account')
     if (error) return error.message
   } catch (e) {

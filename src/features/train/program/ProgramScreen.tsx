@@ -34,8 +34,8 @@ export function ProgramScreen() {
   if (!view) {
     return (
       <div aria-busy="true" className="space-y-4">
-        <div className="h-28 animate-pulse rounded-card bg-surface-1" />
-        <div className="h-64 animate-pulse rounded-card bg-surface-1" />
+        <div className="h-28 rounded-card bg-surface-1" />
+        <div className="h-64 rounded-card bg-surface-1" />
       </div>
     )
   }
