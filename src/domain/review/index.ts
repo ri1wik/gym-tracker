@@ -1,8 +1,7 @@
 // The weekly review: a pure function of the records in the window and the
 // profile (PLAN.md section 6).
 //
-// OWNER: engine-trend-review. Stub until that slice lands; the types are the
-// contract.
+// OWNER: engine-trend-review.
 //
 // Six signals, each positive, neutral, attention or to_unlock, with the
 // number, one sentence and one action. At most three positives and three
@@ -14,97 +13,93 @@
 // Banned phrases: burns fat, boosts metabolism, detox, cures, any condition
 // name. Every message names a number and ends in one action.
 
-import type { BodyPart, CardioSession, DateKey, FoodLog, Profile, WeighIn, Workout, WorkoutSet, ExerciseIndexEntry } from '../types'
-import type { TrendState } from '../calc/trend'
+import type { Profile } from '../types'
+import { stableHash } from './hash'
+import { plural } from './format'
+import { cardioSignal, compareLifts, finishedWorkouts, foodTotals, liftsSignal, proteinSignal, sessionsSignal, setsSignal, weightSignal } from './signals'
+import type { ReviewRecords, Signal, SignalCode, WeeklyReview } from './types'
+import { ATTENTION_BADGE, DISCLAIMER, KEEP_GOING_FOCUS, MAX_ATTENTION, MAX_POSITIVES, REVIEW_PRIORITY } from './types'
 
-export type SignalCode = 'weight_trend' | 'sessions' | 'sets_by_body_part' | 'protein' | 'cardio' | 'lifts'
+export type { Signal, SignalCode, SignalStatus, ReviewRecords, WeeklyReview, ProteinFoodOption } from './types'
+export {
+  REVIEW_PRIORITY,
+  SETS_BAND,
+  UNFLAGGED_PARTS,
+  DISCLAIMER,
+  SIGNAL_TITLE,
+  ATTENTION_BADGE,
+  POSITIVE_BADGE,
+  KEEP_GOING_FOCUS,
+  MAX_POSITIVES,
+  MAX_ATTENTION,
+} from './types'
+export { BANNED_PHRASES, CONDITION_NAMES, copyProblems, bannedPhraseIn } from './guardrails'
+export { recompositionMarker, compareLifts, waistChangeMm } from './signals'
+export type { LiftComparison, RecompMarker } from './signals'
 
-export type SignalStatus = 'positive' | 'neutral' | 'attention' | 'to_unlock'
-
-export interface Signal {
-  code: SignalCode
-  status: SignalStatus
-  /** The headline number as text with its unit, for example "4 of 4" or "0.4%". */
-  number: string
-  /** One sentence naming the number. */
-  sentence: string
-  /** One concrete action. Required on attention items; may repeat the sentence's advice on positives. */
-  action: string
-  /** For to_unlock: what is still needed, for example "log 2 more days". */
-  unlock: string | null
-  /** Per-body-part detail for sets_by_body_part, per-exercise detail for lifts. */
-  detail: Record<string, number> | null
+function sortByPriority(signals: Signal[]): Signal[] {
+  const rank = (c: SignalCode) => REVIEW_PRIORITY.indexOf(c)
+  return [...signals].sort((a, b) => rank(a.code) - rank(b.code))
 }
 
-/** Everything the review reads, already cut to the window by the caller. */
-export interface ReviewRecords {
-  week_start: DateKey
-  /** Exclusive. */
-  week_end: DateKey
-  workouts: Workout[]
-  sets: WorkoutSet[]
-  /** Four weeks of sets for the lifts and deficit-hold rules. */
-  sets_4w: WorkoutSet[]
-  weigh_ins: WeighIn[]
-  cardio: CardioSession[]
-  cardio_prev_week: CardioSession[]
-  food_logs: FoodLog[]
-  exercises: Readonly<Record<string, ExerciseIndexEntry>>
-  /** Trend state computed by trendState() on the same weigh-ins. */
-  trend: TrendState
-  /** Sessions planned this week from the program. */
-  planned_sessions: number
-  /** Protein target in grams for the week's days. */
-  protein_target_g: number
-  /** Deficit fraction for the 8-set floor and deficit-hold framing. */
-  deficit_fraction: number
-  /** True while the minimal split is active: band 6 to 12 and the guard is silent. */
-  minimal_split: boolean
-  /** Deload week reads as a neutral row. */
-  deload_week: boolean
-  /** The user's free-text line from last week, quoted back. */
-  previous_note: string | null
+/** "3 sessions, 2 check-ins, 5 days of food." */
+export function reviewBasis(records: ReviewRecords): string {
+  const sessions = finishedWorkouts(records).length
+  const checkins = new Set(records.weigh_ins.filter((w) => w.deleted_at === null).map((w) => w.date_key)).size
+  const foodDays = foodTotals(records.food_logs).days.length
+  return `${sessions} ${plural(sessions, 'session')}, ${checkins} ${plural(checkins, 'check-in')}, ${foodDays} ${plural(foodDays, 'day')} of food.`
 }
 
-export interface WeeklyReview {
-  week_start: DateKey
-  /** Hash of the inputs so the stored row recomputes when any record changes. */
-  inputs_hash: string
-  signals: Signal[]
-  /** At most three. */
-  positives: Signal[]
-  /** At most three; the badge reads "Needs attention". */
-  attention: Signal[]
-  /** One line: the top attention item's action, or "Keep doing exactly this." */
-  focus: string
-  /** Rows still collecting, each with the exact count needed. */
-  to_unlock: Signal[]
-  /** "3 sessions, 2 check-ins, 5 days of food." */
-  basis: string
-  previous_note: string | null
-  /** The share-sheet text. */
-  share_text: string
-  disclaimer: string
+function shareText(review: WeeklyReview): string {
+  const lines: string[] = [`Week of ${review.week_start}`, review.basis]
+  for (const s of review.positives) lines.push(`+ ${s.sentence}`)
+  for (const s of review.attention) lines.push(`${ATTENTION_BADGE}: ${s.sentence} ${s.action}`)
+  lines.push(`Focus: ${review.focus}`)
+  if (review.previous_note) lines.push(`Last week I wrote: ${review.previous_note}`)
+  return lines.join('\n')
 }
-
-export const REVIEW_PRIORITY: readonly SignalCode[] = ['protein', 'sessions', 'weight_trend', 'lifts', 'sets_by_body_part', 'cardio']
-
-export const SETS_BAND = { lo: 10, hi: 20, deficit_floor: 8, minimal_lo: 6, minimal_hi: 12, priority_lo: 14, priority_hi: 22 } as const
-
-/** Body parts shown but never flagged. */
-export const UNFLAGGED_PARTS: readonly BodyPart[] = ['forearms', 'core']
-
-export const DISCLAIMER =
-  'General fitness information, not medical advice. See a professional if pregnant, under 18, on medication that affects weight, or with a history of disordered eating.'
-
-export const BANNED_PHRASES: readonly string[] = ['burns fat', 'boosts metabolism', 'detox', 'cures', 'negative', 'failed']
 
 /** The weekly review from the records in the window. Pure and deterministic. */
-export function weeklyReview(_records: ReviewRecords, _profile: Profile): WeeklyReview {
-  throw new Error('not implemented: weeklyReview')
+export function weeklyReview(records: ReviewRecords, profile: Profile): WeeklyReview {
+  const lifts = compareLifts(records)
+  const protein = proteinSignal(records)
+  const all: Signal[] = sortByPriority([
+    protein.signal,
+    sessionsSignal(records),
+    weightSignal(records, profile.goal, records.protein_target_g, lifts),
+    liftsSignal(records, lifts, records.protein_target_g),
+    setsSignal(records),
+    cardioSignal(records, profile.cardio_target_s),
+  ])
+
+  const positives = all.filter((s) => s.status === 'positive').slice(0, MAX_POSITIVES)
+  const attention = all.filter((s) => s.status === 'attention').slice(0, MAX_ATTENTION)
+  const neutral = all.filter((s) => s.status === 'neutral')
+  const to_unlock = all.filter((s) => s.status === 'to_unlock')
+  const focus = attention.length > 0 ? attention[0].action : KEEP_GOING_FOCUS
+
+  const review: WeeklyReview = {
+    week_start: records.week_start,
+    inputs_hash: reviewInputsHash(records),
+    signals: all,
+    positives,
+    attention,
+    focus,
+    to_unlock,
+    basis: reviewBasis(records),
+    previous_note: records.previous_note,
+    share_text: '',
+    disclaimer: DISCLAIMER,
+    logging_check: protein.logging_check,
+    neutral,
+  }
+  review.share_text = shareText(review)
+  return review
 }
 
 /** A stable hash of the records, so an edited past set recomputes the stored review. */
-export function reviewInputsHash(_records: ReviewRecords): string {
-  throw new Error('not implemented: reviewInputsHash')
+export function reviewInputsHash(records: ReviewRecords): string {
+  // The library and the trend are derived or bundled; everything else is the user's data.
+  const { exercises: _exercises, trend: _trend, ...rest } = records
+  return stableHash(rest)
 }
