@@ -1,0 +1,28 @@
+name: Keep the database awake
+
+# Free database projects pause after a week without activity. This writes one
+# row a day. It does nothing until the two repository secrets exist.
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Touch the keepalive row
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ] || [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "secrets not set yet; skipping"
+            exit 0
+          fi
+          curl -sS -X POST "$SUPABASE_URL/rest/v1/rpc/keepalive_touch" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{}' -w '\nstatus %{http_code}\n'
