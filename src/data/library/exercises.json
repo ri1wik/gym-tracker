@@ -1,0 +1,3633 @@
+[
+  {
+    "id": "barbell-bench-press",
+    "name": "Barbell bench press",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts",
+      "triceps"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "horizontal_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "flat-bench",
+    "aliases": [
+      "bench press",
+      "bench",
+      "flat bench",
+      "rod bench press",
+      "BB bench"
+    ],
+    "cue": "Pin your shoulder blades back and drive the bar up over your chest.",
+    "howTo": [
+      "Lie with eyes under the bar, feet planted, shoulder blades squeezed together and down.",
+      "Unrack, lower the bar to the lower chest with forearms vertical, then press back up and slightly toward the rack.",
+      "Finish with elbows locked and the bar stacked over your shoulders.",
+      "Lower for about two seconds, pause briefly, breathe in on the way down and out as you press."
+    ],
+    "mistakes": [
+      "Bouncing the bar off the chest.",
+      "Letting the shoulder blades slide forward and the shoulders roll up.",
+      "Flaring the elbows straight out to the sides."
+    ],
+    "repMin": 5,
+    "repMax": 8,
+    "incrementG": 2500,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "incline-barbell-bench-press",
+    "name": "Incline barbell bench press",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "upper_chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts",
+      "triceps"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "incline_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "incline-bench",
+    "aliases": [
+      "incline bench press",
+      "incline bench",
+      "incline barbell press",
+      "rod incline press"
+    ],
+    "cue": "Press from the upper chest in a straight line over the shoulders.",
+    "howTo": [
+      "Set the bench to a low incline, lie back with shoulder blades pinched and feet flat.",
+      "Lower the bar to the top of the chest, elbows about 45 degrees from the torso, then press it back up.",
+      "Finish with locked elbows and the bar directly over the shoulder joint.",
+      "Two seconds down, no bounce, and exhale through the hardest part of the press."
+    ],
+    "mistakes": [
+      "Setting the bench so steep it turns into a shoulder press.",
+      "Lifting the hips off the pad to move more weight.",
+      "Lowering the bar to the neck instead of the upper chest."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2500,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "dumbbell-bench-press",
+    "name": "Dumbbell bench press",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "front_delts"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "horizontal_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "flat-bench",
+    "aliases": [
+      "DB bench press",
+      "DB bench",
+      "dumbbell press",
+      "flat dumbbell press"
+    ],
+    "cue": "Get a deep stretch at the bottom and squeeze the dumbbells together at the top.",
+    "howTo": [
+      "Sit with the dumbbells on your thighs, lie back and kick them up to chest level, shoulder blades pinched.",
+      "Lower with elbows about 45 degrees from the torso until you feel a stretch across the chest, then press up.",
+      "Finish with the dumbbells over your shoulders and arms straight, not clanking together.",
+      "Control the descent for two seconds and breathe out as you press."
+    ],
+    "mistakes": [
+      "Dropping the elbows so low the shoulders strain.",
+      "Letting the dumbbells drift wide and wobble.",
+      "Cutting the range short to use heavier weights."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "incline-dumbbell-press",
+    "name": "Incline dumbbell press",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "upper_chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts",
+      "triceps"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "incline_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "adjustable-bench",
+    "aliases": [
+      "incline DB press",
+      "incline dumbbell bench",
+      "incline DB bench",
+      "upper chest press"
+    ],
+    "cue": "Press up and slightly in, keeping the work in the upper chest.",
+    "howTo": [
+      "Set the bench to a low incline, kick the dumbbells up and pin the shoulder blades to the pad.",
+      "Lower to the sides of your upper chest with a comfortable stretch, then press up and together.",
+      "Finish with straight arms and the dumbbells above the shoulders.",
+      "Take two seconds on the way down and exhale as you drive up."
+    ],
+    "mistakes": [
+      "Using a steep incline that hands the work to the shoulders.",
+      "Arching the lower back off the pad.",
+      "Letting the dumbbells crash together at the top."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "machine-chest-press",
+    "name": "Machine chest press",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "front_delts"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "horizontal_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "chest-press-machine",
+    "aliases": [
+      "chest press machine",
+      "seated chest press",
+      "machine press",
+      "chest press"
+    ],
+    "cue": "Press the handles forward as if pushing the floor away from your chest.",
+    "howTo": [
+      "Set the seat so the handles line up with the middle of your chest, back flat against the pad.",
+      "Press forward until your arms are nearly straight, then return slowly until you feel the chest stretch.",
+      "Finish with a firm squeeze and elbows just short of lockout.",
+      "Two seconds back, breathe out on the push."
+    ],
+    "mistakes": [
+      "Setting the seat too low so the shoulders roll forward.",
+      "Shrugging toward the ears as you press.",
+      "Letting the weight stack slam at the bottom."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "plate-loaded-chest-press",
+    "name": "Plate-loaded chest press",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "front_delts"
+    ],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "horizontal_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "plate-loaded-chest-press",
+    "aliases": [
+      "hammer chest press",
+      "plate loaded chest press",
+      "iso chest press",
+      "plate chest press"
+    ],
+    "cue": "Drive through the handles and let each arm do its own work.",
+    "howTo": [
+      "Sit tall with the handles at mid-chest height and your back firmly on the pad.",
+      "Push both handles out until the arms are nearly straight, then bring them back under control.",
+      "Finish with a short squeeze and soft elbows.",
+      "Smooth two second return, exhale on the push."
+    ],
+    "mistakes": [
+      "Letting one arm lead and the other lag behind.",
+      "Lifting the back off the pad to shove the weight.",
+      "Loading too many plates and shortening the range."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "plate-loaded-incline-press",
+    "name": "Plate-loaded incline press",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "upper_chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts",
+      "triceps"
+    ],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "incline_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "plate-loaded-incline-press",
+    "aliases": [
+      "hammer incline press",
+      "plate loaded incline press",
+      "iso incline press",
+      "incline chest press machine"
+    ],
+    "cue": "Press up on the angle and keep the upper chest tight.",
+    "howTo": [
+      "Adjust the seat so the handles start at upper chest height with your back flat.",
+      "Press up and forward until the arms are nearly straight, then lower slowly to a stretch.",
+      "Finish with the handles over the shoulder line and the chest squeezed.",
+      "Two seconds down, exhale as you push."
+    ],
+    "mistakes": [
+      "Starting with the handles too low and straining the shoulders.",
+      "Flaring the elbows straight out to the sides.",
+      "Locking out hard and resting on the joints."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "pec-deck",
+    "name": "Pec deck",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "fly",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "pec-deck",
+    "aliases": [
+      "pec fly",
+      "butterfly",
+      "butterfly machine",
+      "chest fly machine",
+      "machine fly",
+      "fly machine"
+    ],
+    "cue": "Hug a big tree and squeeze the chest at the centre.",
+    "howTo": [
+      "Sit with your back flat, handles level with the chest and a slight bend in the elbows.",
+      "Bring the handles together in a wide arc, then let them open until the chest is stretched.",
+      "Finish with the handles meeting in front of the chest and a one second squeeze.",
+      "Open slowly over three seconds and breathe out as you close."
+    ],
+    "mistakes": [
+      "Opening the arms so far behind the body that the shoulders ache.",
+      "Turning the movement into a press by bending the elbows more and more.",
+      "Rushing the return so the stack slams."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "cable-crossover",
+    "name": "Cable crossover",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts"
+    ],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "fly",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "cable-crossover",
+    "aliases": [
+      "cable fly",
+      "cable chest fly",
+      "cable cross",
+      "crossover",
+      "standing cable fly"
+    ],
+    "cue": "Sweep the handles together in an arc and finish with a chest squeeze.",
+    "howTo": [
+      "Set both pulleys high, step forward into a split stance with a slight bend in the elbows and a tall chest.",
+      "Sweep the handles down and in until they meet in front of your lower chest.",
+      "Finish with hands together and the chest fully contracted.",
+      "Open slowly for three seconds, exhale on the way in."
+    ],
+    "mistakes": [
+      "Bending and straightening the elbows so it becomes a press.",
+      "Leaning and swinging the body to move the handles.",
+      "Letting the cables pull the shoulders far back at the open position."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "push-up",
+    "name": "Push-up",
+    "bodyPart": "chest",
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "front_delts"
+    ],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "horizontal_push",
+    "loadType": "bodyweight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "aliases": [
+      "pushup",
+      "push ups",
+      "press-up",
+      "dand",
+      "dands"
+    ],
+    "cue": "Keep the body one straight plank and bring the chest to the floor.",
+    "howTo": [
+      "Set hands just wider than the shoulders, feet together, body in a straight line from head to heels.",
+      "Lower the chest to just above the floor with elbows about 45 degrees from the torso, then push up.",
+      "Finish with locked elbows and the shoulder blades wrapped around the ribs.",
+      "One to two seconds down, exhale as you push away from the floor."
+    ],
+    "mistakes": [
+      "Sagging the hips or piking them up.",
+      "Flaring the elbows to a T shape.",
+      "Stopping halfway down."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 0,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "barbell-row",
+    "name": "Barbell row",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "upper_back",
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "rear_delts",
+      "biceps"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "horizontal_pull",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "olympic-barbell",
+    "aliases": [
+      "bent over row",
+      "bent-over barbell row",
+      "BB row",
+      "rod row"
+    ],
+    "cue": "Hinge forward and row the bar to your belly with a flat back.",
+    "howTo": [
+      "Hinge at the hips until the torso is near 45 degrees, bar hanging below the shoulders, back flat.",
+      "Pull the bar to your lower ribs by driving the elbows behind you.",
+      "Finish with the shoulder blades squeezed and the bar touching the belly.",
+      "Lower in two seconds, breathe out on the pull and keep the brace the whole set."
+    ],
+    "mistakes": [
+      "Standing up with each rep and heaving the weight.",
+      "Rounding the lower back.",
+      "Pulling to the chest and shrugging instead of rowing."
+    ],
+    "repMin": 5,
+    "repMax": 8,
+    "incrementG": 2500,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "deadlift",
+    "name": "Deadlift",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "hamstrings",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "lower_back",
+      "upper_back"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "hinge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "olympic-barbell",
+    "aliases": [
+      "conventional deadlift",
+      "DL",
+      "barbell deadlift",
+      "rod deadlift"
+    ],
+    "cue": "Push the floor away and keep the bar dragging up your legs.",
+    "howTo": [
+      "Stand with the bar over mid-foot, grip just outside the knees, shins to the bar, chest up and back flat.",
+      "Take the slack out of the bar, brace hard and push the floor away until the bar passes the knees, then drive the hips forward.",
+      "Finish standing tall with glutes squeezed, without leaning back.",
+      "Breathe in and brace before each pull, control the bar back down the legs, and reset every rep."
+    ],
+    "mistakes": [
+      "Rounding the lower back off the floor.",
+      "Letting the bar swing away from the legs.",
+      "Yanking the bar instead of building tension first."
+    ],
+    "repMin": 5,
+    "repMax": 8,
+    "incrementG": 5000,
+    "restS": 180,
+    "media": null
+  },
+  {
+    "id": "trap-bar-deadlift",
+    "name": "Trap bar deadlift",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings",
+      "upper_back"
+    ],
+    "equipment": "trap_bar",
+    "equipmentFamily": "barbell",
+    "movementPattern": "hinge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "barType": "olympic",
+    "machineId": "trap-bar",
+    "aliases": [
+      "hex bar deadlift",
+      "trap bar lift",
+      "hex deadlift",
+      "diamond bar deadlift"
+    ],
+    "cue": "Stand inside the bar and push the floor away with a proud chest.",
+    "howTo": [
+      "Step inside the bar, feet hip-width apart, grip the neutral handles, hips lower than the shoulders and back flat.",
+      "Brace, push through the whole foot and stand up with the bar close to your body.",
+      "Finish tall with hips and knees locked and the shoulders over the hips.",
+      "Breathe in before the pull, control the lowering and reset each rep."
+    ],
+    "mistakes": [
+      "Turning it into a squat by dropping the hips too low.",
+      "Jerking the weight off the floor.",
+      "Leaning back at the top."
+    ],
+    "repMin": 5,
+    "repMax": 8,
+    "incrementG": 5000,
+    "restS": 180,
+    "media": null
+  },
+  {
+    "id": "pull-up",
+    "name": "Pull-up",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "upper_back"
+    ],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "vertical_pull",
+    "loadType": "bodyweight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "pull-up-bar",
+    "aliases": [
+      "pullup",
+      "pull ups",
+      "chin up",
+      "chin-up",
+      "chinup",
+      "wide grip pull-up"
+    ],
+    "cue": "Pull your elbows down to your ribs and lead with the chest.",
+    "howTo": [
+      "Hang from the bar with an overhand grip a little wider than the shoulders and the shoulder blades drawn down.",
+      "Pull until your chin clears the bar by driving the elbows toward your ribs.",
+      "Finish with the chest high and the bar near the collarbone.",
+      "Lower for two to three seconds to a full hang and breathe out as you pull."
+    ],
+    "mistakes": [
+      "Kipping or swinging for momentum.",
+      "Stopping short of a full hang at the bottom.",
+      "Craning the neck to get the chin over the bar."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 0,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "assisted-pull-up",
+    "name": "Assisted pull-up",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "upper_back"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "vertical_pull",
+    "loadType": "assisted",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "assisted-pull-up-dip",
+    "aliases": [
+      "assisted pullup",
+      "assisted chin-up",
+      "pull-up machine",
+      "assist pull up",
+      "assisted chin up"
+    ],
+    "cue": "Let the machine carry part of you while the lats do the pulling.",
+    "howTo": [
+      "Pick a stack weight, kneel or stand on the pad and take a grip slightly wider than the shoulders.",
+      "Pull your chest toward the bar by driving the elbows down and back.",
+      "Finish with the chin above the handles and the shoulder blades down.",
+      "Lower in two to three seconds and breathe out as you pull."
+    ],
+    "mistakes": [
+      "Using so much assistance that the lats barely work.",
+      "Swinging the legs to get up.",
+      "Cutting the bottom of the rep short."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "lat-pulldown",
+    "name": "Lat pulldown",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "upper_back"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "vertical_pull",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "lat-pulldown",
+    "aliases": [
+      "pulldown",
+      "lat pull down",
+      "lat pull",
+      "cable pulldown",
+      "wide grip pulldown"
+    ],
+    "cue": "Drive your elbows down into your back pockets and keep the chest tall.",
+    "howTo": [
+      "Sit with the thighs locked under the pads, grip the bar a little wider than shoulder width and lean back slightly.",
+      "Pull the bar to your upper chest by driving the elbows down and back.",
+      "Finish with the bar at the collarbone and the shoulder blades pulled down.",
+      "Let the bar rise for two to three seconds until the arms are long, and breathe out as you pull."
+    ],
+    "mistakes": [
+      "Leaning far back and rocking the weight down.",
+      "Pulling the bar behind the neck.",
+      "Letting the shoulders shrug up at the top of the rep."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "seated-cable-row",
+    "name": "Seated cable row",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "upper_back"
+    ],
+    "secondaryMuscles": [
+      "lats",
+      "biceps"
+    ],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "horizontal_pull",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "cable-station",
+    "aliases": [
+      "cable row",
+      "seated row",
+      "low row",
+      "row machine",
+      "close grip cable row"
+    ],
+    "cue": "Row the handle to your belly and squeeze the shoulder blades together.",
+    "howTo": [
+      "Sit tall with feet braced, knees slightly bent and the handle held with arms straight.",
+      "Pull the handle to your lower ribs while keeping the torso upright.",
+      "Finish with the elbows behind the body and the shoulder blades squeezed.",
+      "Return slowly for two seconds until the shoulders stretch forward, exhaling on the pull."
+    ],
+    "mistakes": [
+      "Rocking the torso back and forth to move the weight.",
+      "Shrugging the shoulders toward the ears.",
+      "Rounding the lower back at the stretch."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "single-arm-cable-row",
+    "name": "Single-arm cable row",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "upper_back"
+    ],
+    "secondaryMuscles": [
+      "lats",
+      "biceps"
+    ],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "horizontal_pull",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "cable-station",
+    "aliases": [
+      "one arm cable row",
+      "single arm row cable",
+      "unilateral cable row",
+      "one hand cable row"
+    ],
+    "cue": "Row one side at a time and keep the hips square.",
+    "howTo": [
+      "Sit or stand facing the cable with a single handle, feet braced, torso tall and shoulders level.",
+      "Pull the handle to your side by driving the elbow past the ribs.",
+      "Finish with the elbow behind you and the shoulder blade pulled in.",
+      "Return slowly over two seconds and breathe out on the pull."
+    ],
+    "mistakes": [
+      "Twisting the torso to cheat the weight back.",
+      "Letting the shoulder shrug up.",
+      "Cutting the stretch short at the front."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "chest-supported-machine-row",
+    "name": "Chest-supported machine row",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "upper_back"
+    ],
+    "secondaryMuscles": [
+      "lats",
+      "biceps"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "horizontal_pull",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "seated-row-machine",
+    "aliases": [
+      "seated row machine",
+      "machine row",
+      "chest supported row",
+      "iso row machine"
+    ],
+    "cue": "Press your chest into the pad and pull your elbows past the ribs.",
+    "howTo": [
+      "Adjust the seat so the handles are at chest height and rest the chest firmly on the pad.",
+      "Pull the handles back by driving the elbows behind the torso.",
+      "Finish with the shoulder blades squeezed and the chest still on the pad.",
+      "Return for two seconds to a full stretch, exhaling on the pull."
+    ],
+    "mistakes": [
+      "Pulling the chest off the pad to gain momentum.",
+      "Shrugging instead of retracting.",
+      "Stopping the return before the arms are long."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "plate-loaded-iso-lateral-row",
+    "name": "Plate-loaded iso-lateral row",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "upper_back",
+      "biceps"
+    ],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "horizontal_pull",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "plate-loaded-iso-lateral-row",
+    "aliases": [
+      "hammer row",
+      "iso lateral row",
+      "plate loaded row",
+      "hammer strength row",
+      "machine iso row"
+    ],
+    "cue": "Row each arm independently and finish with the elbow past the torso.",
+    "howTo": [
+      "Set the seat so the handles sit at mid-chest and the chest rests on the pad if there is one.",
+      "Pull the handles back toward your hips, leading with the elbows.",
+      "Finish with the shoulder blades together and the lats squeezed.",
+      "Take two seconds returning to a full stretch and breathe out on the pull."
+    ],
+    "mistakes": [
+      "Letting the stronger arm take over.",
+      "Heaving the torso backward to finish the rep.",
+      "Stopping the stretch short."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "plate-loaded-high-row",
+    "name": "Plate-loaded high row",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "upper_back",
+      "biceps"
+    ],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "vertical_pull",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "plate-loaded-high-row",
+    "aliases": [
+      "hammer high row",
+      "high row machine",
+      "plate loaded high row",
+      "high row"
+    ],
+    "cue": "Pull down and back like a pulldown with a seated base.",
+    "howTo": [
+      "Sit with the chest on the pad, grip the handles overhead with a slight lean back.",
+      "Pull the handles down and back, driving the elbows toward the hips.",
+      "Finish with the elbows beside the ribs and the shoulder blades pulled down.",
+      "Return slowly for two to three seconds to a full stretch, exhaling on the pull."
+    ],
+    "mistakes": [
+      "Shrugging up into the ears at the top.",
+      "Leaning back too far to cheat.",
+      "Letting the plates yank the arms up quickly."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "dumbbell-row",
+    "name": "Dumbbell row",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "upper_back",
+      "biceps"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "horizontal_pull",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "flat-bench",
+    "aliases": [
+      "one arm dumbbell row",
+      "single arm dumbbell row",
+      "DB row",
+      "bench row",
+      "one arm row"
+    ],
+    "cue": "Pull the dumbbell to your hip as if starting a lawn mower.",
+    "howTo": [
+      "Place one knee and hand on a bench, back flat, other foot on the floor and the dumbbell hanging under the shoulder.",
+      "Row the dumbbell toward your hip, keeping the elbow close to the body.",
+      "Finish with the shoulder blade squeezed and the elbow past the torso.",
+      "Lower for two seconds to a full stretch and breathe out on the pull."
+    ],
+    "mistakes": [
+      "Twisting the torso to swing the weight up.",
+      "Pulling toward the chest and shrugging.",
+      "Letting the back round as the dumbbell lowers."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "straight-arm-pulldown",
+    "name": "Straight-arm pulldown",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "pullover",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "cable-station",
+    "aliases": [
+      "straight arm pushdown",
+      "lat pushdown",
+      "cable pullover",
+      "straight arm lat pulldown",
+      "stiff arm pulldown"
+    ],
+    "cue": "Sweep the bar to your thighs with straight arms and a tight lat.",
+    "howTo": [
+      "Stand facing a high cable with a bar or rope, hinge slightly forward and keep the arms nearly straight.",
+      "Push the bar down in an arc until it touches the thighs.",
+      "Finish with the lats squeezed and the arms still almost straight.",
+      "Let the bar rise slowly for three seconds and exhale on the way down."
+    ],
+    "mistakes": [
+      "Bending the elbows so it turns into a triceps pushdown.",
+      "Swinging the whole body into the movement.",
+      "Letting the bar float away from the body."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "back-extension",
+    "name": "Back extension",
+    "bodyPart": "back",
+    "primaryMuscles": [
+      "lower_back"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "hinge",
+    "loadType": "bodyweight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "back-extension-bench",
+    "aliases": [
+      "hyperextension",
+      "hyper",
+      "back raise",
+      "Roman chair extension",
+      "45 degree back extension"
+    ],
+    "cue": "Hinge from the hips and rise only until the body is straight.",
+    "howTo": [
+      "Set the pad just below the hip bones, lock your heels in and cross the arms over your chest.",
+      "Lower the torso by hinging at the hips with a flat back until you feel the hamstrings stretch.",
+      "Finish by raising the torso until it forms a straight line with the legs.",
+      "Take two seconds up and two seconds down, exhaling as you rise."
+    ],
+    "mistakes": [
+      "Hyperextending the lower back past a straight line.",
+      "Rounding the spine at the bottom.",
+      "Swinging up using momentum."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 0,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "overhead-press",
+    "name": "Overhead press",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "front_delts"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "side_delts"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "vertical_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "squat-rack",
+    "aliases": [
+      "OHP",
+      "military press",
+      "standing press",
+      "shoulder press barbell",
+      "rod shoulder press",
+      "strict press"
+    ],
+    "cue": "Brace tight and press the bar in a straight line over your head.",
+    "howTo": [
+      "Hold the bar at the collarbone with elbows slightly in front, glutes squeezed and ribs down.",
+      "Press the bar up, moving your head back then through as the bar passes the forehead.",
+      "Finish with the bar over the middle of the foot, arms locked and shoulders shrugged up.",
+      "Breathe in and brace before each press, lower the bar under control to the collarbone."
+    ],
+    "mistakes": [
+      "Leaning back into a standing incline press.",
+      "Pressing the bar forward in an arc.",
+      "Letting the elbows drift far behind the bar."
+    ],
+    "repMin": 5,
+    "repMax": 8,
+    "incrementG": 2500,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "seated-dumbbell-shoulder-press",
+    "name": "Seated dumbbell shoulder press",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "front_delts"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "side_delts"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "vertical_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "adjustable-bench",
+    "aliases": [
+      "DB shoulder press",
+      "seated dumbbell press",
+      "dumbbell shoulder press",
+      "seated DB press",
+      "shoulder press"
+    ],
+    "cue": "Press the dumbbells straight up with the ribs down and core tight.",
+    "howTo": [
+      "Sit with the back against the bench, dumbbells at ear height and forearms vertical.",
+      "Press the dumbbells overhead until the arms are straight and close to touching.",
+      "Finish with the dumbbells above the shoulders and the ribs still down.",
+      "Lower for two seconds to ear level and breathe out as you press."
+    ],
+    "mistakes": [
+      "Arching the lower back off the bench.",
+      "Letting the elbows flare far behind the body.",
+      "Lowering the dumbbells only halfway."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "machine-shoulder-press",
+    "name": "Machine shoulder press",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "front_delts"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "side_delts"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "vertical_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "shoulder-press-machine",
+    "aliases": [
+      "shoulder press machine",
+      "seated shoulder press",
+      "machine overhead press",
+      "overhead press machine"
+    ],
+    "cue": "Press up from the shoulders and keep the neck relaxed.",
+    "howTo": [
+      "Set the seat so the handles start near shoulder height and your back is flat on the pad.",
+      "Press the handles up until the arms are nearly straight.",
+      "Finish without locking out hard and without shrugging into the ears.",
+      "Lower in two seconds and exhale as you press."
+    ],
+    "mistakes": [
+      "Setting the seat so low the shoulders pinch.",
+      "Arching the back to push more weight.",
+      "Slamming the weight stack on every rep."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "plate-loaded-shoulder-press",
+    "name": "Plate-loaded shoulder press",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "front_delts"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "side_delts"
+    ],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "vertical_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "plate-loaded-shoulder-press",
+    "aliases": [
+      "hammer shoulder press",
+      "plate loaded shoulder press",
+      "iso shoulder press",
+      "plate shoulder press"
+    ],
+    "cue": "Push each handle straight up and stay tall in the seat.",
+    "howTo": [
+      "Sit with your back flat and the handles at shoulder height.",
+      "Press both handles overhead with the elbows under the wrists.",
+      "Finish with arms nearly straight and ribs down.",
+      "Return slowly for two seconds and breathe out as you press."
+    ],
+    "mistakes": [
+      "Letting one arm lead and the other trail.",
+      "Leaning back to turn it into an incline press.",
+      "Bouncing at the bottom."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "dumbbell-lateral-raise",
+    "name": "Dumbbell lateral raise",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "side_delts"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "lateral_raise",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "lateral raise",
+      "side raise",
+      "side lateral raise",
+      "DB lateral raise",
+      "side delt raise",
+      "side raises"
+    ],
+    "cue": "Lead with the elbows and lift to shoulder height, no higher.",
+    "howTo": [
+      "Stand tall with a slight bend in the elbows and a dumbbell in each hand at your sides.",
+      "Raise the arms out to the sides, elbows leading, until the upper arms are level with the shoulders.",
+      "Finish with a slight tilt of the hands and no shrug.",
+      "Lower for three seconds and breathe out on the way up."
+    ],
+    "mistakes": [
+      "Swinging the body to heave the dumbbells up.",
+      "Shrugging the shoulders toward the ears.",
+      "Lifting the hands well above shoulder height."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "cable-lateral-raise",
+    "name": "Cable lateral raise",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "side_delts"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "lateral_raise",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "cable-station",
+    "aliases": [
+      "cable side raise",
+      "single arm cable lateral raise",
+      "cable side delt raise",
+      "low cable lateral raise"
+    ],
+    "cue": "Pull the cable out in an arc with the elbow, not the wrist.",
+    "howTo": [
+      "Stand side-on to a low pulley, hold the handle with the far hand and keep a soft elbow.",
+      "Raise the arm out and up to shoulder height, leading with the elbow.",
+      "Finish with the upper arm level and the shoulder relaxed.",
+      "Lower in three seconds and exhale as you lift."
+    ],
+    "mistakes": [
+      "Swaying the torso away from the stack.",
+      "Lifting with the wrist and forearm instead of the elbow.",
+      "Letting the shoulder shrug up."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "machine-lateral-raise",
+    "name": "Machine lateral raise",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "side_delts"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "lateral_raise",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "lateral-raise-machine",
+    "aliases": [
+      "lateral raise machine",
+      "side raise machine",
+      "seated lateral raise",
+      "side delt machine"
+    ],
+    "cue": "Push the pads out with your elbows and keep the shoulders down.",
+    "howTo": [
+      "Sit with your back on the pad, set the seat so the pads rest on your lower arms near the elbows.",
+      "Raise the arms out to the sides until they are about level with the shoulders.",
+      "Finish with the shoulders low and the side delts tight.",
+      "Lower in three seconds and exhale on the raise."
+    ],
+    "mistakes": [
+      "Shrugging as the arms rise.",
+      "Pushing with the hands rather than the elbows.",
+      "Letting the stack drop between reps."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "reverse-pec-deck",
+    "name": "Reverse pec deck",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "rear_delts"
+    ],
+    "secondaryMuscles": [
+      "upper_back"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "rear_delt",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "pec-deck",
+    "aliases": [
+      "rear delt fly machine",
+      "reverse fly machine",
+      "rear delt machine",
+      "reverse butterfly",
+      "reverse pec fly"
+    ],
+    "cue": "Open the arms wide and squeeze the back of the shoulders.",
+    "howTo": [
+      "Face the pad, chest against it, handles at shoulder height and a slight bend in the elbows.",
+      "Sweep the arms back and out in a wide arc.",
+      "Finish with the arms in line with the shoulders and the shoulder blades gently squeezed.",
+      "Return slowly for three seconds and breathe out as you open."
+    ],
+    "mistakes": [
+      "Going so heavy that the traps take over.",
+      "Pulling the hands behind the back.",
+      "Letting the stack crash between reps."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "face-pull",
+    "name": "Face pull",
+    "bodyPart": "shoulders",
+    "primaryMuscles": [
+      "rear_delts"
+    ],
+    "secondaryMuscles": [
+      "upper_back",
+      "rotator_cuff"
+    ],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "rear_delt",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "cable-station",
+    "aliases": [
+      "cable face pull",
+      "rope face pull",
+      "face pulls",
+      "rear delt cable pull"
+    ],
+    "cue": "Pull the rope to your forehead and spread the ends apart.",
+    "howTo": [
+      "Set the pulley at upper chest or face height with a rope, step back and hold the ends with thumbs toward you.",
+      "Pull the rope toward your face, pulling the hands apart and the elbows high.",
+      "Finish with the hands beside the ears and the shoulder blades squeezed.",
+      "Return slowly for two to three seconds and exhale as you pull."
+    ],
+    "mistakes": [
+      "Using so much weight that the torso leans back.",
+      "Dropping the elbows below the hands.",
+      "Pulling to the chest instead of the face."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "barbell-curl",
+    "name": "Barbell curl",
+    "bodyPart": "biceps",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "elbow_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "olympic-barbell",
+    "aliases": [
+      "BB curl",
+      "rod curl",
+      "standing barbell curl",
+      "straight bar curl"
+    ],
+    "cue": "Keep the elbows pinned and curl the bar up without swinging.",
+    "howTo": [
+      "Stand tall holding the bar at shoulder width with an underhand grip and elbows by your ribs.",
+      "Curl the bar up by bending only at the elbows.",
+      "Finish with the bar near the shoulders and the biceps squeezed.",
+      "Lower for three seconds to full extension and breathe out as you curl."
+    ],
+    "mistakes": [
+      "Swinging the hips to throw the bar up.",
+      "Letting the elbows drift forward.",
+      "Cutting the range short at the bottom."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2500,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "ez-bar-curl",
+    "name": "EZ bar curl",
+    "bodyPart": "biceps",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "ez_bar",
+    "equipmentFamily": "barbell",
+    "movementPattern": "elbow_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "barType": "ez",
+    "machineId": "ez-bar",
+    "aliases": [
+      "EZ curl",
+      "EZ bar bicep curl",
+      "cambered bar curl"
+    ],
+    "cue": "Curl the bar up with a wrist-friendly angle and quiet elbows.",
+    "howTo": [
+      "Hold the EZ bar on the angled grips with an underhand hold, elbows tucked at your sides.",
+      "Curl the bar up toward your shoulders.",
+      "Finish with the biceps squeezed and the wrists straight.",
+      "Lower under control for three seconds and exhale as you curl."
+    ],
+    "mistakes": [
+      "Rocking the torso backward to get the bar up.",
+      "Gripping too wide and straining the wrists.",
+      "Letting the elbows travel forward."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2500,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "dumbbell-curl",
+    "name": "Dumbbell curl",
+    "bodyPart": "biceps",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "elbow_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "DB curl",
+      "bicep curl",
+      "biceps curl",
+      "dumbbell bicep curl",
+      "alternating dumbbell curl"
+    ],
+    "cue": "Curl and slightly turn the palm up, elbow glued to the side.",
+    "howTo": [
+      "Stand tall with a dumbbell in each hand, palms forward and elbows next to your ribs.",
+      "Curl the dumbbell up, turning the little finger toward the shoulder.",
+      "Finish with the biceps contracted and the elbow still at your side.",
+      "Lower for three seconds and exhale as you curl."
+    ],
+    "mistakes": [
+      "Swinging the body to lift the weights.",
+      "Letting the elbows drift forward and up.",
+      "Dropping the dumbbell without control."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "hammer-curl",
+    "name": "Hammer curl",
+    "bodyPart": "biceps",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "elbow_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "hammer",
+      "neutral grip curl",
+      "DB hammer curl",
+      "hammer curls"
+    ],
+    "cue": "Keep the thumbs up and curl as if hammering a nail.",
+    "howTo": [
+      "Stand with a dumbbell in each hand, palms facing each other and elbows tucked.",
+      "Curl the dumbbell up toward the shoulder without twisting the wrist.",
+      "Finish with the forearm vertical and the biceps squeezed.",
+      "Lower slowly for three seconds and breathe out as you curl."
+    ],
+    "mistakes": [
+      "Swinging the back to cheat the weight.",
+      "Letting the elbow slide forward.",
+      "Rotating the wrist during the lift."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "incline-dumbbell-curl",
+    "name": "Incline dumbbell curl",
+    "bodyPart": "biceps",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "elbow_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "adjustable-bench",
+    "aliases": [
+      "incline curl",
+      "incline DB curl",
+      "incline bench curl",
+      "seated incline curl"
+    ],
+    "cue": "Let the arms hang behind you to stretch the biceps, then curl up.",
+    "howTo": [
+      "Sit back on a bench inclined to about 60 degrees with arms hanging straight down.",
+      "Curl both dumbbells up without moving the upper arms forward.",
+      "Finish with the biceps contracted and the elbows still back.",
+      "Lower slowly for three seconds to a full stretch and exhale as you curl."
+    ],
+    "mistakes": [
+      "Letting the elbows swing forward and losing the stretch.",
+      "Sitting up off the bench to help.",
+      "Using a weight so heavy that the shoulders roll forward."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "machine-preacher-curl",
+    "name": "Machine preacher curl",
+    "bodyPart": "biceps",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "elbow_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "preacher-curl-machine",
+    "aliases": [
+      "preacher curl machine",
+      "preacher curl",
+      "machine curl",
+      "bicep curl machine",
+      "seated curl machine"
+    ],
+    "cue": "Rest your upper arms on the pad and curl through the full range.",
+    "howTo": [
+      "Set the seat so your armpits touch the top of the pad and the elbows line up with the pivot.",
+      "Curl the handles up toward the shoulders.",
+      "Finish with the biceps squeezed and the upper arms still on the pad.",
+      "Lower in three seconds to nearly straight arms and exhale as you curl."
+    ],
+    "mistakes": [
+      "Lifting the elbows off the pad.",
+      "Stopping short of full extension at the bottom.",
+      "Using the shoulders to heave the weight."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "cable-curl",
+    "name": "Cable curl",
+    "bodyPart": "biceps",
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "elbow_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "cable-station",
+    "aliases": [
+      "cable bicep curl",
+      "rope cable curl",
+      "standing cable curl",
+      "low pulley curl"
+    ],
+    "cue": "The cable keeps tension on the biceps from start to finish.",
+    "howTo": [
+      "Face the low pulley with a straight or EZ attachment, elbows by your ribs and chest tall.",
+      "Curl the handle up by bending only at the elbows.",
+      "Finish with the biceps squeezed and the elbows still at your sides.",
+      "Lower for three seconds and exhale as you curl."
+    ],
+    "mistakes": [
+      "Leaning back to turn the curl into a swing.",
+      "Letting the elbows move forward.",
+      "Resting at the bottom with the stack touching."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "cable-pushdown",
+    "name": "Cable pushdown",
+    "bodyPart": "triceps",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "elbow_extension",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "cable-station",
+    "aliases": [
+      "triceps pushdown",
+      "tricep pushdown",
+      "pushdown",
+      "rope pushdown",
+      "tricep rope",
+      "push down"
+    ],
+    "cue": "Elbows stay pinned at your sides while the forearms do the work.",
+    "howTo": [
+      "Stand facing a high pulley, grip the bar or rope, elbows tucked and chest tall.",
+      "Push the attachment down until the arms are straight.",
+      "Finish with the triceps squeezed and the elbows still at the sides.",
+      "Let the handle rise for two to three seconds to about chest height and exhale as you push."
+    ],
+    "mistakes": [
+      "Letting the elbows flare away from the body.",
+      "Leaning over the handle to push with body weight.",
+      "Cutting the top of the rep short."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "overhead-cable-extension",
+    "name": "Overhead cable extension",
+    "bodyPart": "triceps",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "elbow_extension",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "cable-station",
+    "aliases": [
+      "overhead triceps extension",
+      "cable overhead extension",
+      "rope overhead extension",
+      "overhead rope extension",
+      "overhead tricep extension"
+    ],
+    "cue": "Stretch the long head by reaching the elbows up and forward.",
+    "howTo": [
+      "Face away from a low or mid pulley holding a rope behind your head, split stance and ribs down.",
+      "Extend the elbows until the arms are straight overhead.",
+      "Finish with the triceps squeezed and the upper arms still near the ears.",
+      "Lower for three seconds to a deep stretch and exhale as you extend."
+    ],
+    "mistakes": [
+      "Letting the elbows flare wide.",
+      "Arching the lower back as the arms rise.",
+      "Moving the upper arms instead of just the elbows."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "skull-crusher",
+    "name": "Skull crusher",
+    "bodyPart": "triceps",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "ez_bar",
+    "equipmentFamily": "barbell",
+    "movementPattern": "elbow_extension",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "barType": "ez",
+    "machineId": "flat-bench",
+    "aliases": [
+      "skullcrusher",
+      "lying triceps extension",
+      "EZ bar skull crusher",
+      "lying tricep extension",
+      "nose breaker"
+    ],
+    "cue": "Lower the bar behind your head and keep the upper arms still.",
+    "howTo": [
+      "Lie on a bench holding an EZ bar over the chest with arms straight and elbows pointing up.",
+      "Bend the elbows to lower the bar toward your forehead or just behind your head.",
+      "Finish by extending until the arms are straight above the shoulders.",
+      "Lower in three seconds and exhale as you extend."
+    ],
+    "mistakes": [
+      "Letting the elbows flare wide.",
+      "Drifting the upper arms back and forth so it becomes a press.",
+      "Going too heavy and losing control near the head."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2500,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "dip",
+    "name": "Dip",
+    "bodyPart": "triceps",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [
+      "chest",
+      "front_delts"
+    ],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "horizontal_push",
+    "loadType": "bodyweight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "dip-station",
+    "aliases": [
+      "dips",
+      "parallel bar dip",
+      "chest dip",
+      "triceps dip",
+      "tricep dips",
+      "bar dips"
+    ],
+    "cue": "Lower until the shoulders reach elbow height, then press back up.",
+    "howTo": [
+      "Hold yourself on parallel bars with straight arms, shoulders down and a slight forward lean.",
+      "Bend the elbows to lower the body until the upper arms are about parallel to the floor.",
+      "Finish with locked elbows and the chest high.",
+      "Lower in two seconds and exhale as you press up."
+    ],
+    "mistakes": [
+      "Sinking so deep that the shoulders roll forward.",
+      "Swinging the legs to gain momentum.",
+      "Cutting the reps short at the top."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 0,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "assisted-dip",
+    "name": "Assisted dip",
+    "bodyPart": "triceps",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [
+      "chest",
+      "front_delts"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "horizontal_push",
+    "loadType": "assisted",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "assisted-pull-up-dip",
+    "aliases": [
+      "assisted dips",
+      "dip machine",
+      "assist dip",
+      "assisted dip machine"
+    ],
+    "cue": "Let the machine take some weight and press with straight lines.",
+    "howTo": [
+      "Set the assistance weight, kneel on the pad and hold the handles with straight arms.",
+      "Lower the body by bending the elbows until the upper arms reach parallel.",
+      "Finish by pressing to straight arms with the chest high.",
+      "Take two seconds down and exhale as you press."
+    ],
+    "mistakes": [
+      "Using too much help and getting little from the set.",
+      "Letting the shoulders roll forward at the bottom.",
+      "Bouncing out of the bottom position."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "machine-triceps-extension",
+    "name": "Machine triceps extension",
+    "bodyPart": "triceps",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "elbow_extension",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "triceps-extension-machine",
+    "aliases": [
+      "triceps extension machine",
+      "tricep machine",
+      "seated triceps extension",
+      "triceps press machine",
+      "tricep extension machine"
+    ],
+    "cue": "Press the handles down and squeeze the triceps at the bottom.",
+    "howTo": [
+      "Set the seat so your upper arms rest comfortably on the pad and the elbows line up with the pivot.",
+      "Extend the arms by pushing the handles down or forward.",
+      "Finish with the arms straight and the triceps squeezed.",
+      "Return in three seconds and exhale on the push."
+    ],
+    "mistakes": [
+      "Lifting the elbows off the pad.",
+      "Using the shoulders to shove the weight.",
+      "Stopping before the arms are straight."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "close-grip-bench-press",
+    "name": "Close-grip bench press",
+    "bodyPart": "triceps",
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [
+      "chest",
+      "front_delts"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "horizontal_push",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "barType": "olympic",
+    "machineId": "flat-bench",
+    "aliases": [
+      "CGBP",
+      "close grip bench",
+      "narrow grip bench press",
+      "close grip press",
+      "tricep bench press"
+    ],
+    "cue": "Hands just inside shoulder width and elbows tucked.",
+    "howTo": [
+      "Lie on the bench with a grip about shoulder width, shoulder blades pinched and feet planted.",
+      "Lower the bar to the lower chest with the elbows close to the sides, then press up.",
+      "Finish with the elbows locked and the bar over the shoulders.",
+      "Lower for two seconds and breathe out as you press."
+    ],
+    "mistakes": [
+      "Using a grip so narrow that the wrists bend.",
+      "Flaring the elbows out.",
+      "Bouncing the bar off the chest."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2500,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "dumbbell-wrist-curl",
+    "name": "Dumbbell wrist curl",
+    "bodyPart": "forearms",
+    "primaryMuscles": [
+      "forearms"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "wrist_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "flat-bench",
+    "aliases": [
+      "wrist curl",
+      "forearm curl",
+      "DB wrist curl",
+      "seated wrist curl",
+      "forearm flexor curl"
+    ],
+    "cue": "Roll the dumbbell up using only your wrist.",
+    "howTo": [
+      "Sit with forearms resting on your thighs or a bench, palms up, wrists hanging past the edge.",
+      "Curl the dumbbell up by bending the wrist toward you.",
+      "Finish with the forearm flexors squeezed and the forearm still on the support.",
+      "Lower slowly for three seconds to a full stretch and breathe normally."
+    ],
+    "mistakes": [
+      "Lifting the forearms off the support.",
+      "Using a weight too heavy to control the lowering.",
+      "Moving only a small part of the range."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "reverse-curl",
+    "name": "Reverse curl",
+    "bodyPart": "forearms",
+    "primaryMuscles": [
+      "forearms"
+    ],
+    "secondaryMuscles": [
+      "biceps"
+    ],
+    "equipment": "ez_bar",
+    "equipmentFamily": "barbell",
+    "movementPattern": "elbow_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "ez",
+    "machineId": "ez-bar",
+    "aliases": [
+      "reverse EZ curl",
+      "overhand curl",
+      "reverse grip curl",
+      "reverse bar curl"
+    ],
+    "cue": "Palms down, elbows still, curl without bending the wrists.",
+    "howTo": [
+      "Hold an EZ bar with an overhand grip, elbows by your ribs and wrists straight.",
+      "Curl the bar up toward the shoulders without letting the wrists bend back.",
+      "Finish with the forearms squeezed and the elbows still.",
+      "Lower for three seconds and exhale as you curl."
+    ],
+    "mistakes": [
+      "Letting the wrists bend back under the load.",
+      "Swinging the torso to get the bar up.",
+      "Using more weight than the grip can control."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2500,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "farmers-walk",
+    "name": "Farmer's walk",
+    "bodyPart": "forearms",
+    "primaryMuscles": [
+      "forearms"
+    ],
+    "secondaryMuscles": [
+      "traps",
+      "abs"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "carry",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "farmer walk",
+      "farmer carry",
+      "farmer's carry",
+      "dumbbell carry",
+      "suitcase walk"
+    ],
+    "cue": "Stand tall, grip hard and walk with short steady steps.",
+    "howTo": [
+      "Pick up a heavy dumbbell in each hand using a hinge, then stand tall with the shoulders back and ribs down.",
+      "Walk forward with short steady steps, keeping the dumbbells from swinging.",
+      "Finish by lowering the dumbbells under control with a hinge, not a drop.",
+      "Breathe normally, keep the core braced and keep the gaze forward."
+    ],
+    "mistakes": [
+      "Leaning to one side as you walk.",
+      "Shrugging the shoulders up to the ears.",
+      "Taking long bouncy steps that swing the weights."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "back-squat",
+    "name": "Back squat",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "adductors"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "squat",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "squat-rack",
+    "aliases": [
+      "squat",
+      "barbell squat",
+      "BB squat",
+      "high bar squat",
+      "low bar squat",
+      "rod squat",
+      "baithak"
+    ],
+    "cue": "Brace, sit between your hips and drive the floor away.",
+    "howTo": [
+      "Set the bar on your upper back, feet shoulder width with toes slightly out, ribs down and core braced.",
+      "Sit down and back, keeping the knees tracking over the toes, to at least parallel.",
+      "Finish standing tall with the hips and knees fully extended.",
+      "Breathe in at the top, brace, take about two seconds down and drive up without rushing."
+    ],
+    "mistakes": [
+      "Letting the knees cave in.",
+      "Rounding the lower back at the bottom.",
+      "Rising with the hips first so the chest drops forward."
+    ],
+    "repMin": 5,
+    "repMax": 8,
+    "incrementG": 5000,
+    "restS": 180,
+    "media": null
+  },
+  {
+    "id": "front-squat",
+    "name": "Front squat",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "abs"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "squat",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "barType": "olympic",
+    "machineId": "squat-rack",
+    "aliases": [
+      "barbell front squat",
+      "front rack squat",
+      "FS",
+      "rod front squat"
+    ],
+    "cue": "Keep the elbows high and the torso upright.",
+    "howTo": [
+      "Rest the bar on the front of the shoulders with elbows high, feet shoulder width and core braced.",
+      "Sit straight down, keeping the chest up and the elbows high.",
+      "Finish by standing tall without letting the elbows drop.",
+      "Breathe in before each rep, brace and take two seconds down."
+    ],
+    "mistakes": [
+      "Letting the elbows drop and the bar roll forward.",
+      "Leaning forward and rounding the upper back.",
+      "Letting the knees collapse inward."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 180,
+    "media": null
+  },
+  {
+    "id": "leg-press",
+    "name": "Leg press",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "adductors"
+    ],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "squat",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "leg-press",
+    "aliases": [
+      "45 degree leg press",
+      "sled leg press",
+      "machine leg press",
+      "leg press machine"
+    ],
+    "cue": "Press through the whole foot without letting the lower back peel up.",
+    "howTo": [
+      "Sit with the back and hips flat on the pad and the feet shoulder width on the platform.",
+      "Unlock the safeties, lower the sled until the knees are near the chest, then press back up.",
+      "Finish with the legs nearly straight and the knees soft.",
+      "Take two seconds down and exhale as you press."
+    ],
+    "mistakes": [
+      "Letting the hips roll up and the lower back lift at the bottom.",
+      "Locking the knees hard at the top.",
+      "Placing the feet so low that the heels lift."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "hack-squat",
+    "name": "Hack squat",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "squat",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "hack-squat",
+    "aliases": [
+      "machine hack squat",
+      "hack squat machine",
+      "reverse hack squat",
+      "hack"
+    ],
+    "cue": "Slide down with your back on the pad and push through mid-foot.",
+    "howTo": [
+      "Stand on the platform with the shoulders under the pads and the back flat, feet shoulder width.",
+      "Lower under control until the thighs are at least parallel, then press back up.",
+      "Finish with the legs almost straight and the knees soft.",
+      "Take two seconds down and exhale as you press."
+    ],
+    "mistakes": [
+      "Letting the heels lift at the bottom.",
+      "Dropping the knees inward.",
+      "Bouncing out of the bottom."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "smith-machine-squat",
+    "name": "Smith machine squat",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "adductors"
+    ],
+    "equipment": "smith_machine",
+    "equipmentFamily": "smith",
+    "movementPattern": "squat",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "smith-machine",
+    "aliases": [
+      "smith squat",
+      "smith machine squats",
+      "smith machine back squat"
+    ],
+    "cue": "The bar is guided, so choose your foot position and keep the torso steady.",
+    "howTo": [
+      "Set the bar on your upper back, feet slightly forward of the bar and core braced.",
+      "Sit down until the thighs are at least parallel, then press back up.",
+      "Finish standing tall without a violent lockout.",
+      "Take two seconds down and exhale as you drive up."
+    ],
+    "mistakes": [
+      "Standing with the feet directly under the bar and leaning back.",
+      "Rounding the lower back at the bottom.",
+      "Letting the heels lift."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "leg-extension",
+    "name": "Leg extension",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "knee_extension",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "leg-extension",
+    "aliases": [
+      "leg extensions",
+      "quad extension",
+      "knee extension",
+      "leg extension machine",
+      "quad machine"
+    ],
+    "cue": "Straighten the knee fully and squeeze the quads at the top.",
+    "howTo": [
+      "Sit back with the knees in line with the machine pivot and the pad on your lower shins.",
+      "Extend the knees until the legs are straight.",
+      "Finish with the quads squeezed for a one second hold.",
+      "Lower for three seconds and exhale as you extend."
+    ],
+    "mistakes": [
+      "Swinging the weight up with momentum.",
+      "Letting the hips lift off the seat.",
+      "Dropping the weight on the way down."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "bulgarian-split-squat",
+    "name": "Bulgarian split squat",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "lunge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "adjustable-bench",
+    "aliases": [
+      "BSS",
+      "rear foot elevated split squat",
+      "RFESS",
+      "split squat",
+      "Bulgarian split squats"
+    ],
+    "cue": "Drop straight down and keep the front foot planted.",
+    "howTo": [
+      "Rest the back foot on a bench, step the front foot out so the shin can stay near vertical, dumbbells at your sides.",
+      "Lower the back knee toward the floor until the front thigh is near parallel.",
+      "Finish by driving through the front foot to stand tall.",
+      "Take two seconds down, breathe out as you rise, and finish all reps before switching legs."
+    ],
+    "mistakes": [
+      "Standing too close and letting the front knee shoot far forward.",
+      "Leaning the torso forward and rounding the back.",
+      "Pushing off the back foot instead of the front leg."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "walking-lunge",
+    "name": "Walking lunge",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "lunge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "walking lunges",
+      "dumbbell walking lunge",
+      "DB lunge",
+      "lunge walk",
+      "lunges"
+    ],
+    "cue": "Take a long step and drop the back knee straight down.",
+    "howTo": [
+      "Hold a dumbbell in each hand, stand tall and take a long step forward.",
+      "Lower the back knee toward the floor until the front thigh is near parallel.",
+      "Finish by driving through the front foot and stepping the rear foot through.",
+      "Breathe out as you rise and keep the torso upright throughout."
+    ],
+    "mistakes": [
+      "Taking steps too short so the front knee shoots forward.",
+      "Letting the front knee cave inward.",
+      "Rushing the steps so you wobble from side to side."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "goblet-squat",
+    "name": "Goblet squat",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "abs"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "squat",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "goblet squats",
+      "dumbbell squat",
+      "DB squat",
+      "kettlebell goblet squat"
+    ],
+    "cue": "Hold the weight at your chest and sit down between your knees.",
+    "howTo": [
+      "Hold one dumbbell vertically at your chest, elbows pointing down, feet shoulder width and toes slightly out.",
+      "Sit down between your hips, keeping the chest tall, until the thighs are at least parallel.",
+      "Finish by standing tall and squeezing the glutes.",
+      "Breathe in on the way down, brace, and exhale as you stand."
+    ],
+    "mistakes": [
+      "Letting the weight drift forward and the torso fold.",
+      "Letting the knees cave in.",
+      "Rising on the toes as you squat."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "step-up",
+    "name": "Step-up",
+    "bodyPart": "quads",
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "lunge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "flat-bench",
+    "aliases": [
+      "step ups",
+      "dumbbell step-up",
+      "box step up",
+      "bench step-up",
+      "DB step up"
+    ],
+    "cue": "Drive through the lead foot and stand all the way up.",
+    "howTo": [
+      "Hold a dumbbell in each hand, put one foot fully on a bench or box so the thigh is near parallel.",
+      "Press through that foot to stand up, bringing the other knee up without pushing off the floor.",
+      "Finish standing tall on the bench with the hips under you.",
+      "Lower slowly for two seconds and finish all reps on one leg before switching."
+    ],
+    "mistakes": [
+      "Pushing hard off the back foot.",
+      "Using a bench so high that the back rounds.",
+      "Letting the front knee cave in."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "romanian-deadlift",
+    "name": "Romanian deadlift",
+    "bodyPart": "hamstrings",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "lower_back"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "hinge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "olympic-barbell",
+    "aliases": [
+      "RDL",
+      "Romanian DL",
+      "barbell RDL",
+      "stiff leg deadlift",
+      "rod RDL"
+    ],
+    "cue": "Push the hips back and slide the bar down your thighs.",
+    "howTo": [
+      "Stand with the bar at hip height, feet hip width, knees slightly bent and shoulder blades back.",
+      "Push the hips straight back, sliding the bar down the thighs until you feel a deep hamstring stretch.",
+      "Finish by driving the hips forward to stand tall with glutes squeezed.",
+      "Take about three seconds down, breathe in at the top and brace before the descent."
+    ],
+    "mistakes": [
+      "Rounding the lower back to chase depth.",
+      "Bending the knees and squatting down.",
+      "Letting the bar drift away from the legs."
+    ],
+    "repMin": 5,
+    "repMax": 8,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "dumbbell-romanian-deadlift",
+    "name": "Dumbbell Romanian deadlift",
+    "bodyPart": "hamstrings",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "lower_back"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "hinge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "DB RDL",
+      "dumbbell RDL",
+      "dumbbell stiff leg deadlift",
+      "DB Romanian deadlift"
+    ],
+    "cue": "Hips back, dumbbells close, flat back.",
+    "howTo": [
+      "Hold a dumbbell in each hand in front of the thighs, feet hip width and knees slightly bent.",
+      "Push the hips back and slide the dumbbells down your legs until the hamstrings stretch.",
+      "Finish by driving the hips forward to stand tall.",
+      "Take three seconds down and exhale as you stand."
+    ],
+    "mistakes": [
+      "Rounding the back as the dumbbells go low.",
+      "Letting the dumbbells swing away from the legs.",
+      "Bending the knees until it becomes a squat."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "single-leg-romanian-deadlift",
+    "name": "Single-leg Romanian deadlift",
+    "bodyPart": "hamstrings",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "hinge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "single leg RDL",
+      "one leg RDL",
+      "single-leg deadlift",
+      "unilateral RDL",
+      "SL RDL"
+    ],
+    "cue": "Square the hips and hinge on one leg like a seesaw.",
+    "howTo": [
+      "Stand on one leg holding a dumbbell in the opposite hand, slight knee bend and hips square.",
+      "Hinge forward, sending the free leg straight back, until the torso is near parallel to the floor.",
+      "Finish by driving the hips forward to stand tall on the working leg.",
+      "Take three seconds down, exhale as you rise and keep a light touch on a support if needed."
+    ],
+    "mistakes": [
+      "Letting the hips open up and rotate.",
+      "Rounding the back to reach the floor.",
+      "Hopping on the standing foot to regain balance."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 2000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "seated-leg-curl",
+    "name": "Seated leg curl",
+    "bodyPart": "hamstrings",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "knee_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "seated-leg-curl",
+    "aliases": [
+      "seated hamstring curl",
+      "leg curl",
+      "hamstring curl machine",
+      "seated curl",
+      "leg curl machine"
+    ],
+    "cue": "Curl the pad under you and squeeze the hamstrings.",
+    "howTo": [
+      "Sit with your back flat against the pad, the thigh pad snug and the ankle pad just above the heels.",
+      "Curl the legs down and back as far as you can.",
+      "Finish with the hamstrings squeezed and the knees fully bent.",
+      "Return slowly for three seconds and exhale as you curl."
+    ],
+    "mistakes": [
+      "Lifting the hips off the seat.",
+      "Using momentum to swing the pad.",
+      "Cutting the stretch short at the top."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "lying-leg-curl",
+    "name": "Lying leg curl",
+    "bodyPart": "hamstrings",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "knee_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "lying-leg-curl",
+    "aliases": [
+      "lying hamstring curl",
+      "prone leg curl",
+      "lying curl",
+      "hamstring curl"
+    ],
+    "cue": "Curl your heels to your glutes without the hips popping up.",
+    "howTo": [
+      "Lie face down with the pad on the lower calves, hips pressed down and knees just off the bench edge.",
+      "Curl the heels toward your glutes.",
+      "Finish with the hamstrings squeezed and the hips still pressed down.",
+      "Lower for three seconds to nearly straight legs and exhale as you curl."
+    ],
+    "mistakes": [
+      "Raising the hips to cheat the weight up.",
+      "Dropping the weight in the last part of the rep.",
+      "Stopping short of the full stretch."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "good-morning",
+    "name": "Good morning",
+    "bodyPart": "hamstrings",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "lower_back"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "hinge",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "barType": "olympic",
+    "machineId": "squat-rack",
+    "aliases": [
+      "barbell good morning",
+      "GM",
+      "good mornings",
+      "rod good morning"
+    ],
+    "cue": "Push the hips back with a flat back and a bar on the shoulders.",
+    "howTo": [
+      "Set the bar on your upper back, feet hip width and knees slightly bent.",
+      "Push the hips straight back and lower the torso until you feel a strong hamstring stretch.",
+      "Finish by driving the hips forward to stand tall.",
+      "Take three seconds down, breathe in before each rep, and keep the load moderate."
+    ],
+    "mistakes": [
+      "Rounding the lower back under the load.",
+      "Bending the knees until it becomes a squat.",
+      "Going so heavy that the bar rolls or the back gives way."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "nordic-hamstring-curl",
+    "name": "Nordic hamstring curl",
+    "bodyPart": "hamstrings",
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "knee_flexion",
+    "loadType": "bodyweight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "aliases": [
+      "Nordic curl",
+      "Nordics",
+      "nordic hamstring",
+      "natural hamstring curl",
+      "Nordic"
+    ],
+    "cue": "Lower yourself as slowly as you can and catch the floor with your hands.",
+    "howTo": [
+      "Kneel on a pad with the ankles locked under a bar or held by a partner, body straight from knees to head.",
+      "Lower the torso forward as slowly as you can by straightening at the knees.",
+      "Finish by catching yourself with your hands and pushing back up to the start.",
+      "Take at least three seconds down and keep the hips extended throughout."
+    ],
+    "mistakes": [
+      "Folding at the hips instead of keeping the body straight.",
+      "Dropping fast and giving up control.",
+      "Not keeping the ankles locked."
+    ],
+    "repMin": 5,
+    "repMax": 8,
+    "incrementG": 0,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "barbell-hip-thrust",
+    "name": "Barbell hip thrust",
+    "bodyPart": "glutes",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": "barbell",
+    "equipmentFamily": "barbell",
+    "movementPattern": "hip_thrust",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "barType": "olympic",
+    "machineId": "flat-bench",
+    "aliases": [
+      "hip thrust",
+      "BB hip thrust",
+      "glute bridge barbell",
+      "rod hip thrust",
+      "barbell glute bridge"
+    ],
+    "cue": "Tuck your chin, drive through the heels and squeeze the glutes.",
+    "howTo": [
+      "Rest your upper back on a bench with the bar across the hips, feet flat and shins vertical at the top.",
+      "Drive through the heels and lift the hips until the body forms a straight line from shoulders to knees.",
+      "Finish with a one second squeeze and ribs down, not an arched back.",
+      "Lower in two seconds and exhale as you thrust."
+    ],
+    "mistakes": [
+      "Overarching the lower back at the top.",
+      "Pushing through the toes with the knees caving.",
+      "Setting the feet too far away so the hamstrings take over."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "machine-hip-thrust",
+    "name": "Machine hip thrust",
+    "bodyPart": "glutes",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "hip_thrust",
+    "loadType": "weight",
+    "isCompound": true,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "hip-thrust-machine",
+    "aliases": [
+      "hip thrust machine",
+      "glute drive",
+      "glute bridge machine",
+      "plate loaded hip thrust"
+    ],
+    "cue": "Ribs down, chin tucked, press the hips up with the glutes.",
+    "howTo": [
+      "Sit with the pad across your hips, upper back on the support and feet flat.",
+      "Drive through the heels and lift the hips until the thighs are level with the torso.",
+      "Finish with a squeeze and no arching of the lower back.",
+      "Lower in two seconds and exhale as you thrust."
+    ],
+    "mistakes": [
+      "Overarching the back to gain height.",
+      "Letting the feet slide forward.",
+      "Rushing the descent."
+    ],
+    "repMin": 8,
+    "repMax": 12,
+    "incrementG": 5000,
+    "restS": 150,
+    "media": null
+  },
+  {
+    "id": "glute-bridge",
+    "name": "Glute bridge",
+    "bodyPart": "glutes",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "hip_thrust",
+    "loadType": "bodyweight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "aliases": [
+      "bridge",
+      "hip bridge",
+      "floor glute bridge",
+      "bodyweight glute bridge",
+      "pelvic raise"
+    ],
+    "cue": "Squeeze the glutes and lift the hips in a straight line.",
+    "howTo": [
+      "Lie on your back with knees bent, feet flat near your hips and arms at your sides.",
+      "Press through the heels and lift the hips until the body is straight from knees to shoulders.",
+      "Finish with a one second squeeze of the glutes.",
+      "Lower in two seconds and exhale as you lift."
+    ],
+    "mistakes": [
+      "Pushing through the toes and straining the lower back.",
+      "Overarching at the top.",
+      "Letting the knees cave inward."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 0,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "cable-kickback",
+    "name": "Cable kickback",
+    "bodyPart": "glutes",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "hinge",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "cable-station",
+    "aliases": [
+      "glute kickback",
+      "cable glute kickback",
+      "standing cable kickback",
+      "ankle strap kickback",
+      "kickbacks"
+    ],
+    "cue": "Kick straight back and squeeze the glute without arching.",
+    "howTo": [
+      "Attach an ankle strap to a low pulley, face the stack, hold the frame and hinge slightly forward.",
+      "Kick the working leg straight back, leading with the heel.",
+      "Finish with a short squeeze at the top, hips square and the lower back still.",
+      "Return in two seconds and exhale as you kick."
+    ],
+    "mistakes": [
+      "Swinging the leg and arching the lower back.",
+      "Twisting the hips open.",
+      "Letting the stack touch between reps."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "hip-abduction-machine",
+    "name": "Hip abduction machine",
+    "bodyPart": "glutes",
+    "primaryMuscles": [
+      "abductors"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "hip_abduction",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "hip-abductor-machine",
+    "aliases": [
+      "hip abductor",
+      "abductor machine",
+      "outer thigh machine",
+      "seated hip abduction",
+      "abduction machine"
+    ],
+    "cue": "Push the pads out and keep your back against the seat.",
+    "howTo": [
+      "Sit back with the pads on the outsides of your knees, feet on the plates and back flat.",
+      "Push the legs out to the sides as far as comfortable.",
+      "Finish with the outer hips squeezed and a one second hold.",
+      "Return in three seconds and breathe out as you open."
+    ],
+    "mistakes": [
+      "Rocking the torso to heave the pads.",
+      "Dropping the knees in too fast.",
+      "Using a range so short it barely works."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "hip-adduction-machine",
+    "name": "Hip adduction machine",
+    "bodyPart": "glutes",
+    "primaryMuscles": [
+      "adductors"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "hip_adduction",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "hip-adductor-machine",
+    "aliases": [
+      "hip adductor",
+      "adductor machine",
+      "inner thigh machine",
+      "seated hip adduction",
+      "adduction machine"
+    ],
+    "cue": "Squeeze the pads together and keep the torso still.",
+    "howTo": [
+      "Sit back with the pads on the insides of your knees and feet on the plates.",
+      "Bring the legs together until the pads meet.",
+      "Finish with a one second squeeze and the back still on the pad.",
+      "Open in three seconds and exhale as you close."
+    ],
+    "mistakes": [
+      "Opening so wide that the hips strain.",
+      "Throwing the legs together with momentum.",
+      "Leaning forward off the back pad."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "cable-pull-through",
+    "name": "Cable pull-through",
+    "bodyPart": "glutes",
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "hinge",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "cable-station",
+    "aliases": [
+      "pull through",
+      "cable pullthrough",
+      "rope pull-through",
+      "glute pull through"
+    ],
+    "cue": "Hinge back with the rope between your legs and snap the hips forward.",
+    "howTo": [
+      "Face away from a low pulley with a rope between your legs, step forward until the cable is taut and hinge slightly.",
+      "Push the hips back so the hands go behind the legs and the hamstrings stretch.",
+      "Finish by driving the hips forward until you stand tall with glutes squeezed.",
+      "Take two seconds back and exhale as you stand."
+    ],
+    "mistakes": [
+      "Squatting down instead of hinging.",
+      "Pulling with the arms instead of the hips.",
+      "Leaning back at the top."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "standing-calf-raise",
+    "name": "Standing calf raise",
+    "bodyPart": "calves",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "calf",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "standing-calf-raise",
+    "aliases": [
+      "standing calf raises",
+      "calf raise",
+      "calf raise machine",
+      "standing calf machine",
+      "calf machine"
+    ],
+    "cue": "Rise as high as you can and pause at the top.",
+    "howTo": [
+      "Stand with the balls of your feet on the platform and the pads on your shoulders, heels hanging free.",
+      "Lower the heels to a deep stretch, then rise as high as possible.",
+      "Finish with a one second squeeze at the top.",
+      "Take two seconds down, pause in the stretch, and breathe out as you rise."
+    ],
+    "mistakes": [
+      "Bouncing out of the bottom.",
+      "Bending the knees to heave the weight.",
+      "Cutting the range short at the top."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "seated-calf-raise",
+    "name": "Seated calf raise",
+    "bodyPart": "calves",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "calf",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "seated-calf-raise",
+    "aliases": [
+      "seated calf raises",
+      "soleus raise",
+      "seated calf machine",
+      "soleus machine"
+    ],
+    "cue": "Press through the ball of the foot and hold the top.",
+    "howTo": [
+      "Sit with the pad on your lower thighs and the balls of your feet on the platform.",
+      "Lower the heels to a deep stretch, then press up as high as possible.",
+      "Finish with a one second pause at the top.",
+      "Take two seconds down and exhale as you rise."
+    ],
+    "mistakes": [
+      "Bouncing at the bottom of the rep.",
+      "Rushing through half reps.",
+      "Letting the knees drift together or apart."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "leg-press-calf-raise",
+    "name": "Leg press calf raise",
+    "bodyPart": "calves",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "plate_loaded_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "calf",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "leg-press",
+    "aliases": [
+      "calf press",
+      "leg press calf",
+      "calf raise on leg press",
+      "sled calf raise"
+    ],
+    "cue": "Use the leg press with straight legs and push through the balls of the feet.",
+    "howTo": [
+      "Sit on the leg press with legs nearly straight and the balls of your feet on the lower edge of the platform.",
+      "Let the heels sink for a deep stretch, then press the platform away by rising on the toes.",
+      "Finish with a one second squeeze and the knees soft, not locked.",
+      "Take two seconds down and exhale as you press."
+    ],
+    "mistakes": [
+      "Locking the knees hard under load.",
+      "Bouncing out of the bottom.",
+      "Moving only a short range."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "single-leg-dumbbell-calf-raise",
+    "name": "Single-leg dumbbell calf raise",
+    "bodyPart": "calves",
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "dumbbell",
+    "equipmentFamily": "dumbbell",
+    "movementPattern": "calf",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "dumbbell-rack",
+    "aliases": [
+      "single leg calf raise",
+      "one leg calf raise",
+      "DB calf raise",
+      "dumbbell calf raise",
+      "step calf raise"
+    ],
+    "cue": "Stand on one foot on a step edge and rise high.",
+    "howTo": [
+      "Stand on a step with the ball of one foot on the edge, hold a dumbbell in the same-side hand and a rail with the other.",
+      "Lower the heel below the step for a deep stretch.",
+      "Rise as high as you can and pause for a second at the top.",
+      "Take two seconds down and exhale as you rise, then switch sides."
+    ],
+    "mistakes": [
+      "Bouncing instead of controlling the stretch.",
+      "Leaning on the rail to do the lifting.",
+      "Cutting the range short."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 2000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "plank",
+    "name": "Plank",
+    "bodyPart": "core",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "anti_extension",
+    "loadType": "time",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "aliases": [
+      "planks",
+      "front plank",
+      "forearm plank",
+      "elbow plank",
+      "plank hold"
+    ],
+    "cue": "Squeeze your glutes and ribs down so the body stays one straight line.",
+    "howTo": [
+      "Rest on the forearms with elbows under the shoulders, feet hip width and the body straight.",
+      "Tuck the pelvis slightly, tighten the abs and squeeze the glutes.",
+      "Hold the line from head to heels without letting the hips sag or rise.",
+      "Breathe slowly through the nose and keep the neck neutral."
+    ],
+    "mistakes": [
+      "Sagging the lower back toward the floor.",
+      "Piking the hips up high.",
+      "Holding the breath for the whole set."
+    ],
+    "repMin": 30,
+    "repMax": 60,
+    "incrementG": 0,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "hanging-knee-raise",
+    "name": "Hanging knee raise",
+    "bodyPart": "core",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "hip_flexors"
+    ],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "trunk_flexion",
+    "loadType": "bodyweight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "pull-up-bar",
+    "aliases": [
+      "knee raise",
+      "hanging leg raise",
+      "knee raises",
+      "hanging knee tuck",
+      "captain chair knee raise"
+    ],
+    "cue": "Curl the pelvis up, not just the knees.",
+    "howTo": [
+      "Hang from the bar with straight arms and shoulders pulled down.",
+      "Bring the knees up toward the chest while tilting the pelvis back.",
+      "Finish with the knees above the hips and the abs squeezed.",
+      "Lower in two seconds without swinging, and exhale as you lift."
+    ],
+    "mistakes": [
+      "Swinging the body to get the legs up.",
+      "Using only the hip flexors and not curling the pelvis.",
+      "Dropping the legs fast on the way down."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 0,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "cable-crunch",
+    "name": "Cable crunch",
+    "bodyPart": "core",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "trunk_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": true,
+    "machineId": "cable-station",
+    "aliases": [
+      "kneeling cable crunch",
+      "rope crunch",
+      "cable ab crunch",
+      "rope cable crunch",
+      "ab cable crunch"
+    ],
+    "cue": "Curl the ribs toward the hips, not the hips toward the floor.",
+    "howTo": [
+      "Kneel facing a high pulley holding a rope beside your head, hips stacked over the knees.",
+      "Curl the torso down by rounding the spine, bringing the elbows toward the thighs.",
+      "Finish with the abs squeezed and the hips still.",
+      "Return slowly for two seconds and exhale as you crunch."
+    ],
+    "mistakes": [
+      "Sitting back on the heels to move the weight.",
+      "Pulling with the arms rather than the abs.",
+      "Bending at the hips instead of rounding the spine."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "ab-crunch-machine",
+    "name": "Ab crunch machine",
+    "bodyPart": "core",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "selectorised_machine",
+    "equipmentFamily": "machine",
+    "movementPattern": "trunk_flexion",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "machineId": "ab-crunch-machine",
+    "aliases": [
+      "ab machine",
+      "crunch machine",
+      "seated ab crunch",
+      "abdominal machine"
+    ],
+    "cue": "Round forward and bring the ribs toward the pelvis.",
+    "howTo": [
+      "Sit with the pads against your chest or behind your shoulders and your feet anchored.",
+      "Crunch forward by curling the spine and shortening the distance between ribs and hips.",
+      "Finish with the abs squeezed and the lower back rounded.",
+      "Return in two to three seconds and exhale as you crunch."
+    ],
+    "mistakes": [
+      "Pulling with the arms and hips.",
+      "Using speed instead of control.",
+      "Setting the weight so heavy that the back cannot stay curled."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "ab-wheel-rollout",
+    "name": "Ab wheel rollout",
+    "bodyPart": "core",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "lats"
+    ],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "anti_extension",
+    "loadType": "bodyweight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "aliases": [
+      "ab wheel",
+      "ab roller",
+      "wheel rollout",
+      "rollout",
+      "ab roll out"
+    ],
+    "cue": "Roll out only as far as you can keep the lower back flat.",
+    "howTo": [
+      "Kneel on a pad holding the ab wheel under your shoulders, ribs down and the back slightly rounded.",
+      "Roll forward in a slow line until the body is nearly straight.",
+      "Finish by pulling the wheel back with the abs, hips staying over the knees.",
+      "Take three seconds out, breathe out as you return and stop before the back arches."
+    ],
+    "mistakes": [
+      "Letting the lower back sag as the wheel rolls out.",
+      "Pulling with the arms rather than the abs.",
+      "Reaching out so far that you drop to the floor."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 0,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "pallof-press",
+    "name": "Pallof press",
+    "bodyPart": "core",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [],
+    "equipment": "cable",
+    "equipmentFamily": "cable",
+    "movementPattern": "anti_rotation",
+    "loadType": "weight",
+    "isCompound": false,
+    "isUnilateral": true,
+    "isRecompPriority": false,
+    "machineId": "cable-station",
+    "aliases": [
+      "Pallof",
+      "cable Pallof press",
+      "anti rotation press",
+      "Pallof hold",
+      "band Pallof press"
+    ],
+    "cue": "Press out and resist the cable trying to twist you.",
+    "howTo": [
+      "Stand side-on to a cable at chest height, feet hip width and the handle held at your chest.",
+      "Press the handle straight out until the arms are extended without letting the torso rotate.",
+      "Finish with a two second hold and ribs down.",
+      "Return slowly to the chest, breathe out as you press, and switch sides."
+    ],
+    "mistakes": [
+      "Letting the torso twist toward the cable.",
+      "Leaning away to counter the weight.",
+      "Shrugging the shoulders up during the press."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 5000,
+    "restS": 75,
+    "media": null
+  },
+  {
+    "id": "reverse-crunch",
+    "name": "Reverse crunch",
+    "bodyPart": "core",
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [
+      "hip_flexors"
+    ],
+    "equipment": "bodyweight",
+    "equipmentFamily": "bodyweight",
+    "movementPattern": "trunk_flexion",
+    "loadType": "bodyweight",
+    "isCompound": false,
+    "isUnilateral": false,
+    "isRecompPriority": false,
+    "aliases": [
+      "reverse crunches",
+      "leg crunch",
+      "lower ab crunch",
+      "bent knee reverse crunch",
+      "lower abs raise"
+    ],
+    "cue": "Curl the hips up off the floor, using the abs, not momentum.",
+    "howTo": [
+      "Lie on your back with the knees bent over the hips and hands at your sides or under the glutes.",
+      "Curl the pelvis up and toward the ribs, lifting the hips off the floor.",
+      "Finish with the lower back slightly lifted and the abs squeezed.",
+      "Lower slowly for two to three seconds and exhale as you curl."
+    ],
+    "mistakes": [
+      "Swinging the legs to throw the hips up.",
+      "Using the hands to push off the floor.",
+      "Dropping the hips quickly on the way down."
+    ],
+    "repMin": 10,
+    "repMax": 15,
+    "incrementG": 0,
+    "restS": 75,
+    "media": null
+  }
+]
