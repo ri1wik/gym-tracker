@@ -1,0 +1,352 @@
+[
+  {
+    "key": "ppl_6",
+    "name": "Push/pull/legs, 6 days",
+    "split": "ppl_6",
+    "days_per_week": 6,
+    "rotation": false,
+    "days": [
+    {
+      "key": "push_a",
+      "name": "Push A",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["horizontal_push","incline_push","fly","vertical_push","lateral_raise","elbow_extension"],
+      "items": [
+        {"exercise_id":"barbell-bench-press","sets":4,"rep_min":6,"rep_max":8,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"incline-dumbbell-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"pec-deck","sets":3,"rep_min":12,"rep_max":15,"rest_s":75},
+        {"exercise_id":"seated-dumbbell-shoulder-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"dumbbell-lateral-raise","sets":4,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"overhead-cable-extension","sets":3,"rep_min":10,"rep_max":15,"rest_s":75}
+      ]
+    },
+    {
+      "key": "pull_a",
+      "name": "Pull A",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["horizontal_pull","vertical_pull","rear_delt","elbow_flexion"],
+      "items": [
+        {"exercise_id":"barbell-row","sets":4,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"lat-pulldown","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"seated-cable-row","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"face-pull","sets":2,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"reverse-pec-deck","sets":3,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"barbell-curl","sets":3,"rep_min":8,"rep_max":12,"rest_s":75},
+        {"exercise_id":"hammer-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "legs_a",
+      "name": "Legs A",
+      "cardio_note": "No hard cardio today. Optional 10 min easy flat walk to cool down.",
+      "pattern_focus": ["squat","knee_flexion","hip_thrust","knee_extension","calf","trunk_flexion"],
+      "items": [
+        {"exercise_id":"back-squat","sets":4,"rep_min":5,"rep_max":8,"rest_s":180,"is_key_lift":true},
+        {"exercise_id":"leg-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":150},
+        {"exercise_id":"seated-leg-curl","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"barbell-hip-thrust","sets":2,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"leg-extension","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"standing-calf-raise","sets":4,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"cable-crunch","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "push_b",
+      "name": "Push B",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["vertical_push","horizontal_push","incline_push","fly","lateral_raise","elbow_extension"],
+      "items": [
+        {"exercise_id":"overhead-press","sets":4,"rep_min":5,"rep_max":8,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"dumbbell-bench-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"plate-loaded-incline-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"cable-crossover","sets":2,"rep_min":12,"rep_max":15,"rest_s":75},
+        {"exercise_id":"cable-lateral-raise","sets":4,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"cable-pushdown","sets":3,"rep_min":10,"rep_max":15,"rest_s":75}
+      ]
+    },
+    {
+      "key": "pull_b",
+      "name": "Pull B",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["vertical_pull","horizontal_pull","rear_delt","elbow_flexion"],
+      "items": [
+        {"exercise_id":"pull-up","sets":3,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"chest-supported-machine-row","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"single-arm-cable-row","sets":2,"rep_min":10,"rep_max":12,"rest_s":90},
+        {"exercise_id":"face-pull","sets":2,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"reverse-pec-deck","sets":2,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"incline-dumbbell-curl","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"cable-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "legs_b",
+      "name": "Legs B",
+      "cardio_note": "No hard cardio today. Optional 10 min easy flat walk to cool down.",
+      "pattern_focus": ["hinge","squat","knee_flexion","hip_thrust","knee_extension","calf","trunk_flexion"],
+      "items": [
+        {"exercise_id":"romanian-deadlift","sets":4,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"hack-squat","sets":3,"rep_min":8,"rep_max":12,"rest_s":150},
+        {"exercise_id":"lying-leg-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"machine-hip-thrust","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"leg-extension","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"seated-calf-raise","sets":4,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"hanging-knee-raise","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    }
+    ]
+  },
+  {
+    "key": "ppl_5",
+    "name": "Push/pull/legs, 5-day rotation",
+    "split": "ppl_5",
+    "days_per_week": 5,
+    "rotation": true,
+    "days": [
+    {
+      "key": "push_a",
+      "name": "Push A",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["horizontal_push","incline_push","fly","vertical_push","lateral_raise","elbow_extension"],
+      "items": [
+        {"exercise_id":"barbell-bench-press","sets":4,"rep_min":6,"rep_max":8,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"incline-dumbbell-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"pec-deck","sets":3,"rep_min":12,"rep_max":15,"rest_s":75},
+        {"exercise_id":"seated-dumbbell-shoulder-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"dumbbell-lateral-raise","sets":4,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"overhead-cable-extension","sets":3,"rep_min":10,"rep_max":15,"rest_s":75}
+      ]
+    },
+    {
+      "key": "pull_a",
+      "name": "Pull A",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["horizontal_pull","vertical_pull","rear_delt","elbow_flexion"],
+      "items": [
+        {"exercise_id":"barbell-row","sets":4,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"lat-pulldown","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"seated-cable-row","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"face-pull","sets":2,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"reverse-pec-deck","sets":3,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"barbell-curl","sets":3,"rep_min":8,"rep_max":12,"rest_s":75},
+        {"exercise_id":"hammer-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "legs_a",
+      "name": "Legs A",
+      "cardio_note": "No hard cardio today. Optional 10 min easy flat walk to cool down.",
+      "pattern_focus": ["squat","knee_flexion","hip_thrust","knee_extension","calf","trunk_flexion"],
+      "items": [
+        {"exercise_id":"back-squat","sets":4,"rep_min":5,"rep_max":8,"rest_s":180,"is_key_lift":true},
+        {"exercise_id":"leg-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":150},
+        {"exercise_id":"seated-leg-curl","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"barbell-hip-thrust","sets":2,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"leg-extension","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"standing-calf-raise","sets":4,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"cable-crunch","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "push_b",
+      "name": "Push B",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["vertical_push","horizontal_push","incline_push","fly","lateral_raise","elbow_extension"],
+      "items": [
+        {"exercise_id":"overhead-press","sets":4,"rep_min":5,"rep_max":8,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"dumbbell-bench-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"plate-loaded-incline-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"cable-crossover","sets":2,"rep_min":12,"rep_max":15,"rest_s":75},
+        {"exercise_id":"cable-lateral-raise","sets":4,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"cable-pushdown","sets":3,"rep_min":10,"rep_max":15,"rest_s":75}
+      ]
+    },
+    {
+      "key": "pull_b",
+      "name": "Pull B",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["vertical_pull","horizontal_pull","rear_delt","elbow_flexion"],
+      "items": [
+        {"exercise_id":"pull-up","sets":3,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"chest-supported-machine-row","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"single-arm-cable-row","sets":2,"rep_min":10,"rep_max":12,"rest_s":90},
+        {"exercise_id":"face-pull","sets":2,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"reverse-pec-deck","sets":2,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"incline-dumbbell-curl","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"cable-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "legs_b",
+      "name": "Legs B",
+      "cardio_note": "No hard cardio today. Optional 10 min easy flat walk to cool down.",
+      "pattern_focus": ["hinge","squat","knee_flexion","hip_thrust","knee_extension","calf","trunk_flexion"],
+      "items": [
+        {"exercise_id":"romanian-deadlift","sets":4,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"hack-squat","sets":3,"rep_min":8,"rep_max":12,"rest_s":150},
+        {"exercise_id":"lying-leg-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"machine-hip-thrust","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"leg-extension","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"seated-calf-raise","sets":4,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"hanging-knee-raise","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    }
+    ]
+  },
+  {
+    "key": "upper_lower_4",
+    "name": "Upper/lower, 4 days",
+    "split": "upper_lower_4",
+    "days_per_week": 4,
+    "rotation": false,
+    "days": [
+    {
+      "key": "upper_a",
+      "name": "Upper A (horizontal)",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["horizontal_push","horizontal_pull","incline_push","lateral_raise","elbow_flexion","elbow_extension"],
+      "items": [
+        {"exercise_id":"barbell-bench-press","sets":4,"rep_min":6,"rep_max":8,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"barbell-row","sets":4,"rep_min":6,"rep_max":10,"rest_s":150},
+        {"exercise_id":"incline-dumbbell-press","sets":4,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"seated-cable-row","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"dumbbell-lateral-raise","sets":4,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"dumbbell-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"cable-pushdown","sets":2,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "lower_a",
+      "name": "Lower A (quads)",
+      "cardio_note": "No hard cardio today. Optional 10 min easy flat walk to cool down.",
+      "pattern_focus": ["squat","knee_extension","knee_flexion","calf","trunk_flexion"],
+      "items": [
+        {"exercise_id":"back-squat","sets":4,"rep_min":5,"rep_max":8,"rest_s":180,"is_key_lift":true},
+        {"exercise_id":"leg-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":150},
+        {"exercise_id":"leg-extension","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"seated-leg-curl","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"standing-calf-raise","sets":4,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"cable-crunch","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "upper_b",
+      "name": "Upper B (vertical)",
+      "cardio_note": "Incline walk 15 to 20 min at 6 to 8 percent and 5 km/h after lifting.",
+      "pattern_focus": ["vertical_push","vertical_pull","horizontal_push","horizontal_pull","fly","lateral_raise","elbow_flexion","elbow_extension"],
+      "items": [
+        {"exercise_id":"overhead-press","sets":3,"rep_min":5,"rep_max":8,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"lat-pulldown","sets":4,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"dumbbell-bench-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"chest-supported-machine-row","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"pec-deck","sets":2,"rep_min":12,"rep_max":15,"rest_s":75},
+        {"exercise_id":"cable-lateral-raise","sets":4,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"hammer-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"overhead-cable-extension","sets":2,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "lower_b",
+      "name": "Lower B (hinge)",
+      "cardio_note": "No hard cardio today. Optional 10 min easy flat walk to cool down.",
+      "pattern_focus": ["hinge","lunge","knee_flexion","hip_thrust","calf","trunk_flexion"],
+      "items": [
+        {"exercise_id":"romanian-deadlift","sets":4,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"bulgarian-split-squat","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"lying-leg-curl","sets":3,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"barbell-hip-thrust","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"seated-calf-raise","sets":4,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"hanging-knee-raise","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    }
+    ]
+  },
+  {
+    "key": "full_body_3",
+    "name": "Full body, 3 days",
+    "split": "full_body_3",
+    "days_per_week": 3,
+    "rotation": false,
+    "days": [
+    {
+      "key": "full_a",
+      "name": "Full body A",
+      "cardio_note": "Optional 10 to 15 min incline walk at 3 to 6 percent and 5 km/h after lifting, easy pace only.",
+      "pattern_focus": ["squat","horizontal_push","horizontal_pull","knee_flexion","lateral_raise","elbow_extension"],
+      "items": [
+        {"exercise_id":"back-squat","sets":4,"rep_min":6,"rep_max":10,"rest_s":180,"is_key_lift":true},
+        {"exercise_id":"barbell-bench-press","sets":4,"rep_min":6,"rep_max":10,"rest_s":150},
+        {"exercise_id":"barbell-row","sets":4,"rep_min":6,"rep_max":10,"rest_s":150},
+        {"exercise_id":"seated-leg-curl","sets":4,"rep_min":10,"rep_max":15,"rest_s":75},
+        {"exercise_id":"dumbbell-lateral-raise","sets":3,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"cable-pushdown","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "full_b",
+      "name": "Full body B",
+      "cardio_note": "Optional 10 to 15 min incline walk at 3 to 6 percent and 5 km/h after lifting, easy pace only.",
+      "pattern_focus": ["hinge","incline_push","vertical_pull","squat","lateral_raise","elbow_flexion"],
+      "items": [
+        {"exercise_id":"romanian-deadlift","sets":4,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"incline-dumbbell-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"lat-pulldown","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"leg-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":150},
+        {"exercise_id":"cable-lateral-raise","sets":3,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"dumbbell-curl","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    },
+    {
+      "key": "full_c",
+      "name": "Full body C",
+      "cardio_note": "Optional 10 to 15 min incline walk at 3 to 6 percent and 5 km/h after lifting, easy pace only.",
+      "pattern_focus": ["squat","horizontal_push","horizontal_pull","hip_thrust","lateral_raise","elbow_flexion"],
+      "items": [
+        {"exercise_id":"hack-squat","sets":3,"rep_min":8,"rep_max":12,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"dumbbell-bench-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"seated-cable-row","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"barbell-hip-thrust","sets":3,"rep_min":8,"rep_max":12,"rest_s":120},
+        {"exercise_id":"dumbbell-lateral-raise","sets":3,"rep_min":12,"rep_max":15,"rest_s":60},
+        {"exercise_id":"hammer-curl","sets":3,"rep_min":10,"rep_max":15,"rest_s":60}
+      ]
+    }
+    ]
+  },
+  {
+    "key": "minimal_2",
+    "name": "Minimal, 2 days",
+    "split": "minimal_2",
+    "days_per_week": 2,
+    "rotation": false,
+    "days": [
+    {
+      "key": "min_a",
+      "name": "Full body A",
+      "cardio_note": "Optional 10 min easy walk after lifting.",
+      "pattern_focus": ["squat","horizontal_push","horizontal_pull","hip_thrust","lateral_raise","elbow_extension"],
+      "items": [
+        {"exercise_id":"back-squat","sets":3,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"barbell-bench-press","sets":3,"rep_min":6,"rep_max":10,"rest_s":150},
+        {"exercise_id":"barbell-row","sets":3,"rep_min":6,"rep_max":10,"rest_s":150},
+        {"exercise_id":"barbell-hip-thrust","sets":3,"rep_min":8,"rep_max":12,"rest_s":90},
+        {"exercise_id":"dumbbell-lateral-raise","sets":2,"rep_min":12,"rep_max":15,"rest_s":45},
+        {"exercise_id":"cable-pushdown","sets":2,"rep_min":10,"rep_max":15,"rest_s":45}
+      ]
+    },
+    {
+      "key": "min_b",
+      "name": "Full body B",
+      "cardio_note": "Optional 10 min easy walk after lifting.",
+      "pattern_focus": ["hinge","incline_push","vertical_pull","squat","knee_flexion","lateral_raise"],
+      "items": [
+        {"exercise_id":"romanian-deadlift","sets":4,"rep_min":6,"rep_max":10,"rest_s":150,"is_key_lift":true},
+        {"exercise_id":"incline-dumbbell-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":90},
+        {"exercise_id":"lat-pulldown","sets":3,"rep_min":8,"rep_max":12,"rest_s":90},
+        {"exercise_id":"leg-press","sets":3,"rep_min":8,"rep_max":12,"rest_s":90},
+        {"exercise_id":"seated-leg-curl","sets":2,"rep_min":10,"rep_max":15,"rest_s":60},
+        {"exercise_id":"cable-lateral-raise","sets":2,"rep_min":12,"rep_max":15,"rest_s":45}
+      ]
+    }
+    ]
+  }
+]
