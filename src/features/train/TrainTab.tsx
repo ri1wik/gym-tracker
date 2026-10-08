@@ -14,7 +14,7 @@ export function TrainTab() {
   return (
     <section className="space-y-4">
       <h1 className="text-[28px] font-bold leading-tight tracking-tight">Train</h1>
-      <nav aria-label="Train sections" className="flex h-11 rounded-control bg-surface-2 p-1">
+      <nav aria-label="Train sections" className="flex h-[52px] rounded-control bg-surface-2 p-1">
         {SEGMENTS.map((s) => (
           <NavLink
             key={s.to}
