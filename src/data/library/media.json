@@ -1,0 +1,476 @@
+{
+  "barbell-bench-press": {
+    "source": "repdb",
+    "sourceId": "bench-press",
+    "start": "img/ex/barbell-bench-press/start",
+    "peak": "img/ex/barbell-bench-press/peak"
+  },
+  "incline-barbell-bench-press": {
+    "source": "repdb",
+    "sourceId": "incline-bench-press",
+    "start": "img/ex/incline-barbell-bench-press/start",
+    "peak": "img/ex/incline-barbell-bench-press/peak"
+  },
+  "dumbbell-bench-press": {
+    "source": "repdb",
+    "sourceId": "db-bench-press",
+    "start": "img/ex/dumbbell-bench-press/start",
+    "peak": "img/ex/dumbbell-bench-press/peak"
+  },
+  "incline-dumbbell-press": {
+    "source": "repdb",
+    "sourceId": "incline-db-press",
+    "start": "img/ex/incline-dumbbell-press/start",
+    "peak": "img/ex/incline-dumbbell-press/peak"
+  },
+  "machine-chest-press": {
+    "source": "repdb",
+    "sourceId": "chest-press-machine",
+    "start": "img/ex/machine-chest-press/start",
+    "peak": "img/ex/machine-chest-press/peak"
+  },
+  "plate-loaded-chest-press": {
+    "source": "repdb",
+    "sourceId": "chest-press-machine",
+    "start": "img/ex/plate-loaded-chest-press/start",
+    "peak": "img/ex/plate-loaded-chest-press/peak"
+  },
+  "pec-deck": {
+    "source": "repdb",
+    "sourceId": "pec-deck",
+    "start": "img/ex/pec-deck/start",
+    "peak": "img/ex/pec-deck/peak"
+  },
+  "cable-crossover": {
+    "source": "repdb",
+    "sourceId": "cable-fly",
+    "start": "img/ex/cable-crossover/start",
+    "peak": "img/ex/cable-crossover/peak"
+  },
+  "push-up": {
+    "source": "repdb",
+    "sourceId": "push-up",
+    "start": "img/ex/push-up/start",
+    "peak": "img/ex/push-up/peak"
+  },
+  "barbell-row": {
+    "source": "repdb",
+    "sourceId": "barbell-row",
+    "start": "img/ex/barbell-row/start",
+    "peak": "img/ex/barbell-row/peak"
+  },
+  "deadlift": {
+    "source": "repdb",
+    "sourceId": "deadlift",
+    "start": "img/ex/deadlift/start",
+    "peak": "img/ex/deadlift/peak"
+  },
+  "trap-bar-deadlift": {
+    "source": "repdb",
+    "sourceId": "hex-bar-deadlift",
+    "start": "img/ex/trap-bar-deadlift/start",
+    "peak": "img/ex/trap-bar-deadlift/peak"
+  },
+  "pull-up": {
+    "source": "repdb",
+    "sourceId": "pull-up",
+    "start": "img/ex/pull-up/start",
+    "peak": "img/ex/pull-up/peak"
+  },
+  "assisted-pull-up": {
+    "source": "repdb",
+    "sourceId": "assisted-pull-ups",
+    "start": "img/ex/assisted-pull-up/start",
+    "peak": "img/ex/assisted-pull-up/peak"
+  },
+  "lat-pulldown": {
+    "source": "repdb",
+    "sourceId": "lat-pulldown",
+    "start": "img/ex/lat-pulldown/start",
+    "peak": "img/ex/lat-pulldown/peak"
+  },
+  "seated-cable-row": {
+    "source": "repdb",
+    "sourceId": "seated-cable-row",
+    "start": "img/ex/seated-cable-row/start",
+    "peak": "img/ex/seated-cable-row/peak"
+  },
+  "single-arm-cable-row": {
+    "source": "repdb",
+    "sourceId": "one-arm-seated-cable-row",
+    "start": "img/ex/single-arm-cable-row/start",
+    "peak": "img/ex/single-arm-cable-row/peak"
+  },
+  "dumbbell-row": {
+    "source": "repdb",
+    "sourceId": "single-arm-db-row",
+    "start": "img/ex/dumbbell-row/start",
+    "peak": "img/ex/dumbbell-row/peak"
+  },
+  "straight-arm-pulldown": {
+    "source": "repdb",
+    "sourceId": "straight-arm-pulldown",
+    "start": "img/ex/straight-arm-pulldown/start",
+    "peak": "img/ex/straight-arm-pulldown/peak"
+  },
+  "back-extension": {
+    "source": "repdb",
+    "sourceId": "back-extension",
+    "start": "img/ex/back-extension/start",
+    "peak": "img/ex/back-extension/peak"
+  },
+  "overhead-press": {
+    "source": "repdb",
+    "sourceId": "ohp",
+    "start": "img/ex/overhead-press/start",
+    "peak": "img/ex/overhead-press/peak"
+  },
+  "seated-dumbbell-shoulder-press": {
+    "source": "repdb",
+    "sourceId": "seated-db-press",
+    "start": "img/ex/seated-dumbbell-shoulder-press/start",
+    "peak": "img/ex/seated-dumbbell-shoulder-press/peak"
+  },
+  "machine-shoulder-press": {
+    "source": "repdb",
+    "sourceId": "machine-shoulder-press",
+    "start": "img/ex/machine-shoulder-press/start",
+    "peak": "img/ex/machine-shoulder-press/peak"
+  },
+  "plate-loaded-shoulder-press": {
+    "source": "repdb",
+    "sourceId": "machine-shoulder-press",
+    "start": "img/ex/plate-loaded-shoulder-press/start",
+    "peak": "img/ex/plate-loaded-shoulder-press/peak"
+  },
+  "dumbbell-lateral-raise": {
+    "source": "repdb",
+    "sourceId": "lateral-raise",
+    "start": "img/ex/dumbbell-lateral-raise/start",
+    "peak": "img/ex/dumbbell-lateral-raise/peak"
+  },
+  "cable-lateral-raise": {
+    "source": "repdb",
+    "sourceId": "cable-lateral-raise",
+    "start": "img/ex/cable-lateral-raise/start",
+    "peak": "img/ex/cable-lateral-raise/peak"
+  },
+  "machine-lateral-raise": {
+    "source": "repdb",
+    "sourceId": "plate-loaded-lateral-raise",
+    "start": "img/ex/machine-lateral-raise/start",
+    "peak": "img/ex/machine-lateral-raise/peak"
+  },
+  "face-pull": {
+    "source": "repdb",
+    "sourceId": "face-pull",
+    "start": "img/ex/face-pull/start",
+    "peak": "img/ex/face-pull/peak"
+  },
+  "barbell-curl": {
+    "source": "repdb",
+    "sourceId": "barbell-curl",
+    "start": "img/ex/barbell-curl/start",
+    "peak": "img/ex/barbell-curl/peak"
+  },
+  "ez-bar-curl": {
+    "source": "repdb",
+    "sourceId": "ez-bar-curl",
+    "start": "img/ex/ez-bar-curl/start",
+    "peak": "img/ex/ez-bar-curl/peak"
+  },
+  "dumbbell-curl": {
+    "source": "repdb",
+    "sourceId": "bicep-curl",
+    "start": "img/ex/dumbbell-curl/start",
+    "peak": "img/ex/dumbbell-curl/peak"
+  },
+  "hammer-curl": {
+    "source": "repdb",
+    "sourceId": "hammer-curl",
+    "start": "img/ex/hammer-curl/start",
+    "peak": "img/ex/hammer-curl/peak"
+  },
+  "incline-dumbbell-curl": {
+    "source": "repdb",
+    "sourceId": "incline-db-curl",
+    "start": "img/ex/incline-dumbbell-curl/start",
+    "peak": "img/ex/incline-dumbbell-curl/peak"
+  },
+  "machine-preacher-curl": {
+    "source": "repdb",
+    "sourceId": "machine-preacher-curl",
+    "start": "img/ex/machine-preacher-curl/start",
+    "peak": "img/ex/machine-preacher-curl/peak"
+  },
+  "cable-curl": {
+    "source": "repdb",
+    "sourceId": "cable-curl",
+    "start": "img/ex/cable-curl/start",
+    "peak": "img/ex/cable-curl/peak"
+  },
+  "cable-pushdown": {
+    "source": "repdb",
+    "sourceId": "tricep-pushdown",
+    "start": "img/ex/cable-pushdown/start",
+    "peak": "img/ex/cable-pushdown/peak"
+  },
+  "overhead-cable-extension": {
+    "source": "repdb",
+    "sourceId": "overhead-tricep-extension",
+    "start": "img/ex/overhead-cable-extension/start",
+    "peak": "img/ex/overhead-cable-extension/peak"
+  },
+  "skull-crusher": {
+    "source": "repdb",
+    "sourceId": "ez-bar-lying-tricep-extension",
+    "start": "img/ex/skull-crusher/start",
+    "peak": "img/ex/skull-crusher/peak"
+  },
+  "dip": {
+    "source": "repdb",
+    "sourceId": "dips",
+    "start": "img/ex/dip/start",
+    "peak": "img/ex/dip/peak"
+  },
+  "assisted-dip": {
+    "source": "repdb",
+    "sourceId": "assisted-dips",
+    "start": "img/ex/assisted-dip/start",
+    "peak": "img/ex/assisted-dip/peak"
+  },
+  "machine-triceps-extension": {
+    "source": "repdb",
+    "sourceId": "machine-triceps-extension",
+    "start": "img/ex/machine-triceps-extension/start",
+    "peak": "img/ex/machine-triceps-extension/peak"
+  },
+  "close-grip-bench-press": {
+    "source": "repdb",
+    "sourceId": "close-grip-bench-press",
+    "start": "img/ex/close-grip-bench-press/start",
+    "peak": "img/ex/close-grip-bench-press/peak"
+  },
+  "dumbbell-wrist-curl": {
+    "source": "repdb",
+    "sourceId": "dumbbell-wrist-curl",
+    "start": "img/ex/dumbbell-wrist-curl/start",
+    "peak": "img/ex/dumbbell-wrist-curl/peak"
+  },
+  "reverse-curl": {
+    "source": "repdb",
+    "sourceId": "ez-bar-reverse-curl",
+    "start": "img/ex/reverse-curl/start",
+    "peak": "img/ex/reverse-curl/peak"
+  },
+  "farmers-walk": {
+    "source": "repdb",
+    "sourceId": "dumbbell-farmers-walk",
+    "start": "img/ex/farmers-walk/start",
+    "peak": "img/ex/farmers-walk/start"
+  },
+  "back-squat": {
+    "source": "repdb",
+    "sourceId": "squat",
+    "start": "img/ex/back-squat/start",
+    "peak": "img/ex/back-squat/peak"
+  },
+  "front-squat": {
+    "source": "repdb",
+    "sourceId": "front-squat",
+    "start": "img/ex/front-squat/start",
+    "peak": "img/ex/front-squat/peak"
+  },
+  "leg-press": {
+    "source": "repdb",
+    "sourceId": "leg-press",
+    "start": "img/ex/leg-press/start",
+    "peak": "img/ex/leg-press/peak"
+  },
+  "hack-squat": {
+    "source": "repdb",
+    "sourceId": "hack-squat",
+    "start": "img/ex/hack-squat/start",
+    "peak": "img/ex/hack-squat/peak"
+  },
+  "smith-machine-squat": {
+    "source": "repdb",
+    "sourceId": "smith-machine-squat",
+    "start": "img/ex/smith-machine-squat/start",
+    "peak": "img/ex/smith-machine-squat/peak"
+  },
+  "leg-extension": {
+    "source": "repdb",
+    "sourceId": "leg-extension",
+    "start": "img/ex/leg-extension/start",
+    "peak": "img/ex/leg-extension/peak"
+  },
+  "bulgarian-split-squat": {
+    "source": "repdb",
+    "sourceId": "bulgarian-split-squat",
+    "start": "img/ex/bulgarian-split-squat/start",
+    "peak": "img/ex/bulgarian-split-squat/peak"
+  },
+  "walking-lunge": {
+    "source": "repdb",
+    "sourceId": "walking-lunge",
+    "start": "img/ex/walking-lunge/start",
+    "peak": "img/ex/walking-lunge/peak"
+  },
+  "goblet-squat": {
+    "source": "repdb",
+    "sourceId": "goblet-squat",
+    "start": "img/ex/goblet-squat/start",
+    "peak": "img/ex/goblet-squat/peak"
+  },
+  "step-up": {
+    "source": "repdb",
+    "sourceId": "step-ups",
+    "start": "img/ex/step-up/start",
+    "peak": "img/ex/step-up/peak"
+  },
+  "romanian-deadlift": {
+    "source": "repdb",
+    "sourceId": "romanian-deadlift",
+    "start": "img/ex/romanian-deadlift/start",
+    "peak": "img/ex/romanian-deadlift/peak"
+  },
+  "dumbbell-romanian-deadlift": {
+    "source": "repdb",
+    "sourceId": "dumbbell-romanian-deadlift",
+    "start": "img/ex/dumbbell-romanian-deadlift/start",
+    "peak": "img/ex/dumbbell-romanian-deadlift/peak"
+  },
+  "single-leg-romanian-deadlift": {
+    "source": "repdb",
+    "sourceId": "single-leg-romanian-deadlift",
+    "start": "img/ex/single-leg-romanian-deadlift/start",
+    "peak": "img/ex/single-leg-romanian-deadlift/peak"
+  },
+  "seated-leg-curl": {
+    "source": "repdb",
+    "sourceId": "seated-leg-curl",
+    "start": "img/ex/seated-leg-curl/start",
+    "peak": "img/ex/seated-leg-curl/peak"
+  },
+  "lying-leg-curl": {
+    "source": "repdb",
+    "sourceId": "leg-curl",
+    "start": "img/ex/lying-leg-curl/start",
+    "peak": "img/ex/lying-leg-curl/peak"
+  },
+  "good-morning": {
+    "source": "repdb",
+    "sourceId": "good-morning",
+    "start": "img/ex/good-morning/start",
+    "peak": "img/ex/good-morning/peak"
+  },
+  "nordic-hamstring-curl": {
+    "source": "repdb",
+    "sourceId": "nordic-hamstring-curl",
+    "start": "img/ex/nordic-hamstring-curl/start",
+    "peak": "img/ex/nordic-hamstring-curl/peak"
+  },
+  "barbell-hip-thrust": {
+    "source": "repdb",
+    "sourceId": "hip-thrust",
+    "start": "img/ex/barbell-hip-thrust/start",
+    "peak": "img/ex/barbell-hip-thrust/peak"
+  },
+  "machine-hip-thrust": {
+    "source": "repdb",
+    "sourceId": "plate-loaded-glute-drive",
+    "start": "img/ex/machine-hip-thrust/start",
+    "peak": "img/ex/machine-hip-thrust/peak"
+  },
+  "glute-bridge": {
+    "source": "repdb",
+    "sourceId": "glute-bridge",
+    "start": "img/ex/glute-bridge/start",
+    "peak": "img/ex/glute-bridge/peak"
+  },
+  "cable-kickback": {
+    "source": "repdb",
+    "sourceId": "cable-kickback",
+    "start": "img/ex/cable-kickback/start",
+    "peak": "img/ex/cable-kickback/peak"
+  },
+  "hip-abduction-machine": {
+    "source": "repdb",
+    "sourceId": "hip-abduction",
+    "start": "img/ex/hip-abduction-machine/start",
+    "peak": "img/ex/hip-abduction-machine/peak"
+  },
+  "hip-adduction-machine": {
+    "source": "repdb",
+    "sourceId": "hip-adduction",
+    "start": "img/ex/hip-adduction-machine/start",
+    "peak": "img/ex/hip-adduction-machine/peak"
+  },
+  "cable-pull-through": {
+    "source": "repdb",
+    "sourceId": "cable-pull-through",
+    "start": "img/ex/cable-pull-through/start",
+    "peak": "img/ex/cable-pull-through/peak"
+  },
+  "standing-calf-raise": {
+    "source": "repdb",
+    "sourceId": "standing-calf-raise",
+    "start": "img/ex/standing-calf-raise/start",
+    "peak": "img/ex/standing-calf-raise/peak"
+  },
+  "seated-calf-raise": {
+    "source": "repdb",
+    "sourceId": "seated-calf-raise",
+    "start": "img/ex/seated-calf-raise/start",
+    "peak": "img/ex/seated-calf-raise/peak"
+  },
+  "single-leg-dumbbell-calf-raise": {
+    "source": "repdb",
+    "sourceId": "single-leg-calf-raise",
+    "start": "img/ex/single-leg-dumbbell-calf-raise/start",
+    "peak": "img/ex/single-leg-dumbbell-calf-raise/peak"
+  },
+  "plank": {
+    "source": "repdb",
+    "sourceId": "plank",
+    "start": "img/ex/plank/start",
+    "peak": "img/ex/plank/start"
+  },
+  "hanging-knee-raise": {
+    "source": "repdb",
+    "sourceId": "hanging-knee-raise",
+    "start": "img/ex/hanging-knee-raise/start",
+    "peak": "img/ex/hanging-knee-raise/peak"
+  },
+  "cable-crunch": {
+    "source": "repdb",
+    "sourceId": "cable-crunch",
+    "start": "img/ex/cable-crunch/start",
+    "peak": "img/ex/cable-crunch/peak"
+  },
+  "ab-crunch-machine": {
+    "source": "repdb",
+    "sourceId": "machine-seated-crunch",
+    "start": "img/ex/ab-crunch-machine/start",
+    "peak": "img/ex/ab-crunch-machine/peak"
+  },
+  "ab-wheel-rollout": {
+    "source": "repdb",
+    "sourceId": "ab-wheel-rollout",
+    "start": "img/ex/ab-wheel-rollout/start",
+    "peak": "img/ex/ab-wheel-rollout/peak"
+  },
+  "pallof-press": {
+    "source": "repdb",
+    "sourceId": "cable-pallof-press",
+    "start": "img/ex/pallof-press/start",
+    "peak": "img/ex/pallof-press/peak"
+  },
+  "reverse-crunch": {
+    "source": "repdb",
+    "sourceId": "reverse-crunches",
+    "start": "img/ex/reverse-crunch/start",
+    "peak": "img/ex/reverse-crunch/peak"
+  }
+}

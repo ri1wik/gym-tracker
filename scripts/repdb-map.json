@@ -1,0 +1,331 @@
+{
+  "barbell-bench-press": {
+    "repdbId": "bench-press",
+    "proxy": false
+  },
+  "incline-barbell-bench-press": {
+    "repdbId": "incline-bench-press",
+    "proxy": false
+  },
+  "dumbbell-bench-press": {
+    "repdbId": "db-bench-press",
+    "proxy": false
+  },
+  "incline-dumbbell-press": {
+    "repdbId": "incline-db-press",
+    "proxy": false
+  },
+  "machine-chest-press": {
+    "repdbId": "chest-press-machine",
+    "proxy": false
+  },
+  "plate-loaded-chest-press": {
+    "repdbId": "chest-press-machine",
+    "proxy": true,
+    "note": "same pressing movement on the selectorised machine"
+  },
+  "plate-loaded-incline-press": null,
+  "pec-deck": {
+    "repdbId": "pec-deck",
+    "proxy": false
+  },
+  "cable-crossover": {
+    "repdbId": "cable-fly",
+    "proxy": false
+  },
+  "push-up": {
+    "repdbId": "push-up",
+    "proxy": false
+  },
+  "barbell-row": {
+    "repdbId": "barbell-row",
+    "proxy": false
+  },
+  "deadlift": {
+    "repdbId": "deadlift",
+    "proxy": false
+  },
+  "trap-bar-deadlift": {
+    "repdbId": "hex-bar-deadlift",
+    "proxy": false
+  },
+  "pull-up": {
+    "repdbId": "pull-up",
+    "proxy": false
+  },
+  "assisted-pull-up": {
+    "repdbId": "assisted-pull-ups",
+    "proxy": false
+  },
+  "lat-pulldown": {
+    "repdbId": "lat-pulldown",
+    "proxy": false
+  },
+  "seated-cable-row": {
+    "repdbId": "seated-cable-row",
+    "proxy": false
+  },
+  "single-arm-cable-row": {
+    "repdbId": "one-arm-seated-cable-row",
+    "proxy": false
+  },
+  "chest-supported-machine-row": null,
+  "plate-loaded-iso-lateral-row": null,
+  "plate-loaded-high-row": null,
+  "dumbbell-row": {
+    "repdbId": "single-arm-db-row",
+    "proxy": false
+  },
+  "straight-arm-pulldown": {
+    "repdbId": "straight-arm-pulldown",
+    "proxy": false
+  },
+  "back-extension": {
+    "repdbId": "back-extension",
+    "proxy": false
+  },
+  "overhead-press": {
+    "repdbId": "ohp",
+    "proxy": false
+  },
+  "seated-dumbbell-shoulder-press": {
+    "repdbId": "seated-db-press",
+    "proxy": false
+  },
+  "machine-shoulder-press": {
+    "repdbId": "machine-shoulder-press",
+    "proxy": false
+  },
+  "plate-loaded-shoulder-press": {
+    "repdbId": "machine-shoulder-press",
+    "proxy": true,
+    "note": "same pressing movement on the selectorised machine"
+  },
+  "dumbbell-lateral-raise": {
+    "repdbId": "lateral-raise",
+    "proxy": false
+  },
+  "cable-lateral-raise": {
+    "repdbId": "cable-lateral-raise",
+    "proxy": false
+  },
+  "machine-lateral-raise": {
+    "repdbId": "plate-loaded-lateral-raise",
+    "proxy": true,
+    "note": "same movement on the plate-loaded lateral raise machine"
+  },
+  "reverse-pec-deck": null,
+  "face-pull": {
+    "repdbId": "face-pull",
+    "proxy": false
+  },
+  "barbell-curl": {
+    "repdbId": "barbell-curl",
+    "proxy": false
+  },
+  "ez-bar-curl": {
+    "repdbId": "ez-bar-curl",
+    "proxy": false
+  },
+  "dumbbell-curl": {
+    "repdbId": "bicep-curl",
+    "proxy": false
+  },
+  "hammer-curl": {
+    "repdbId": "hammer-curl",
+    "proxy": false
+  },
+  "incline-dumbbell-curl": {
+    "repdbId": "incline-db-curl",
+    "proxy": false
+  },
+  "machine-preacher-curl": {
+    "repdbId": "machine-preacher-curl",
+    "proxy": false
+  },
+  "cable-curl": {
+    "repdbId": "cable-curl",
+    "proxy": false
+  },
+  "cable-pushdown": {
+    "repdbId": "tricep-pushdown",
+    "proxy": false
+  },
+  "overhead-cable-extension": {
+    "repdbId": "overhead-tricep-extension",
+    "proxy": true,
+    "note": "dumbbell version of the overhead extension"
+  },
+  "skull-crusher": {
+    "repdbId": "ez-bar-lying-tricep-extension",
+    "proxy": false
+  },
+  "dip": {
+    "repdbId": "dips",
+    "proxy": false
+  },
+  "assisted-dip": {
+    "repdbId": "assisted-dips",
+    "proxy": false
+  },
+  "machine-triceps-extension": {
+    "repdbId": "machine-triceps-extension",
+    "proxy": false
+  },
+  "close-grip-bench-press": {
+    "repdbId": "close-grip-bench-press",
+    "proxy": false
+  },
+  "dumbbell-wrist-curl": {
+    "repdbId": "dumbbell-wrist-curl",
+    "proxy": false
+  },
+  "reverse-curl": {
+    "repdbId": "ez-bar-reverse-curl",
+    "proxy": false
+  },
+  "farmers-walk": {
+    "repdbId": "dumbbell-farmers-walk",
+    "proxy": false
+  },
+  "back-squat": {
+    "repdbId": "squat",
+    "proxy": false
+  },
+  "front-squat": {
+    "repdbId": "front-squat",
+    "proxy": false
+  },
+  "leg-press": {
+    "repdbId": "leg-press",
+    "proxy": false
+  },
+  "hack-squat": {
+    "repdbId": "hack-squat",
+    "proxy": false
+  },
+  "smith-machine-squat": {
+    "repdbId": "smith-machine-squat",
+    "proxy": false
+  },
+  "leg-extension": {
+    "repdbId": "leg-extension",
+    "proxy": false
+  },
+  "bulgarian-split-squat": {
+    "repdbId": "bulgarian-split-squat",
+    "proxy": false
+  },
+  "walking-lunge": {
+    "repdbId": "walking-lunge",
+    "proxy": false
+  },
+  "goblet-squat": {
+    "repdbId": "goblet-squat",
+    "proxy": true,
+    "note": "shown with a kettlebell; hold a dumbbell the same way"
+  },
+  "step-up": {
+    "repdbId": "step-ups",
+    "proxy": false
+  },
+  "romanian-deadlift": {
+    "repdbId": "romanian-deadlift",
+    "proxy": false
+  },
+  "dumbbell-romanian-deadlift": {
+    "repdbId": "dumbbell-romanian-deadlift",
+    "proxy": false
+  },
+  "single-leg-romanian-deadlift": {
+    "repdbId": "single-leg-romanian-deadlift",
+    "proxy": false
+  },
+  "seated-leg-curl": {
+    "repdbId": "seated-leg-curl",
+    "proxy": false
+  },
+  "lying-leg-curl": {
+    "repdbId": "leg-curl",
+    "proxy": false
+  },
+  "good-morning": {
+    "repdbId": "good-morning",
+    "proxy": false
+  },
+  "nordic-hamstring-curl": {
+    "repdbId": "nordic-hamstring-curl",
+    "proxy": false
+  },
+  "barbell-hip-thrust": {
+    "repdbId": "hip-thrust",
+    "proxy": false
+  },
+  "machine-hip-thrust": {
+    "repdbId": "plate-loaded-glute-drive",
+    "proxy": true,
+    "note": "plate-loaded glute drive machine"
+  },
+  "glute-bridge": {
+    "repdbId": "glute-bridge",
+    "proxy": false
+  },
+  "cable-kickback": {
+    "repdbId": "cable-kickback",
+    "proxy": false
+  },
+  "hip-abduction-machine": {
+    "repdbId": "hip-abduction",
+    "proxy": false
+  },
+  "hip-adduction-machine": {
+    "repdbId": "hip-adduction",
+    "proxy": false
+  },
+  "cable-pull-through": {
+    "repdbId": "cable-pull-through",
+    "proxy": false
+  },
+  "standing-calf-raise": {
+    "repdbId": "standing-calf-raise",
+    "proxy": false
+  },
+  "seated-calf-raise": {
+    "repdbId": "seated-calf-raise",
+    "proxy": false
+  },
+  "leg-press-calf-raise": null,
+  "single-leg-dumbbell-calf-raise": {
+    "repdbId": "single-leg-calf-raise",
+    "proxy": true,
+    "note": "bodyweight version of the same single-leg raise"
+  },
+  "plank": {
+    "repdbId": "plank",
+    "proxy": false
+  },
+  "hanging-knee-raise": {
+    "repdbId": "hanging-knee-raise",
+    "proxy": false
+  },
+  "cable-crunch": {
+    "repdbId": "cable-crunch",
+    "proxy": false
+  },
+  "ab-crunch-machine": {
+    "repdbId": "machine-seated-crunch",
+    "proxy": false
+  },
+  "ab-wheel-rollout": {
+    "repdbId": "ab-wheel-rollout",
+    "proxy": false
+  },
+  "pallof-press": {
+    "repdbId": "cable-pallof-press",
+    "proxy": false
+  },
+  "reverse-crunch": {
+    "repdbId": "reverse-crunches",
+    "proxy": false
+  }
+}
