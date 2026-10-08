@@ -27,7 +27,7 @@ describe('exercises.json content', () => {
       expect(e.repMax, e.id).toBeGreaterThanOrEqual(e.repMin)
       expect([0, 2000, 2500, 5000], e.id).toContain(e.incrementG)
       expect([75, 150, 180], e.id).toContain(e.restS)
-      expect(e.media, e.id).toBeNull()
+      if (e.media !== null) expect(e.media.source, e.id).toBe('repdb')
       if (e.equipmentFamily === 'bodyweight') expect(e.incrementG, e.id).toBe(0)
       if (e.equipmentFamily === 'dumbbell') expect(e.incrementG, e.id).toBe(2000)
       if (e.isCompound) expect(e.restS, e.id).toBeGreaterThanOrEqual(150)
