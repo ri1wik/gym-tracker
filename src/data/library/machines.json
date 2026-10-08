@@ -1,0 +1,2039 @@
+[
+  {
+    "id": "plate-loaded-chest-press",
+    "name": "Plate-loaded chest press",
+    "category": "plate-loaded",
+    "brandNote": "Plate-loaded, converging arms",
+    "aliases": [
+      "Plate chest press",
+      "Chest press with plates",
+      "Loaded chest press"
+    ],
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "front_delts"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the handles sit level with the middle of your chest."
+      },
+      {
+        "label": "Pad",
+        "text": "Keep your back and head flat on the pad. If the seat lifts you off it, lower the seat one notch."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles a little wider than shoulder width, with wrists straight."
+      },
+      {
+        "label": "Other",
+        "text": "Load the plates evenly on both sides, then press until the arms are nearly straight without locking out hard."
+      }
+    ],
+    "tips": [
+      "Keep the shoulder blades back and down; do not let the shoulders roll forward at the bottom.",
+      "Lower to a controlled stretch rather than letting the plates drop."
+    ],
+    "exerciseIds": [
+      "plate-loaded-chest-press"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "plate-loaded-incline-press",
+    "name": "Plate-loaded incline press",
+    "category": "plate-loaded",
+    "brandNote": "Plate-loaded, incline seat",
+    "aliases": [
+      "Incline plate press",
+      "Incline chest press machine",
+      "Loaded incline press"
+    ],
+    "primaryMuscles": [
+      "upper_chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts",
+      "triceps"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the handles line up with your upper chest, just below the collarbone."
+      },
+      {
+        "label": "Pad",
+        "text": "Sit with your back flat on the pad and both feet flat on the floor or the foot plate."
+      },
+      {
+        "label": "Grip",
+        "text": "Use a grip a little wider than shoulder width, with the wrists stacked over the elbows."
+      },
+      {
+        "label": "Other",
+        "text": "Press up and slightly in, stop short of a full lockout, and lower until you feel a stretch across the upper chest."
+      }
+    ],
+    "tips": [
+      "Keep the lower back on the pad; arching to push more load moves the work away from the upper chest.",
+      "Use a weight you can control on the way down, because the incline puts more strain on the shoulders."
+    ],
+    "exerciseIds": [
+      "plate-loaded-incline-press"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "plate-loaded-iso-lateral-row",
+    "name": "Plate-loaded iso-lateral row",
+    "category": "plate-loaded",
+    "brandNote": "Plate-loaded, independent arms",
+    "aliases": [
+      "Iso row",
+      "Plate row machine",
+      "Single-arm row machine"
+    ],
+    "primaryMuscles": [
+      "lats",
+      "upper_back"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "rear_delts"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the handles sit at about mid-chest height when you sit tall."
+      },
+      {
+        "label": "Pad",
+        "text": "Brace your chest against the pad and keep your hips in contact with the seat."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold each handle with a neutral or overhand grip, one arm at a time if the arms move independently."
+      },
+      {
+        "label": "Other",
+        "text": "Start with the arms reaching forward, then pull the handles back toward your ribs and squeeze the shoulder blades together."
+      }
+    ],
+    "tips": [
+      "Keep the chest on the pad and avoid rocking the torso to move the load.",
+      "Return slowly until the shoulder blades spread apart at the front."
+    ],
+    "exerciseIds": [
+      "plate-loaded-iso-lateral-row"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "plate-loaded-high-row",
+    "name": "Plate-loaded high row",
+    "category": "plate-loaded",
+    "brandNote": "Plate-loaded, high pulling handles",
+    "aliases": [
+      "High row machine",
+      "Plate high row",
+      "Wide row machine"
+    ],
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "upper_back",
+      "biceps"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the handles start a little above shoulder height when your arms are extended."
+      },
+      {
+        "label": "Pad",
+        "text": "Lean your chest into the pad and keep your feet flat on the foot plate."
+      },
+      {
+        "label": "Grip",
+        "text": "Take a grip wider than the shoulders, palms facing down or in."
+      },
+      {
+        "label": "Other",
+        "text": "Pull the handles down and back toward your upper chest, then let the arms rise until you feel a full stretch in the lats."
+      }
+    ],
+    "tips": [
+      "Do not lean back to turn the row into a lunge; keep the torso steady.",
+      "Lead with the elbows rather than the hands so the pull comes from the back."
+    ],
+    "exerciseIds": [
+      "plate-loaded-high-row"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "plate-loaded-shoulder-press",
+    "name": "Plate-loaded shoulder press",
+    "category": "plate-loaded",
+    "brandNote": "Plate-loaded, converging arms",
+    "aliases": [
+      "Plate shoulder press",
+      "Shoulder press with plates",
+      "Loaded overhead press machine"
+    ],
+    "primaryMuscles": [
+      "front_delts",
+      "side_delts"
+    ],
+    "secondaryMuscles": [
+      "triceps"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the handles start about level with your ears or a little below."
+      },
+      {
+        "label": "Pad",
+        "text": "Sit with your back flat against the pad and your spine upright."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles about shoulder width apart, with the wrists straight."
+      },
+      {
+        "label": "Other",
+        "text": "Press overhead without arching the back, and stop just short of a full lockout."
+      }
+    ],
+    "tips": [
+      "Keep the ribs down; leaning back turns the press into a lower back exercise.",
+      "Lower the handles until they are about level with your ears before you press again."
+    ],
+    "exerciseIds": [
+      "plate-loaded-shoulder-press"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "leg-press",
+    "name": "Leg press",
+    "category": "plate-loaded",
+    "brandNote": "Plate-loaded, angled sled",
+    "aliases": [
+      "Sled leg press",
+      "Angled leg press",
+      "Plate leg press"
+    ],
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings",
+      "calves"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Adjust the seat back so your lower back and hips stay on the pad at the bottom of the movement."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Place the feet about shoulder width apart on the platform, toes turned slightly out."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the side handles firmly to keep your hips pressed back."
+      },
+      {
+        "label": "Other",
+        "text": "Release the safety catch, then lower the sled until the knees reach about 90 degrees or the hips begin to lift."
+      }
+    ],
+    "tips": [
+      "Do not lock the knees at the top; stop just short of full extension.",
+      "If the lower back starts to round off the pad, the range is too deep for that load."
+    ],
+    "exerciseIds": [
+      "leg-press",
+      "leg-press-calf-raise"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "hack-squat",
+    "name": "Hack squat",
+    "category": "plate-loaded",
+    "brandNote": "Plate-loaded, angled sled with shoulder pads",
+    "aliases": [
+      "Hack squat machine",
+      "Angled squat machine",
+      "Sled squat"
+    ],
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "setup": [
+      {
+        "label": "Pad",
+        "text": "Set the shoulder pads on top of the shoulders, under the trapezius, not against the neck."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Place the feet on the platform about hip width apart, with the toes turned out slightly."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles at your sides to steady the body."
+      },
+      {
+        "label": "Other",
+        "text": "Unlock the sled, lower under control until the thighs are near parallel or a little deeper, then drive up without locking out hard."
+      }
+    ],
+    "tips": [
+      "Keep the heels down and the knees tracking over the toes.",
+      "Stop the descent before the lower back starts to round off the pad."
+    ],
+    "exerciseIds": [
+      "hack-squat"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "hip-thrust-machine",
+    "name": "Hip thrust machine",
+    "category": "plate-loaded",
+    "brandNote": "Plate-loaded, padded hip pad",
+    "aliases": [
+      "Glute thrust machine",
+      "Hip thrust station",
+      "Plate hip thrust"
+    ],
+    "primaryMuscles": [
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings"
+    ],
+    "setup": [
+      {
+        "label": "Pad",
+        "text": "Set the hip pad so it sits across the hip crease when your upper back rests on the bench."
+      },
+      {
+        "label": "Seat",
+        "text": "Sit with the upper back against the bench and the hip pad across the hips."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Place both feet flat about hip width apart, with the shins vertical at the top of the rep."
+      },
+      {
+        "label": "Other",
+        "text": "Drive the hips up until the torso is level with the floor, squeeze the glutes, then lower under control."
+      }
+    ],
+    "tips": [
+      "Keep the chin tucked and the ribs down; do not hyperextend the lower back at the top.",
+      "Pause briefly at the top, since the hip extension is where the glutes do most of the work."
+    ],
+    "exerciseIds": [
+      "machine-hip-thrust"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "chest-press-machine",
+    "name": "Seated chest press machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, converging arms",
+    "aliases": [
+      "Chest press machine",
+      "Pin chest press",
+      "Seated press machine"
+    ],
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "front_delts"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the handles line up with the middle of your chest."
+      },
+      {
+        "label": "Pad",
+        "text": "Keep your back flat against the backrest with the shoulder blades touching it."
+      },
+      {
+        "label": "Grip",
+        "text": "Use handles about shoulder width apart, with the wrists in line with the forearms."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a weight you can control through the full range, then press without shrugging the shoulders."
+      }
+    ],
+    "tips": [
+      "Keep the shoulders down rather than rising toward the ears.",
+      "Lower at a steady pace so the chest, not momentum, does the work."
+    ],
+    "exerciseIds": [
+      "machine-chest-press"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "pec-deck",
+    "name": "Pec deck",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, arm pads",
+    "aliases": [
+      "Butterfly",
+      "Pec fly machine",
+      "Chest fly machine"
+    ],
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the arm pads sit level with the middle of your chest when your elbows are bent at about 90 degrees."
+      },
+      {
+        "label": "Pad",
+        "text": "Sit with the back and head against the backrest and the forearms resting on the pads."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a weight you can move smoothly through the full range."
+      },
+      {
+        "label": "Other",
+        "text": "Bring the pads together in front of the chest in a wide arc, then let them open slowly until you feel a stretch."
+      }
+    ],
+    "tips": [
+      "Keep the elbows soft and the arc wide; do not let the pads slam together.",
+      "Lean forward only slightly, since leaning far forward moves the work onto the shoulders."
+    ],
+    "exerciseIds": [
+      "pec-deck",
+      "reverse-pec-deck"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "lat-pulldown",
+    "name": "Lat pulldown",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, high pulley",
+    "aliases": [
+      "Pulldown machine",
+      "Pull-down station",
+      "Overhead pulldown"
+    ],
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "upper_back"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the thigh pad so it holds the thighs down firmly, with the knees under the pad."
+      },
+      {
+        "label": "Pad",
+        "text": "Sit tall and keep the thigh pad snug on the thighs for the whole set."
+      },
+      {
+        "label": "Grip",
+        "text": "Take a wide overhand grip, a little wider than the shoulders."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under your chosen weight, then reach up to the bar with the arms fully extended."
+      }
+    ],
+    "tips": [
+      "Pull the bar to the upper chest by driving the elbows down, not by leaning far back.",
+      "Let the arms straighten fully at the top to get the full stretch through the lats."
+    ],
+    "exerciseIds": [
+      "lat-pulldown"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "seated-row-machine",
+    "name": "Seated row machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, chest pad",
+    "aliases": [
+      "Chest supported row",
+      "Pin row machine",
+      "Seated back row"
+    ],
+    "primaryMuscles": [
+      "upper_back",
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "rear_delts"
+    ],
+    "setup": [
+      {
+        "label": "Pad",
+        "text": "Rest the chest firmly on the pad with the arms reaching forward and the handles at about shoulder height."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Keep the feet flat on the floor or the foot plate, knees slightly bent."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles with a neutral or overhand grip, arms straight."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under your weight, then pull the handles back to the ribs and squeeze the shoulder blades together."
+      }
+    ],
+    "tips": [
+      "Keep the chest on the pad; rocking the torso to start the pull takes the work away from the back.",
+      "Return slowly until the shoulder blades spread apart at the front."
+    ],
+    "exerciseIds": [
+      "chest-supported-machine-row"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "shoulder-press-machine",
+    "name": "Shoulder press machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, converging arms",
+    "aliases": [
+      "Seated shoulder press",
+      "Overhead machine press",
+      "Pin shoulder press"
+    ],
+    "primaryMuscles": [
+      "front_delts",
+      "side_delts"
+    ],
+    "secondaryMuscles": [
+      "triceps"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the handles start about level with your ears."
+      },
+      {
+        "label": "Pad",
+        "text": "Sit with the back flat against the backrest."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles about shoulder width apart, with the wrists straight."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin, then press up without arching the lower back, stopping just short of a full lockout."
+      }
+    ],
+    "tips": [
+      "Keep the ribs down; arching the back turns the press into a lower back exercise.",
+      "Lower the handles to about ear height rather than further, to keep the shoulders comfortable."
+    ],
+    "exerciseIds": [
+      "machine-shoulder-press"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "lateral-raise-machine",
+    "name": "Lateral raise machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, arm pads",
+    "aliases": [
+      "Side raise machine",
+      "Lateral delt machine",
+      "Side delt machine"
+    ],
+    "primaryMuscles": [
+      "side_delts"
+    ],
+    "secondaryMuscles": [
+      "traps"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the pivot of the arm pads lines up with your shoulder joint."
+      },
+      {
+        "label": "Pad",
+        "text": "Place the forearms or the elbow pads against the pads, just below the wrist."
+      },
+      {
+        "label": "Pin",
+        "text": "Choose a light weight with the pin, then start with the arms resting at the sides."
+      },
+      {
+        "label": "Other",
+        "text": "Raise the pads out to the side until the upper arms are level with the floor, then lower with control."
+      }
+    ],
+    "tips": [
+      "Lead with the elbows and keep a slight bend, so the side of the shoulder does the work.",
+      "Do not shrug the shoulders up as you lift; keep the traps quiet."
+    ],
+    "exerciseIds": [
+      "machine-lateral-raise"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "leg-extension",
+    "name": "Leg extension",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, seated lever",
+    "aliases": [
+      "Quad extension",
+      "Knee extension machine",
+      "Quad machine"
+    ],
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat back so the pivot of the lever lines up with the front of the knee joint."
+      },
+      {
+        "label": "Pad",
+        "text": "Adjust the pad so it rests on the lower shins, just above the ankles."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the side handles to stay seated and steady."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin, then extend the legs until the knees are straight without snapping into the lock."
+      }
+    ],
+    "tips": [
+      "Lower slowly, since the lowering part of the rep carries much of the work.",
+      "Keep the speed steady on the way up rather than swinging the weight."
+    ],
+    "exerciseIds": [
+      "leg-extension"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "seated-leg-curl",
+    "name": "Seated leg curl",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, seated",
+    "aliases": [
+      "Hamstring curl machine",
+      "Seated hamstring curl",
+      "Leg curl machine"
+    ],
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the pivot lines up with the back of the knee, and the thigh pad sits flat on the thighs."
+      },
+      {
+        "label": "Pad",
+        "text": "Adjust the back pad so the lever rests on the back of the lower legs, just above the ankles."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a weight you can move smoothly, then start with the legs straight."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles to stay in the seat."
+      }
+    ],
+    "tips": [
+      "Keep the hips pressed into the seat; lifting them off it turns the set into a cheat.",
+      "Stop the curl short of the point where the hips begin to rise."
+    ],
+    "exerciseIds": [
+      "seated-leg-curl"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "lying-leg-curl",
+    "name": "Lying leg curl",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, face-down pad",
+    "aliases": [
+      "Prone leg curl",
+      "Lying hamstring curl",
+      "Hamstring curl bench"
+    ],
+    "primaryMuscles": [
+      "hamstrings"
+    ],
+    "secondaryMuscles": [],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Lie face down with the hips pressed into the bench and the knee joint at the edge of the bench."
+      },
+      {
+        "label": "Pad",
+        "text": "Set the pad so it rests on the back of the lower legs, just above the heels."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles above the bench to steady the upper body."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a weight you can control, then start with the legs straight."
+      }
+    ],
+    "tips": [
+      "Keep the hips flat on the bench; lifting them shortens the work.",
+      "Lower with control until the legs are straight, rather than letting the stack drop."
+    ],
+    "exerciseIds": [
+      "lying-leg-curl"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "hip-abductor-machine",
+    "name": "Hip abductor machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, seated pads",
+    "aliases": [
+      "Hip abduction machine",
+      "Outer thigh machine",
+      "Abductor machine"
+    ],
+    "primaryMuscles": [
+      "abductors"
+    ],
+    "secondaryMuscles": [
+      "glutes"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat height so the pads sit against the outside of the thighs, just above the knees."
+      },
+      {
+        "label": "Pad",
+        "text": "Sit upright with the back against the backrest and the pads snug on the outer thighs."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a light weight to start, then build up gradually."
+      },
+      {
+        "label": "Other",
+        "text": "Open the legs slowly against the pads, pause, and return until the thighs are close but not crashing together."
+      }
+    ],
+    "tips": [
+      "Lean forward slightly for more glute work and sit upright for more outer thigh work.",
+      "Avoid rocking the torso to move the load."
+    ],
+    "exerciseIds": [
+      "hip-abduction-machine"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "hip-adductor-machine",
+    "name": "Hip adductor machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, seated pads",
+    "aliases": [
+      "Inner thigh machine",
+      "Adductor machine",
+      "Hip squeeze machine"
+    ],
+    "primaryMuscles": [
+      "adductors"
+    ],
+    "secondaryMuscles": [],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat height so the pads sit on the inside of the thighs, just above the knees."
+      },
+      {
+        "label": "Pad",
+        "text": "Sit upright with the back against the backrest and the pads snug on the inner thighs."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a light weight and build up gradually."
+      },
+      {
+        "label": "Other",
+        "text": "Bring the legs together slowly against the pads, pause, then let them open until you feel a stretch without pain."
+      }
+    ],
+    "tips": [
+      "Keep the back against the backrest; leaning forward to push the pads moves the work away from the inner thighs.",
+      "Control the opening part of the rep, since the stretch is part of the set."
+    ],
+    "exerciseIds": [
+      "hip-adduction-machine"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "standing-calf-raise",
+    "name": "Standing calf raise",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, shoulder pads",
+    "aliases": [
+      "Calf raise machine",
+      "Standing calf machine",
+      "Heel raise machine"
+    ],
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "setup": [
+      {
+        "label": "Pad",
+        "text": "Place the shoulder pads on top of the shoulders, under the trapezius, and hold the handles."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Stand with the balls of the feet on the edge of the plate, heels free to drop."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a weight you can control, then release the stop."
+      },
+      {
+        "label": "Other",
+        "text": "Rise onto the toes as high as you can, pause, then lower until the calves are fully stretched."
+      }
+    ],
+    "tips": [
+      "Use a full stretch at the bottom; short partial reps leave much of the calf unworked.",
+      "Keep the knees straight but not locked, and do not bounce at the bottom."
+    ],
+    "exerciseIds": [
+      "standing-calf-raise"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "seated-calf-raise",
+    "name": "Seated calf raise",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, seated",
+    "aliases": [
+      "Seated calf machine",
+      "Soleus machine",
+      "Knee-bent calf raise"
+    ],
+    "primaryMuscles": [
+      "calves"
+    ],
+    "secondaryMuscles": [],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the thigh pad so it rests firmly on the thighs, just above the knees."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Place the balls of the feet on the plate with the heels free to drop."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a weight you can control."
+      },
+      {
+        "label": "Other",
+        "text": "Raise the heels as high as possible, pause, then lower them fully into the stretch."
+      }
+    ],
+    "tips": [
+      "Keep the knees bent throughout, which shifts the work to the deeper calf muscle under the calf.",
+      "Avoid bouncing at the bottom of the rep."
+    ],
+    "exerciseIds": [
+      "seated-calf-raise"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "preacher-curl-machine",
+    "name": "Preacher curl machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, angled arm pad",
+    "aliases": [
+      "Preacher bench curl",
+      "Arm curl machine",
+      "Pin curl machine"
+    ],
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the edge of the pad sits at the armpits."
+      },
+      {
+        "label": "Pad",
+        "text": "Rest the upper arms flat on the pad with the elbows just beyond its edge."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handle about shoulder width apart, palms up."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a light weight and start with the arms almost straight."
+      }
+    ],
+    "tips": [
+      "Keep the upper arms on the pad; lifting the elbows to finish the curl is a cheat.",
+      "Lower until the arms are almost straight, since the bottom of the rep stretches the biceps."
+    ],
+    "exerciseIds": [
+      "machine-preacher-curl"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "triceps-extension-machine",
+    "name": "Triceps extension machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, seated",
+    "aliases": [
+      "Triceps press machine",
+      "Tricep extension machine",
+      "Pin triceps machine"
+    ],
+    "primaryMuscles": [
+      "triceps"
+    ],
+    "secondaryMuscles": [],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat so the pivot lines up with the outer edge of the elbow joint."
+      },
+      {
+        "label": "Pad",
+        "text": "Place the back of the forearms against the pad, with the upper arms pressed to the sides."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handle with a neutral grip."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a weight you can control, then start with the elbows bent at about 90 degrees."
+      }
+    ],
+    "tips": [
+      "Keep the upper arms still; if the elbows drift forward the shoulders take over.",
+      "Extend until the arms are straight without locking out hard."
+    ],
+    "exerciseIds": [
+      "machine-triceps-extension"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "assisted-pull-up-dip",
+    "name": "Assisted pull-up and dip machine",
+    "category": "selectorised",
+    "brandNote": "Counterweight stack, knee pad",
+    "aliases": [
+      "Assisted pull-up machine",
+      "Assisted dip machine",
+      "Counterweight pull-up machine"
+    ],
+    "primaryMuscles": [
+      "lats",
+      "triceps"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "chest"
+    ],
+    "setup": [
+      {
+        "label": "Pad",
+        "text": "Step onto the knee pad, which carries part of your body weight; the more assistance you choose, the more it carries."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles with a grip you can keep for the whole set."
+      },
+      {
+        "label": "Pin",
+        "text": "Set the assistance so the rep is challenging but controlled, since each setting changes how much help you get."
+      },
+      {
+        "label": "Other",
+        "text": "Start from arms straight for a dip or from a full hang for a pull-up, then move under control."
+      }
+    ],
+    "tips": [
+      "Do not drop onto the pad between reps; keep the movement controlled.",
+      "Keep the body still rather than swinging to start each rep."
+    ],
+    "exerciseIds": [
+      "assisted-pull-up",
+      "assisted-dip"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "ab-crunch-machine",
+    "name": "Ab crunch machine",
+    "category": "selectorised",
+    "brandNote": "Pin-stack, chest pad",
+    "aliases": [
+      "Seated ab crunch",
+      "Abdominal crunch machine",
+      "Crunch machine"
+    ],
+    "primaryMuscles": [
+      "abs"
+    ],
+    "secondaryMuscles": [],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat height so the pivot sits about level with the hips."
+      },
+      {
+        "label": "Pad",
+        "text": "Rest the chest lightly against the pad with the back straight."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles lightly; the hands guide the movement but do not pull it."
+      },
+      {
+        "label": "Pin",
+        "text": "Insert the pin under a light weight and begin with the torso upright."
+      },
+      {
+        "label": "Other",
+        "text": "Crunch the upper torso toward the thighs by curling the spine, then return slowly."
+      }
+    ],
+    "tips": [
+      "Curl the ribs toward the hips rather than pulling with the arms.",
+      "Breathe out as you crunch and let the torso return with control."
+    ],
+    "exerciseIds": [
+      "ab-crunch-machine"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "cable-crossover",
+    "name": "Cable crossover",
+    "category": "cable",
+    "brandNote": "Dual pulleys, adjustable height",
+    "aliases": [
+      "Cable fly machine",
+      "Cable cross",
+      "Cable chest fly"
+    ],
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts"
+    ],
+    "setup": [
+      {
+        "label": "Pin",
+        "text": "Set both pulleys with the pins at about shoulder height for a mid-chest fly, or lower for an upper chest angle."
+      },
+      {
+        "label": "Grip",
+        "text": "Take a handle in each hand, with a slight bend in the elbows."
+      },
+      {
+        "label": "Other",
+        "text": "Step forward to create tension, with one foot ahead for balance and the chest open."
+      },
+      {
+        "label": "Other",
+        "text": "Bring the hands together in front of the chest in a wide arc, then open them back slowly."
+      }
+    ],
+    "tips": [
+      "Keep the elbows soft and the arc wide; do not turn the fly into a press.",
+      "Keep the torso still, since leaning in to move the stack wastes the set."
+    ],
+    "exerciseIds": [
+      "cable-crossover"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "cable-station",
+    "name": "Adjustable cable station",
+    "category": "cable",
+    "brandNote": "Adjustable pulleys, weight stack",
+    "aliases": [
+      "Cable machine",
+      "Cable pulley station",
+      "Pulley station"
+    ],
+    "primaryMuscles": [
+      "lats",
+      "triceps"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "upper_back"
+    ],
+    "setup": [
+      {
+        "label": "Pin",
+        "text": "Insert the pin under the weight you want, then check that the stack moves freely."
+      },
+      {
+        "label": "Other",
+        "text": "Set the pulley height for the exercise: high for pushdowns and face pulls, low for curls and kickbacks."
+      },
+      {
+        "label": "Grip",
+        "text": "Choose the attachment (straight bar, rope or single handle) and hold it with a secure grip."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Set your stance with the feet apart for balance, with the working side just in front of the stack."
+      }
+    ],
+    "tips": [
+      "Keep the stance steady and the core braced; do not lean into the weight for momentum.",
+      "Check the pulley height before each exercise, since a wrong height changes the line of pull."
+    ],
+    "exerciseIds": [
+      "seated-cable-row",
+      "single-arm-cable-row",
+      "straight-arm-pulldown",
+      "cable-lateral-raise",
+      "face-pull",
+      "cable-curl",
+      "cable-pushdown",
+      "overhead-cable-extension",
+      "cable-kickback",
+      "cable-pull-through",
+      "cable-crunch",
+      "pallof-press"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "smith-machine",
+    "name": "Smith machine",
+    "category": "free-weight",
+    "brandNote": "Barbell on vertical guide rails, safety hooks",
+    "aliases": [
+      "Guided barbell",
+      "Bar on rails machine",
+      "Squat rails"
+    ],
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "setup": [
+      {
+        "label": "Pin",
+        "text": "Set the safety hooks just below the lowest point you will reach, so the bar can be caught."
+      },
+      {
+        "label": "Grip",
+        "text": "Set the bar at a height where you can unrack it with your legs, then turn it onto the hooks."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Place the feet slightly in front of the bar path, with the bar over the middle of the foot."
+      },
+      {
+        "label": "Other",
+        "text": "Unrack with a controlled step back, then keep the bar on a fixed path for the whole set."
+      }
+    ],
+    "tips": [
+      "Set the hooks before every set; a set without them is unsafe.",
+      "The bar path is fixed, so keep the feet in position and do not let the hips drift."
+    ],
+    "exerciseIds": [
+      "smith-machine-squat"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "dumbbell-rack",
+    "name": "Dumbbell rack",
+    "category": "free-weight",
+    "brandNote": "Fixed-weight pairs on a rack",
+    "aliases": [
+      "Dumbbell stand",
+      "Dumbbells",
+      "Dumbbell tree"
+    ],
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "setup": [
+      {
+        "label": "Other",
+        "text": "Choose a pair with both dumbbells the same weight, and check the handles are clean and secure."
+      },
+      {
+        "label": "Grip",
+        "text": "Lift each dumbbell from the rack with a firm grip and a straight wrist."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Stand with the feet apart for balance before lifting, and keep the weight close to the body."
+      },
+      {
+        "label": "Other",
+        "text": "Return the dumbbells to the same rack spot after each set rather than leaving them on the floor."
+      }
+    ],
+    "tips": [
+      "Grip the handle, not the plates; a loose grip makes the wrists work harder.",
+      "Keep the area around the rack clear to avoid trips and dropped weights."
+    ],
+    "exerciseIds": [
+      "dumbbell-lateral-raise",
+      "dumbbell-curl",
+      "hammer-curl",
+      "farmers-walk",
+      "walking-lunge",
+      "goblet-squat",
+      "dumbbell-romanian-deadlift",
+      "single-leg-romanian-deadlift",
+      "single-leg-dumbbell-calf-raise"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "flat-bench",
+    "name": "Flat bench",
+    "category": "free-weight",
+    "brandNote": "Padded, flat",
+    "aliases": [
+      "Weight bench",
+      "Flat weight bench",
+      "Bench"
+    ],
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "front_delts"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Check the bench sits flat and is stable on the floor before you lie down."
+      },
+      {
+        "label": "Pad",
+        "text": "Lie with the head, upper back and hips on the pad, feet flat on the floor."
+      },
+      {
+        "label": "Grip",
+        "text": "For a barbell press, set the bar on the rack hooks at about the height of your chest."
+      },
+      {
+        "label": "Other",
+        "text": "Lift the bar off the rack with straight arms over the chest and keep the hips in place."
+      }
+    ],
+    "tips": [
+      "Use spotter pins or the rack safeties for heavy sets.",
+      "Keep the feet flat and drive through the floor; do not lift the hips off the pad."
+    ],
+    "exerciseIds": [
+      "barbell-bench-press",
+      "dumbbell-bench-press",
+      "dumbbell-row",
+      "skull-crusher",
+      "close-grip-bench-press",
+      "dumbbell-wrist-curl",
+      "step-up",
+      "barbell-hip-thrust"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "incline-bench",
+    "name": "Incline bench",
+    "category": "free-weight",
+    "brandNote": "Padded, fixed incline",
+    "aliases": [
+      "Incline press bench",
+      "Sloped bench",
+      "Incline weight bench"
+    ],
+    "primaryMuscles": [
+      "upper_chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts",
+      "triceps"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the bench to a shallow incline, usually about 30 to 45 degrees, and check it is locked in place."
+      },
+      {
+        "label": "Pad",
+        "text": "Lie with the upper back and head on the pad, feet flat on the floor."
+      },
+      {
+        "label": "Grip",
+        "text": "Set the bar on the hooks at about the height of your upper chest."
+      },
+      {
+        "label": "Other",
+        "text": "Unrack the bar with straight arms and keep the shoulder blades pinned back on the pad."
+      }
+    ],
+    "tips": [
+      "A steep incline moves the work onto the front shoulders, so keep the angle shallow.",
+      "Lower the bar to the upper chest, not to the neck."
+    ],
+    "exerciseIds": [
+      "incline-barbell-bench-press"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "adjustable-bench",
+    "name": "Adjustable bench",
+    "category": "free-weight",
+    "brandNote": "Padded, adjustable back angle",
+    "aliases": [
+      "Adjustable weight bench",
+      "Dumbbell bench",
+      "Utility bench"
+    ],
+    "primaryMuscles": [
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "triceps",
+      "front_delts"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the backrest to the angle the exercise calls for."
+      },
+      {
+        "label": "Pin",
+        "text": "Lock the backrest at that angle with its pin before you load it."
+      },
+      {
+        "label": "Pad",
+        "text": "Sit or lie with the back supported by the pad and the feet flat on the floor."
+      },
+      {
+        "label": "Grip",
+        "text": "Rest the dumbbells on your thighs, then lift them into position with the hands."
+      }
+    ],
+    "tips": [
+      "Check the lock before each set; a backrest that moves under load can drop the weight.",
+      "Lift the dumbbells with the hands on the thighs, then move them into position with control."
+    ],
+    "exerciseIds": [
+      "incline-dumbbell-press",
+      "seated-dumbbell-shoulder-press",
+      "incline-dumbbell-curl",
+      "bulgarian-split-squat"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "squat-rack",
+    "name": "Squat rack",
+    "category": "free-weight",
+    "brandNote": "Uprights with adjustable safety bars",
+    "aliases": [
+      "Power rack",
+      "Squat stand",
+      "Barbell rack"
+    ],
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "setup": [
+      {
+        "label": "Pin",
+        "text": "Set the safety bars just below the lowest point of your squat or bench, so the bar can rest on them."
+      },
+      {
+        "label": "Grip",
+        "text": "Set the hooks at about shoulder height for squats, and at chest or shoulder height for presses."
+      },
+      {
+        "label": "Other",
+        "text": "Stand under the bar with it resting on the upper back for squats, then unrack with a controlled step."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Step back with a few small steps, feet about shoulder width apart and toes slightly out."
+      }
+    ],
+    "tips": [
+      "Set the safety bars every time, so a missed rep lands on them rather than on you.",
+      "Check the hooks are level before loading, since an uneven rack shifts the bar."
+    ],
+    "exerciseIds": [
+      "overhead-press",
+      "back-squat",
+      "front-squat",
+      "good-morning"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "olympic-barbell",
+    "name": "Olympic barbell",
+    "category": "free-weight",
+    "brandNote": "Straight bar, rotating sleeves",
+    "aliases": [
+      "Barbell",
+      "Straight bar",
+      "Long bar"
+    ],
+    "primaryMuscles": [
+      "upper_back",
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms",
+      "lats"
+    ],
+    "setup": [
+      {
+        "label": "Grip",
+        "text": "Choose the grip width the exercise calls for, and note where your hands sit on the knurling so you can repeat it."
+      },
+      {
+        "label": "Other",
+        "text": "Load the plates evenly on both sides and fasten the collars firmly."
+      },
+      {
+        "label": "Other",
+        "text": "Keep the bar close to the body from the start position, and move it in a straight line."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Stand with the feet under the bar, about hip width apart, with the bar over the middle of the foot."
+      }
+    ],
+    "tips": [
+      "Check the collars are tight before every set; a loose collar slides and shifts the load.",
+      "Keep the bar close to the body, since a bar that drifts forward adds strain to the lower back."
+    ],
+    "exerciseIds": [
+      "barbell-row",
+      "deadlift",
+      "barbell-curl",
+      "romanian-deadlift"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "ez-bar",
+    "name": "EZ curl bar",
+    "category": "free-weight",
+    "brandNote": "Bent bar, angled grips",
+    "aliases": [
+      "Curl bar",
+      "Bent curl bar",
+      "Angled bar"
+    ],
+    "primaryMuscles": [
+      "biceps"
+    ],
+    "secondaryMuscles": [
+      "forearms"
+    ],
+    "setup": [
+      {
+        "label": "Grip",
+        "text": "Pick the angled grip that feels comfortable on the wrists; the bends let the wrists sit more naturally."
+      },
+      {
+        "label": "Other",
+        "text": "Load the plates evenly and fasten the collars. The bar weighs 10 kg empty."
+      },
+      {
+        "label": "Other",
+        "text": "Check the collars are secure before lifting so nothing slides during the set."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Stand with the feet about hip width apart and the bar held in front of the thighs."
+      }
+    ],
+    "tips": [
+      "Keep the elbows pinned to the sides; swinging the torso turns the curl into a cheat.",
+      "Use the angled grips rather than the straight section if the wrists feel strained."
+    ],
+    "exerciseIds": [
+      "ez-bar-curl",
+      "reverse-curl"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "trap-bar",
+    "name": "Trap bar",
+    "category": "free-weight",
+    "brandNote": "Hexagonal frame, handles at the sides",
+    "aliases": [
+      "Hex bar",
+      "Diamond bar",
+      "Deadlift bar"
+    ],
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings",
+      "upper_back"
+    ],
+    "setup": [
+      {
+        "label": "Other",
+        "text": "Stand in the centre of the frame with the midfoot under its middle, and grip the handles at your sides."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles with a neutral grip, arms straight and hanging."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Set the feet about hip width apart, with the shins close to the frame."
+      },
+      {
+        "label": "Other",
+        "text": "Brace, push the floor away and stand up tall, then lower the bar under control."
+      }
+    ],
+    "tips": [
+      "The frame lets you start more upright, but the back still needs bracing before every pull.",
+      "Lower under control rather than dropping the weight, which jolts the back."
+    ],
+    "exerciseIds": [
+      "trap-bar-deadlift"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "pull-up-bar",
+    "name": "Pull-up bar",
+    "category": "bodyweight",
+    "brandNote": "Fixed overhead bar",
+    "aliases": [
+      "Chin-up bar",
+      "Pull-up station",
+      "Overhead bar"
+    ],
+    "primaryMuscles": [
+      "lats"
+    ],
+    "secondaryMuscles": [
+      "biceps",
+      "abs"
+    ],
+    "setup": [
+      {
+        "label": "Grip",
+        "text": "Choose an overhand, underhand or neutral grip, a little wider than the shoulders for pull-ups."
+      },
+      {
+        "label": "Other",
+        "text": "Hang with the arms straight and the shoulders packed down rather than hanging from the joints."
+      },
+      {
+        "label": "Foot plate",
+        "text": "If you need a step, use a stable box below the bar and step off once your grip is set."
+      },
+      {
+        "label": "Other",
+        "text": "Pull up until the chin clears the bar, then lower to a full hang."
+      }
+    ],
+    "tips": [
+      "Start each rep from a full hang; kipping shortens the range.",
+      "Draw the elbows down toward the ribs rather than pulling with the arms alone."
+    ],
+    "exerciseIds": [
+      "pull-up",
+      "hanging-knee-raise"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "dip-station",
+    "name": "Dip station",
+    "category": "bodyweight",
+    "brandNote": "Parallel bars, fixed height",
+    "aliases": [
+      "Dip bars",
+      "Parallel bars",
+      "Dip rails"
+    ],
+    "primaryMuscles": [
+      "triceps",
+      "chest"
+    ],
+    "secondaryMuscles": [
+      "front_delts"
+    ],
+    "setup": [
+      {
+        "label": "Grip",
+        "text": "Grip the bars with straight arms and the elbows close to the sides."
+      },
+      {
+        "label": "Other",
+        "text": "Keep the legs bent behind you, or straight in front if you need the feet free."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Keep the feet together, or crossed behind you, to stay balanced."
+      },
+      {
+        "label": "Other",
+        "text": "Lower until the upper arms are a little below parallel to the floor, then press back up."
+      }
+    ],
+    "tips": [
+      "Lean slightly forward to bias the chest, and stay upright to bias the triceps.",
+      "Stop the descent before the shoulders roll forward into the bottom position."
+    ],
+    "exerciseIds": [
+      "dip"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "back-extension-bench",
+    "name": "Back extension bench",
+    "category": "bodyweight",
+    "brandNote": "Padded hip pad, foot anchors",
+    "aliases": [
+      "Hyperextension bench",
+      "Roman chair",
+      "Lower back bench"
+    ],
+    "primaryMuscles": [
+      "lower_back"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "setup": [
+      {
+        "label": "Pad",
+        "text": "Set the pad so it sits just above the hip crease, with the body folded at the hips."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Hook the feet under the anchor pads and keep the heels steady."
+      },
+      {
+        "label": "Other",
+        "text": "Start with the torso lowered and the hips on the pad, so the body forms a straight line from head to knees at the top."
+      },
+      {
+        "label": "Grip",
+        "text": "Cross the arms over the chest, or hold a light weight there."
+      }
+    ],
+    "tips": [
+      "Lift only to a straight line from head to knees; going higher bends the lower back.",
+      "Move slowly and avoid snapping the back at the top."
+    ],
+    "exerciseIds": [
+      "back-extension"
+    ],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "treadmill",
+    "name": "Treadmill",
+    "category": "cardio",
+    "brandNote": "Motorised belt, handrails",
+    "aliases": [
+      "Running machine",
+      "Walking machine",
+      "Cardio treadmill"
+    ],
+    "primaryMuscles": [
+      "quads",
+      "calves"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "hamstrings"
+    ],
+    "setup": [
+      {
+        "label": "Foot plate",
+        "text": "Stand on the side rails with the safety clip attached to your clothing before starting the belt."
+      },
+      {
+        "label": "Other",
+        "text": "Set the speed low and let the belt reach pace before stepping onto it."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handrails lightly for balance, not for support."
+      },
+      {
+        "label": "Other",
+        "text": "Slow the belt to a stop before stepping off onto the side rails."
+      }
+    ],
+    "tips": [
+      "Keep a steady stride and an upright posture; do not lean on the rails.",
+      "Set the speed and incline before you start running, because changing them mid-stride is risky."
+    ],
+    "exerciseIds": [],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "incline-treadmill",
+    "name": "Incline treadmill",
+    "category": "cardio",
+    "brandNote": "Motorised belt, adjustable incline",
+    "aliases": [
+      "Incline walker",
+      "Treadmill with incline",
+      "Hill walking machine"
+    ],
+    "primaryMuscles": [
+      "glutes",
+      "calves"
+    ],
+    "secondaryMuscles": [
+      "quads",
+      "hamstrings"
+    ],
+    "setup": [
+      {
+        "label": "Other",
+        "text": "Set the incline with the controls before you start, and make adjustments while standing on the side rails."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Step onto the side rails, attach the safety clip, then start the belt at a walking pace."
+      },
+      {
+        "label": "Other",
+        "text": "Keep the steps short and the posture upright, since the incline loads the calves and glutes more."
+      },
+      {
+        "label": "Other",
+        "text": "Slow the belt to a stop before stepping off."
+      }
+    ],
+    "tips": [
+      "Keep each step short; reaching far with the feet strains the calves and hamstrings.",
+      "Hold the handrails lightly; holding on hard reduces the work and tilts the hips."
+    ],
+    "exerciseIds": [],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "stair-climber",
+    "name": "Stair climber",
+    "category": "cardio",
+    "brandNote": "Moving steps, handrails",
+    "aliases": [
+      "Stepper",
+      "Stair stepper",
+      "Step machine"
+    ],
+    "primaryMuscles": [
+      "glutes",
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "calves",
+      "hamstrings"
+    ],
+    "setup": [
+      {
+        "label": "Foot plate",
+        "text": "Place each foot fully on a step, with the weight centred over it."
+      },
+      {
+        "label": "Other",
+        "text": "Set the level and speed on the display before you start, beginning at the lowest setting."
+      },
+      {
+        "label": "Grip",
+        "text": "Rest the hands lightly on the rails; the rails are for balance, not support."
+      },
+      {
+        "label": "Other",
+        "text": "Step at a steady pace and stop the steps before stepping off."
+      }
+    ],
+    "tips": [
+      "Stand tall and do not lean on the rails, since leaning takes work away from the legs.",
+      "Keep the knees in line with the feet and avoid snapping the knees at the bottom of each step."
+    ],
+    "exerciseIds": [],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "bike",
+    "name": "Upright bike",
+    "category": "cardio",
+    "brandNote": "Upright frame, adjustable resistance",
+    "aliases": [
+      "Exercise bike",
+      "Stationary bike",
+      "Cycle"
+    ],
+    "primaryMuscles": [
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "glutes",
+      "calves"
+    ],
+    "setup": [
+      {
+        "label": "Seat",
+        "text": "Set the seat height so the knee has a slight bend at the bottom of each pedal stroke."
+      },
+      {
+        "label": "Foot plate",
+        "text": "Place the balls of the feet on the pedals and fasten the straps if the bike has them."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handlebars lightly with the back upright."
+      },
+      {
+        "label": "Other",
+        "text": "Choose the resistance and start pedalling at an easy pace before raising the load."
+      }
+    ],
+    "tips": [
+      "Set the seat height properly; too low strains the knees, and too high rocks the hips.",
+      "Keep the shoulders relaxed rather than hunched over the bars."
+    ],
+    "exerciseIds": [],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "rower",
+    "name": "Rowing machine",
+    "category": "cardio",
+    "brandNote": "Flywheel, sliding seat, foot straps",
+    "aliases": [
+      "Row machine",
+      "Ergometer",
+      "Indoor rower"
+    ],
+    "primaryMuscles": [
+      "lats",
+      "quads"
+    ],
+    "secondaryMuscles": [
+      "upper_back",
+      "glutes"
+    ],
+    "setup": [
+      {
+        "label": "Foot plate",
+        "text": "Strap the feet in with the heel cups close to the heels, so the ankles sit under the straps."
+      },
+      {
+        "label": "Seat",
+        "text": "Sit on the seat with the knees bent and the shins close to vertical at the catch."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handle with an overhand grip, arms straight, and the body leaning slightly forward."
+      },
+      {
+        "label": "Other",
+        "text": "Push with the legs first, then lean back and draw the handle to the lower ribs; reverse the sequence on the return."
+      }
+    ],
+    "tips": [
+      "Drive with the legs first; pulling with the arms early tires the back quickly.",
+      "Keep the lower back neutral, since rounding forward under load strains it."
+    ],
+    "exerciseIds": [],
+    "photo": null,
+    "placeholder": true
+  },
+  {
+    "id": "elliptical",
+    "name": "Elliptical",
+    "category": "cardio",
+    "brandNote": "Moving pedals, fixed handles",
+    "aliases": [
+      "Cross trainer",
+      "Elliptical trainer",
+      "Elliptical machine"
+    ],
+    "primaryMuscles": [
+      "quads",
+      "glutes"
+    ],
+    "secondaryMuscles": [
+      "hamstrings",
+      "calves"
+    ],
+    "setup": [
+      {
+        "label": "Foot plate",
+        "text": "Stand on the pedals with the feet flat and centred, not on the toes."
+      },
+      {
+        "label": "Grip",
+        "text": "Hold the handles lightly with the arms relaxed."
+      },
+      {
+        "label": "Other",
+        "text": "Set the resistance and the ramp level, then start the stride slowly before increasing the pace."
+      },
+      {
+        "label": "Other",
+        "text": "Keep the back upright and the stride smooth, and step off only after the pedals have stopped."
+      }
+    ],
+    "tips": [
+      "Keep the stride smooth and the back upright; leaning on the handles reduces the work.",
+      "Keep the knees soft at the bottom of each stride."
+    ],
+    "exerciseIds": [],
+    "photo": null,
+    "placeholder": true
+  }
+]
